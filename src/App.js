@@ -1,10 +1,11 @@
 import GlobalStyle from "./style"
+import logo from "./assets/Vector.svg"
 
 function App() {
   return (
     <>
     <GlobalStyle/>
-    <h1>olá</h1>
+    <img src={logo} alt="logo"/>
     </>
   );
 }
