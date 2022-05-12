@@ -5,6 +5,7 @@ const Input = ({register,errors, label, name, ...rest}) =>{
         <>
         <CustomLabel>
             <p>{label}</p>
+            {errors && <span>{errors}</span>}
             <CustomInput 
             errors={!!errors} 
             {...register(name)} 

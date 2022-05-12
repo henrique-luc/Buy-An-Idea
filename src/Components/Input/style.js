@@ -1,25 +1,44 @@
 import styled from "styled-components"
 
 export const CustomLabel = styled.label`
-    width: 414px;
-    margin-bottom: 28px;
-    margin-right: 34px;
+    width: 324px;
+    margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     
     p{
-        font-size: 20px;
-        color: var(--gray-4);
-        margin-bottom: 12px;
+        font-size: 14px;
+        color: var(--gray-3);
+        margin-bottom: 9px;
+        font-weight: 500;
+    }
+
+    span{
+        font-size: 14px;
+        color: #B22222 ;
+    }
+
+    @media (min-width: 768px){
+        width: 414px;
+
+        p{
+            font-size: 20px;
+        }
     }
 `
 
 export const CustomInput = styled.input`
     width: 100%;
-    height: 60px;
+    height: 42px;
     padding-left: 15px;
-    border-radius: 10px;
-    border: 1px solid ${(props) => (props.errors? "#B22222" : "#B2FF9E")};
+    border-radius: 5px;
+    border: 1px solid ${(props) => (props.errors? "#B22222" : "#FE8537")};
+
+    @media (min-width: 768px){
+        height: 60px;
+        border: 2px solid ${(props) => (props.errors? "#B22222" : "#FE8537")};
+        border-radius: 10px;
+    }
 
 `

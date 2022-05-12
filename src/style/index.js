@@ -9,17 +9,17 @@ export default createGlobalStyle`
 }
 
 :root{
-    --color-primary: #AEF449;
-    --color-secundary: #086375;
-    --color-support-1:#3C1642;
-    --color-support-2:#1DD3B0;
-    --color-support-3: #B2FF9E;
+    --color-primary: #85E29C;
+    --color-secundary: #FE8537;
+    --color-support-1:#1DD3B0;
+    --color-support-2: #B2FF9E;
     --yellow-1:#EEC73D;
     --gray-0:#FAFAFA;
     --gray-1:#DBDBDB;
     --gray-2:#B0B0B0;
     --gray-3:#757575;
     --gray-4:#4D4D4D;
+    --gradient-green-blue: 268.02deg, #00B0FF -86.38%, rgba(92, 207, 104, 0.9) 170.14%;
 }
 
 #root{
@@ -52,20 +52,6 @@ h3{
 p,span{
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-}
-
-img{
-    width: 200px;
-    animation: identifier 10s linear infinite;
-}
-
-@keyframes identifier {
-    0%{
-        transform: rotate(0);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
 }
 
 button{
