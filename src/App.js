@@ -6,6 +6,7 @@ function App() {
     <>
     <GlobalStyle/>
     <img src={logo} alt="logo"/>
+    <h1>teste</h1>
     </>
   );
 }

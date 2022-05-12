@@ -9,20 +9,17 @@ export default createGlobalStyle`
 }
 
 :root{
-    --green-1: #5CCF6890;
-    --green-2: #5CCF6880;
-    --green-3:#2A8F3490;
-    --blue-1:#C0DECD;
-    --blue-2: #7753CF;
+    --color-primary: #AEF449;
+    --color-secundary: #086375;
+    --color-support-1:#3C1642;
+    --color-support-2:#1DD3B0;
+    --color-support-3: #B2FF9E;
     --yellow-1:#EEC73D;
-    --white-1:#E5E5E5;
-    --white-2:#FFFFFF;
-    --gray-1:#5E5E5E;
-    --gray-2:#AAAAAA;
-    --gray-3:#B5B5B5;
-    --gray-4:#F3F3F3;
-    --gray-5:#F6F6F6;
-    --gray-6:#EFEFEF;
+    --gray-0:#FAFAFA;
+    --gray-1:#DBDBDB;
+    --gray-2:#B0B0B0;
+    --gray-3:#757575;
+    --gray-4:#4D4D4D;
 }
 
 #root{
@@ -33,6 +30,28 @@ export default createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+}
+
+h1{
+    font-size: 54px;
+}
+
+h2{
+    font-size: 36px;
+}
+
+h3{
+    font-size: 24px;
+}
+
+p,span{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
 }
 
 img{
