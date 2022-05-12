@@ -1,12 +1,12 @@
 import GlobalStyle from "./style"
 import logo from "./assets/Vector.svg"
+import Routes from "./Routes";
 
 function App() {
   return (
     <>
     <GlobalStyle/>
-    <img src={logo} alt="logo"/>
-    <h1>teste</h1>
+    <Routes/>
     </>
   );
 }
