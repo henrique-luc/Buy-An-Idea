@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const CustomLabel = styled.label`
-    width: 324px;
+    width: 90%;
     margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
@@ -20,7 +20,7 @@ export const CustomLabel = styled.label`
     }
 
     @media (min-width: 768px){
-        width: 414px;
+        width: 42%;
 
         p{
             font-size: 20px;

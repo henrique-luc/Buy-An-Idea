@@ -2,11 +2,12 @@ import { useForm } from "react-hook-form"
 import Input from "../../Components/Input"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
-import { CustomDiv, CustomForm, CustomMain, Logo , CustomLinearProgress, CustomBox, CustomText, FormBox, DivButton} from "./style"
+import { CustomDiv, CustomForm, CustomMain, Logo , CustomLinearProgress, CustomBox, CustomText, FormBox, DivButton, DivEndereco} from "./style"
 import logo from "../../assets/Vector.svg"
 import Select from "../../Components/Select"
 import { AiOutlineArrowRight } from "react-icons/ai"
 import { useState } from "react"
+import Button from "../../Components/Button"
 
 const Register = () =>{
 
@@ -26,11 +27,18 @@ const Register = () =>{
         cnpj:yup.string().required("Preencha o campo").trim(),
         companyPhone:yup.string().required("Preencha o campo").trim(),
         companyEmail:yup.string().email("Email inválido").required("Preencha o campo").trim(),
+        street:yup.string().required("Preencha o campo").trim(),
+        district:yup.string().required("Preencha o campo").trim(),
+        number:yup.string().required("Preencha o campo").trim(),
+        city:yup.string().required("Preencha o campo").trim(),
+        cep:yup.string().required("Preencha o campo").trim(),
+        uf:yup.string().required("Preencha o campo").trim(),
     })
 
     const schema3 = yup.object().shape({
         password:yup.string().required("Preencha o campo").trim(),
         confirmPassword:yup.string().required("Preencha o campo").trim(),
+        companyType:yup.string().required("Preencha o campo").trim(),
     })
 
     const {register, handleSubmit,formState:{errors}} = useForm({
@@ -42,10 +50,18 @@ const Register = () =>{
             setUser(data)
             setProgress(55)
         }else if(progress === 55){
-            setUser({...user, ...data})
+            const {companyName,companyEmail,companyPhone,cnpj,street,district,number,city,cep,uf} = data
+            setUser({...user,
+                companyName: companyName,
+                companyEmail: companyEmail,
+                companyPhone:companyPhone,
+                cnpj: cnpj,
+                address:{street: street, district:district, number:number, city:city, cep:cep, uf:uf}
+            })
             setProgress(99)
         }else if(progress === 99){
-            setUser({...user, ...data})
+            const {password, confirmPassword, companyType} = data
+            setUser({...user, password:password, confirmPassword: confirmPassword, companyType: companyType})
             setProgress(100)
         }else if(progress === 100){
             console.log(user)
@@ -72,7 +88,7 @@ const Register = () =>{
                     <p>Finalize seu cadastro</p>
                 </div>
                 </CustomBox>
-                <CustomForm onSubmit={handleSubmit(onSubmit)}>
+                <CustomForm onSubmit={handleSubmit(onSubmit)} progress={progress}>
                 {progress === 20 &&
                     <>
                         <Input 
@@ -94,14 +110,14 @@ const Register = () =>{
                             register={register} name={"cpf"} 
                             label={"CPF"}
                             placeholder="Insira seu CPF" 
-                            type="text"
+                            type="number"
                         />
                         <Input 
                             errors={errors.email?.message} 
                             register={register} name={"email"} 
                             label={"Email"}
                             placeholder="Insira seu email" 
-                            type="text"
+                            type="email"
                         />
                         <Input 
                             errors={errors.phone?.message} 
@@ -110,10 +126,11 @@ const Register = () =>{
                             placeholder="Insira seu telefone" 
                             type="text"
                         />
-                        <Select register={register} title={'Como você se identifica'} name='genre'>
-                            <option disabled value={''} selected>Como você se identifica</option>
-                            <option>Homem</option>
-                            <option>Mulher</option>
+                        <Select register={register} title={'Como você se identifica'}  defaultValue={''} name='genre'>
+                            <option disabled value=''>Escolha uma opção</option>
+                            <option value='man'>Homem (Trans ou Cis)</option>
+                            <option value='woman'>Mulher (Trans ou Cis)</option>
+                            <option value='non-binary'>Gênero Não-Binário</option>
                         </Select>
                     </>
                 }
@@ -138,22 +155,57 @@ const Register = () =>{
                             errors={errors.companyEmail?.message} 
                             register={register} name={"companyEmail"} 
                             label={"Email institucional"}
-                            placeholder="Insira o email" 
-                            type="text"
+                            placeholder="Insira o email institucional" 
+                            type="email"
                         />
                         <Input 
                             errors={errors.companyPhone?.message} 
                             register={register} name={"companyPhone"} 
-                            label={"Telefone institucional"}
-                            placeholder="Insira seu Telefone institucional" 
+                            label={"Telefone da empresa"}
+                            placeholder="Insira o Telefone da empresa" 
                             type="text"
                         />
+                    <section>
+                        <p>Endereco</p>
+                        <DivEndereco>
+                            <input placeholder="Rua"  
+                            errors={errors.street?.message} 
+                            {...register("street")} type="text"/>
+                           
+                            <input placeholder="Bairro"  
+                            errors={errors.district?.message} 
+                            {...register("district")} type="text"/>
+                           
+                            <input placeholder="Número"  
+                            errors={errors.number?.message} 
+                            {...register("number")} type="number"/>
+                            
+                            <input placeholder="Cidade"  
+                            errors={errors.city?.message} 
+                            {...register("city")} type="text"/>
+                            
+                            <input placeholder="CEP"  
+                            errors={errors.cep?.message} 
+                            {...register("cep")} type="number"/>
+
+                            <input placeholder="UF"  
+                            errors={errors.uf?.message} 
+                            {...register("uf")} type="text"/>
+                        </DivEndereco>
+                    </section>
                     
                     </>
                 }
                 {
                     progress === 99 && 
                     <>
+                        <Input 
+                            errors={errors.companyType?.message} 
+                            register={register} name={"companyType"} 
+                            label={"Qual o ramo de atuação da sua empresa"}
+                            placeholder="insira o ramo" 
+                            type="text"
+                        />
                         <Input 
                             errors={errors.password?.message} 
                             register={register} name={"password"} 
@@ -170,13 +222,17 @@ const Register = () =>{
                         />
                     </>
                 }
-                {
-                    progress === 100 && console.log(user)
-                }
+                {progress >= 99 ? 
+                <Button white>Finalizar</Button>
+                :
                 <DivButton>
                     <button type="submit">Próximo passo <AiOutlineArrowRight/> </button>
                 </DivButton>
+                }
 
+                {
+                    progress === 100 && console.log(user)
+                }
                 </CustomForm>
         </FormBox>
             

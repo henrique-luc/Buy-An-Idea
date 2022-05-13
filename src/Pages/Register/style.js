@@ -7,12 +7,37 @@ export const CustomDiv = styled.div`
     flex-direction: column;
     padding-left: 32px;
     margin-top: 45px;
-    margin-bottom: 32px;
 
     h2{
         margin-bottom: 60px;
         width: 100%;
         color: var(--color-secundary);
+    }
+
+    @media (min-width: 768px) {
+        margin-top: 32px;
+    }
+`
+export const DivEndereco = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 324px;
+    height: 200px;
+    margin-bottom: 15px;
+    border: solid 1px var(--color-secundary);
+
+    input,select{
+        height: 40px;
+        width: 40%;
+        border: none;
+        border-bottom: 1px solid var(--gray-2);
+    }
+
+    @media (min-width: 768px){
+        width: 100%;
+        margin: 0;
     }
 `
 
@@ -123,11 +148,41 @@ export const CustomForm = styled.form`
     flex-direction: column;
     align-items: center;
 
+    >section>p{
+        color: var(--gray-3);
+        font-size: 14px;
+        margin: 0;
+        margin-bottom: 9px;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    button{
+        margin-top: ${props => props.progress >= 99&& "20px"};
+    }
+
     @media (min-width: 768px){
-        flex-direction: row;
+        flex-direction: ${props => props.progress >= 99? "column" : "row" };
         flex-wrap: wrap;
         justify-content: space-around;
         margin-top: 91px;
+        width: 100%;
+
+        button{
+            margin-top: ${props => props.progress >= 99&& "40px"};
+            margin-bottom: ${props => props.progress >= 99&& "40px"};
+        }
+
+        >section{
+        width: 93%;
+        }
+
+        >section>p{
+            display: flex;
+            justify-content: flex-start;
+            font-size: 20px;
+            margin-top: 20px;
+        }
     }
 `
 
