@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Input from "../Input/index";
 import { useForm } from "react-hook-form";
-import { ButtonEdit, ModalSubtitle, ModalTitle } from "./style";
+import { ButtonEdit, CustomForm, ModalSubtitle, ModalTitle } from "./style";
 
 const style = {
   position: "absolute",
@@ -36,7 +36,7 @@ const ModalProfile = ({ open, handleClose }) => {
           <Box sx={style}>
             <ModalTitle>Editar Perfil</ModalTitle>
             <ModalSubtitle>Informações pessoais</ModalSubtitle>
-            <form onSubmit={handleSubmit}>
+            <CustomForm onSubmit={handleSubmit}>
               <Input
                 register={register}
                 name={"name"}
@@ -69,7 +69,7 @@ const ModalProfile = ({ open, handleClose }) => {
               />
 
               <ButtonEdit type="submit">Salvar Informações</ButtonEdit>
-            </form>
+            </CustomForm>
           </Box>
         </Fade>
       </Modal>

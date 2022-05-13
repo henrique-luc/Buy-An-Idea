@@ -26,3 +26,9 @@ export const ButtonEdit = styled.button`
   font-weight: 700;
   font-size: 14px;
 `;
+
+export const CustomForm = styled.form`
+  label{
+    width: 95%;
+  }
+`
