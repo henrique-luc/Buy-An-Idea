@@ -33,7 +33,9 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmitFunction = (data) => {};
+  const onSubmitFunction = (data) => {
+    console.log(data);
+  };
 
   const passwordIsHidden = () => {
     setShowPassword(!showPassword);
@@ -43,9 +45,9 @@ const Login = () => {
     <Div>
       <CarouselText className="container_login-carousel" />
 
-      <section>
+      <section className="container_login-form">
         <h2>Login</h2>
-        <form>
+        <form onSubmit={handleSubmit(onSubmitFunction)}>
           <section>
             <Input
               register={register}
@@ -64,18 +66,19 @@ const Login = () => {
               type={showPassword ? "text" : "password"}
               icon={showPassword ? FiEye : FiEyeOff}
               onClick={() => passwordIsHidden()}
+              className="container_login-icon"
             />
           </section>
-          <section>
-            <input type="radio" />
+          <section className="container_login-checkbox">
+            <input type="checkbox" />
             <small>Permancer conectado</small>
           </section>
           <section>
-            <button>Entrar</button>
+            <button type="submit">Entrar</button>
           </section>
         </form>
 
-        <section>
+        <section className="container_login-small">
           <small>Esqueceu a senha?</small>
         </section>
       </section>

@@ -1,7 +1,19 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  display: none;
+  background: linear-gradient(var(--gradient-green-blue));
+  height: 7%;
+  display: flex;
+  flex-direction: column;
+
+  figure img {
+    width: 40%;
+    margin-left: 2%;
+  }
+
+  .mySwiper {
+    display: none;
+  }
 
   figcaption {
     display: none;
@@ -12,22 +24,32 @@ export const Div = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(var(--gradient-green-blue));
-    width: 40%;
-    height: 100%;
+    width: 40vw;
+    height: 100vh;
     font-family: "Open Sans", sans-serif;
-    font-size: 2.25em;
+    font-size: 1.5em;
+
+    figure img {
+      width: 21vw;
+      margin: 90px 50px;
+    }
 
     .mySwiper {
+      display: flex;
+      flex-direction: column;
       color: white;
       width: 70%;
-      margin-top: 40%;
     }
 
     .swiper-slide {
       display: flex;
+      margin-top: 70px;
+    }
+
+    @media screen and (max-height: 768px) {
+      figure img {
+        margin: 55px 50px;
+      }
     }
   }
 `;

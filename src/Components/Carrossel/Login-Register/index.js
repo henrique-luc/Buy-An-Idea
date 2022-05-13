@@ -2,6 +2,7 @@ import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
+import Logo from "../../../assets/Logo.svg";
 
 import { Div } from "./style.js";
 
@@ -9,7 +10,7 @@ const CarouselText = () => {
   return (
     <Div>
       <figure>
-        <img src="../../../assets/Logo.svg" alt="BuyAnIdeia" />
+        <img src={Logo} alt="BuyAnIdeia" />
         <figcaption>logo BuyAnIdeia</figcaption>
       </figure>
 

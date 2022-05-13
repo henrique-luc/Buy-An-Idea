@@ -7,6 +7,7 @@ const Input = ({
   name,
   icon: Icon,
   onClick,
+  className,
   ...rest
 }) => {
   return (
@@ -15,7 +16,7 @@ const Input = ({
         <p>{label}</p>
         {errors && <span>{errors}</span>}
         <CustomInput errors={!!errors} {...register(name)} {...rest} />
-        <section className="container_input-icon">
+        <section className={className}>
           {Icon && <Icon onClick={onClick} />}
         </section>
       </CustomLabel>
