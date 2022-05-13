@@ -1,44 +1,43 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const CustomLabel = styled.label`
-    width: 324px;
-    margin-bottom: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-    p{
-        font-size: 14px;
-        color: var(--gray-3);
-        margin-bottom: 9px;
-        font-weight: 500;
-    }
+  width: 90%;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-    span{
-        font-size: 14px;
-        color: #B22222 ;
-    }
+  p {
+    font-size: 14px;
+    color: var(--gray-3);
+    margin-bottom: 9px;
+    font-weight: 500;
+  }
 
-    @media (min-width: 768px){
-        width: 414px;
+  span {
+    font-size: 14px;
+    color: #b22222;
+  }
 
-        p{
-            font-size: 20px;
-        }
+  @media (min-width: 768px) {
+    width: 45%;
+
+    p {
+      font-size: 20px;
     }
-`
+  }
+`;
 
 export const CustomInput = styled.input`
-    width: 100%;
-    height: 42px;
-    padding-left: 15px;
-    border-radius: 5px;
-    border: 1px solid ${(props) => (props.errors? "#B22222" : "#FE8537")};
+  width: 100%;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid ${(props) => (props.errors ? "#B22222" : "#FE8537")};
 
-    @media (min-width: 768px){
-        height: 60px;
-        border: 2px solid ${(props) => (props.errors? "#B22222" : "#FE8537")};
-        border-radius: 10px;
-    }
-
-`
+  @media (min-width: 768px) {
+    height: 60px;
+    border: 2px solid ${(props) => (props.errors ? "#B22222" : "#FE8537")};
+    border-radius: 10px;
+  }
+`;
