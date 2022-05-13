@@ -30,7 +30,7 @@ export const CustomText = styled.div`
         background: linear-gradient(var(--gradient-green-blue)) ;
 
         p{  
-            margin-top: 250px;
+            margin-top: 25%;
             display: flex;
             width: 80%;
             color: var(--gray-0);

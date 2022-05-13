@@ -92,7 +92,7 @@ const Register = () =>{
                         <Input 
                             errors={errors.cpf?.message} 
                             register={register} name={"cpf"} 
-                            label={"Cpf"}
+                            label={"CPF"}
                             placeholder="Insira seu CPF" 
                             type="text"
                         />
@@ -175,7 +175,6 @@ const Register = () =>{
                 }
                 <DivButton>
                     <button type="submit">Próximo passo <AiOutlineArrowRight/> </button>
-
                 </DivButton>
 
                 </CustomForm>
