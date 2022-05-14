@@ -7,9 +7,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory, Redirect } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useLogin } from "../../Providers/Login";
 
 const Login = () => {
   const history = useHistory();
+  const {user,userLogin} = useLogin()
   const [showPassword, setShowPassword] = useState(false);
 
   const schema = yup.object().shape({
@@ -20,10 +22,10 @@ const Login = () => {
     password: yup
       .string()
       .required("Senha obrigatória")
-      .matches(
-        /(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
-        "Senha deve conter no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula, 1 número e um caractere especial"
-      ),
+      //.matches(
+       // /(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
+        //"Senha deve conter no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula, 1 número e um caractere especial"
+     // ),
   });
 
   const {
@@ -33,7 +35,7 @@ const Login = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
+    userLogin(data)
   };
 
   const passwordIsHidden = () => {

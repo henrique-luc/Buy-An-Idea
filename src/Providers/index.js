@@ -1,8 +1,13 @@
-const Provider = ({children}) =>{
+import { LoginProvider } from "./Login"
+
+const Providers = ({children}) =>{
     return(
         <>
+        <LoginProvider>
+            {children}
+        </LoginProvider>
         </>
     )
 }
 
-export default Provider
+export default Providers
