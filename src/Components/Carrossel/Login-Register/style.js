@@ -6,8 +6,13 @@ export const Div = styled.div`
   display: flex;
   flex-direction: column;
 
+  figure{
+    height: 100%;
+    }
+
   figure img {
     width: 40%;
+    height: 100%;
     margin-left: 2%;
   }
 
@@ -28,6 +33,10 @@ export const Div = styled.div`
     height: 100vh;
     font-family: "Open Sans", sans-serif;
     font-size: 1.5em;
+
+    figure{
+    height: 200px;
+    }
 
     figure img {
       width: 21vw;

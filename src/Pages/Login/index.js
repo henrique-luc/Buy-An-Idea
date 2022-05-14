@@ -1,10 +1,9 @@
 import Input from "../../Components/Input";
 import CarouselText from "../../Components/Carrossel/Login-Register";
-import { Div } from "./style";
+import { CustomFiEye, CustomFiEyeOff, CustomForm, Div } from "./style";
 
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useHistory, Redirect } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -47,8 +46,7 @@ const Login = () => {
 
       <section className="container_login-form">
         <h2>Login</h2>
-        <form onSubmit={handleSubmit(onSubmitFunction)}>
-          <section>
+        <CustomForm onSubmit={handleSubmit(onSubmitFunction)}>
             <Input
               register={register}
               errors={errors.email?.message}
@@ -56,19 +54,16 @@ const Login = () => {
               label={"Email"}
               type="email"
             />
-          </section>
-          <section>
+            <section>
             <Input
               register={register}
               errors={errors.password?.message}
               name="password"
               label={"Senha"}
               type={showPassword ? "text" : "password"}
-              icon={showPassword ? FiEye : FiEyeOff}
-              onClick={() => passwordIsHidden()}
-              className="container_login-icon"
             />
-          </section>
+            {showPassword ? <CustomFiEye onClick={() => passwordIsHidden()}/> : <CustomFiEyeOff onClick={() => passwordIsHidden()}/>}
+            </section>
           <section className="container_login-checkbox">
             <input type="checkbox" />
             <small>Permancer conectado</small>
@@ -76,7 +71,7 @@ const Login = () => {
           <section>
             <button type="submit">Entrar</button>
           </section>
-        </form>
+        </CustomForm>
 
         <section className="container_login-small">
           <small>Esqueceu a senha?</small>

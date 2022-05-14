@@ -1,4 +1,45 @@
 import styled from "styled-components";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+
+export const CustomForm = styled.form`
+  width: 80%;
+  >section{
+    position: relative;
+    width: 100%;
+  }
+
+  label{
+    width: 95%;
+  }
+`
+export const CustomFiEye = styled(FiEye)`
+  position: absolute;
+  right: 35px;
+  top:39px;
+  width: 20px;
+  height: 20px;
+  color: var(--gray-2);
+  cursor: pointer;
+
+  @media (min-width: 768px){
+    right: 40px;
+    top:55px;
+  }
+`
+export const CustomFiEyeOff = styled(FiEyeOff)`
+  position: absolute;
+  right: 35px;
+  top:39px;
+  width: 20px;
+  height: 20px;
+  color: var(--gray-2);
+  cursor: pointer;
+
+  @media (min-width: 768px){
+    right: 40px;
+    top:55px;
+  }
+`
 
 export const Div = styled.div`
   width: 100%;
@@ -6,10 +47,10 @@ export const Div = styled.div`
   background-color: var(--gray-0);
 
   .container_login-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
     background-color: #ffffff;
     height: 100%;
   }
@@ -59,6 +100,7 @@ export const Div = styled.div`
     display: flex;
 
     .container_login-form {
+      width: 30%;
       box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
       border-radius: 44px;
       height: fit-content;

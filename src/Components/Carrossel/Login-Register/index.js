@@ -1,7 +1,7 @@
 import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/autoplay";
+import "swiper/css"
 import Logo from "../../../assets/Logo.svg";
 
 import { Div } from "./style.js";
