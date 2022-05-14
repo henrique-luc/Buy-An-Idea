@@ -1,4 +1,5 @@
 import { Box, LinearProgress } from "@mui/material"
+import { style } from "@mui/system"
 import styled from "styled-components"
 
 export const CustomDiv = styled.div`
@@ -141,6 +142,32 @@ export const DivButton = styled.div`
         padding-right: 50px;
         justify-content: flex-end;
     }
+`
+
+export const DivImg = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+        width: 266px;
+    }
+
+    h3{
+        text-align: center;
+        color: var(--gray-2);
+        margin: 20px 0;
+    }
+
+    @media (min-width: 768px) {
+        img{
+            width: 406px;
+        }
+        h3{
+            margin: 40px 0;
+        }
+    }
+
 `
 
 export const CustomForm = styled.form`
