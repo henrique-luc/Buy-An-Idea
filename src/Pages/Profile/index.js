@@ -1,9 +1,9 @@
 import { BsArrowRightSquare } from "react-icons/bs";
-import { FiEdit } from "react-icons/fi";
+import EditIcon from "../../assets/Vetor-Edit.svg";
 import { useState } from "react";
 import ModalCompany from "../../Components/Modal/index";
 import ModalProfile from "../../Components/Modal/modal-profile";
-import { Menu } from "./style";
+import { Container, Content, Menu, Title } from "./style";
 
 const ProfilePage = () => {
   const [openModalCompany, setOpenModalCompany] = useState(false);
@@ -22,12 +22,12 @@ const ProfilePage = () => {
   };
 
   return (
-    <main>
+    <Container>
       <Menu>
         Menu <BsArrowRightSquare />
       </Menu>
       <section>
-        <div>
+        <Title>
           <h1>Meu perfil</h1>
           {openModalCompany && (
             <ModalCompany
@@ -36,12 +36,13 @@ const ProfilePage = () => {
             />
           )}
           <button onClick={handleOpenCompany}>
-            <FiEdit />
+            <img src={EditIcon} alt="icone-editar" />
           </button>
-        </div>
+        </Title>
 
         <hr />
-        <div>
+
+        <Content>
           <h2>Nome da empresa</h2>
           <h3>Cidade, UF</h3>
           <ul>
@@ -50,10 +51,10 @@ const ProfilePage = () => {
             <li>Telefone comercial: </li>
             <li>Email Comercial: </li>
           </ul>
-        </div>
+        </Content>
       </section>
       <section>
-        <div>
+        <Title>
           <h1>Informações pessoais</h1>
           {openModalProfile && (
             <ModalProfile
@@ -62,23 +63,23 @@ const ProfilePage = () => {
             />
           )}
           <button onClick={handleOpenProfile}>
-            <FiEdit />
+            <img src={EditIcon} alt="icone-editar" />
           </button>
-        </div>
+        </Title>
 
         <hr />
 
-        <div>
-          <h2>Nome da empreendedor</h2>
+        <Content>
+          <h2>Nome do empreendedor</h2>
           <ul>
             <li>CPF: </li>
             <li>Email: </li>
             <li>Telefone: </li>
           </ul>
           <button>Alterar Senha</button>
-        </div>
+        </Content>
       </section>
-    </main>
+    </Container>
   );
 };
 
