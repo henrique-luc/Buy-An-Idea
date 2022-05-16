@@ -20,7 +20,7 @@ export const CustomLabel = styled.label`
   }
 
   @media (min-width: 768px) {
-    width: 45%;
+    width: 42%;
 
     p {
       font-size: 20px;
