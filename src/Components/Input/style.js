@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
 export const CustomLabel = styled.label`
-  width: 324px;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
 
-  p {
-    font-size: 14px;
-    color: var(--gray-3);
-    margin-bottom: 9px;
-    font-weight: 500;
-  }
+    width: 90%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    p{
+        font-size: 14px;
+        color: var(--gray-3);
+        margin-bottom: 9px;
+        font-weight: 500;
+    }
 
   span {
     font-size: 14px;
     color: #b22222;
   }
 
-  @media (min-width: 768px) {
-    width: 414px;
+  @media (min-width: 768px){
+    width: 42%;
 
     p {
       font-size: 20px;
