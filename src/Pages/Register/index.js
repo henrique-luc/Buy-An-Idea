@@ -49,25 +49,6 @@ const Register = () =>{
             resolver:yupResolver((progress === 20 && schema) || (progress === 55 && schema2) || (progress === 99 && schema3))
     })
 
-    //useEffect(()=>{
-        //resolver essa gambiarra
-       // if(user.password){
-           // postUser()
-       // }
-   // },[progress])
-  /*  const postUser = () =>{
-           api.post("/register",user)
-           .then(res => {
-               toast.success('Conta Criada com sucesso!')
-               setProgress(100)
-           })
-           .catch(err =>{
-               toast.error('Ops! Algo deu errado')
-               setUser({})
-               setProgress(20)
-           })
-   } */
-
     const onSubmit = (data) =>{
         if(progress === 20){
             setUser(data)
@@ -86,9 +67,6 @@ const Register = () =>{
             const {password, companyType} = data
             setUser({...user, password:password, companyType: companyType, type:"company", matches: []})
             userRegister(setProgress)
-            /* if(user.password){
-                postUser()
-            } */
         }
     }
 

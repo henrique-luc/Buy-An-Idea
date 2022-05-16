@@ -12,11 +12,11 @@ export const RegisterProvider = ({children}) =>{
 
        user.password&&api.post("/register",user)
            .then(res => {
-               setProgress&&setProgress(100)
+               setProgress(100)
                toast.success('Conta Criada com sucesso!')
            })
            .catch(err =>{
-               setProgress&&setProgress(20)
+               setProgress(20)
                toast.error('Ops! Algo deu errado')
            })
     }   

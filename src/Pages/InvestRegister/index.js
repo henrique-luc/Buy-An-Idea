@@ -1,4 +1,4 @@
-import { CustomDiv, CustomMain, CustomText, FormBox, Logo } from "../Register/style"
+import { CustomDiv, CustomMain, CustomText, DivImg, FormBox, Logo } from "../Register/style"
 import logo from "../../assets/Vector.svg"
 import Input from "../../Components/Input"
 import Select from "../../Components/Select"
@@ -8,6 +8,9 @@ import { useForm } from "react-hook-form"
 import Button from "../../Components/Button"
 import { CustomFormInvest } from "./style"
 import { useRegister } from "../../Providers/Register"
+import { useState } from "react"
+import img from "../../assets/image2.jpg"
+import { useHistory } from "react-router-dom"
 
 const InvestRegister = () =>{
     const schema = yup.object().shape({
@@ -21,6 +24,10 @@ const InvestRegister = () =>{
     })
 
     const {user,setUser, userRegister} = useRegister()
+
+    const history = useHistory()
+
+    const [progress, setProgress] = useState(20)
 
     const {register,handleSubmit, formState:{errors}} = useForm({
         resolver: yupResolver(schema)
@@ -39,7 +46,7 @@ const InvestRegister = () =>{
             matches: [],
             password: password,
         })
-        userRegister()
+        userRegister(setProgress)
     }
 
     return(
@@ -53,6 +60,7 @@ const InvestRegister = () =>{
             <CustomDiv>
                 <h2>Cadastro de Investidor</h2>
             </CustomDiv>
+            { progress === 20 ?
             <CustomFormInvest onSubmit={handleSubmit(onSubmit)}>
                 <Input 
                     errors={errors.name?.message} 
@@ -112,7 +120,16 @@ const InvestRegister = () =>{
 
                 <Button white>Finalizar</Button>
             </CustomFormInvest>
+            :
+                <DivImg>
+                    <img src={img} alt="cadasto-realizado"/>
+                    <h3>Cadastro Realizado com sucesso!</h3>
+                    <Button onClick={()=> history.push("/login")}>Login</Button>
+                </DivImg>
+            }
         </FormBox>
+
+
         </CustomMain>
         </>
     )
