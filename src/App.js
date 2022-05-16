@@ -1,27 +1,25 @@
 import GlobalStyle from "./style";
-import logo from "./assets/Vector.svg";
 import Routes from "./Routes";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-const theme = createTheme({
-	palette: {
-		primary: {
-			main: "#4FD971",
-			light: "#B2FF9E",
-		},
-		secondary: {
-			main: "#FE8537",
-		},
-	},
-});
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (
 		<>
-			<ThemeProvider theme={theme}>
-				<GlobalStyle />
-				<Routes />
-			</ThemeProvider>
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
+			<GlobalStyle />
+			<Routes />
 		</>
 	);
 }

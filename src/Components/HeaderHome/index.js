@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { CustomButton } from "./style";
 
 import logo from "../../assets/logo_2.svg";
 
@@ -52,10 +53,25 @@ const HeaderHome = () => {
 							display: { xs: "none", md: "flex" },
 						}}
 					>
-						<Button variant="outlined">Login</Button>
+						<CustomButton
+						// variant="outlined"
+						// size="large"
+						// sx={{
+						// 	marginLeft: "16px",
+						// 	color: "#FFF",
+						// 	borderColor: "#FFF",
+						// }}
+						>
+							Login
+						</CustomButton>
 						<Button
+							size="large"
 							variant="contained"
-							sx={{ marginLeft: "16px", bgcolor: "#ffa726" }}
+							sx={{
+								marginLeft: "16px",
+								bgcolor: "#ffa726",
+								boxShadow: "none",
+							}}
 						>
 							Cadastre-se
 						</Button>

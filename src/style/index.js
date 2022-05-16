@@ -20,6 +20,8 @@ export default createGlobalStyle`
     --gray-2:#B0B0B0;
     --gray-3:#757575;
     --gray-4:#4D4D4D;
+    --gray-5:#AAAAAA;
+    --gray-6:#F3F3F3;
     --gradient-green-blue: 268.02deg, #00B0FF -86.38%, rgba(92, 207, 104, 0.9) 170.14%;
 }
 
