@@ -43,7 +43,7 @@ export const CustomFiEyeOff = styled(FiEyeOff)`
 
 export const Div = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background-color: var(--gray-0);
 
   .container_login-form {
@@ -110,8 +110,6 @@ export const Div = styled.div`
         width: 80%;
       }
 
-      @media screen and (max-height: 768px) {
-      }
     }
   }
 `;
