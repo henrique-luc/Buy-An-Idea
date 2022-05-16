@@ -6,11 +6,11 @@ export const RegisterContext = createContext()
 
 export const RegisterProvider = ({children}) =>{
 
-    const [user, setUser] = useState({})
+    //const [user, setUser] = useState({})
 
-    const userRegister = (setProgress) =>{
+    const userRegister = (user,setProgress) =>{
 
-       user.password&&api.post("/register",user)
+       api.post("/register",user)
            .then(res => {
                setProgress(100)
                toast.success('Conta Criada com sucesso!')
@@ -22,7 +22,7 @@ export const RegisterProvider = ({children}) =>{
     }   
 
     return(
-        <RegisterContext.Provider value={{user,setUser, userRegister}}>
+        <RegisterContext.Provider value={{ userRegister}}>
             {children}
         </RegisterContext.Provider>
     )
