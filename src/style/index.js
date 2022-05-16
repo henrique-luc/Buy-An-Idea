@@ -9,11 +9,12 @@ export default createGlobalStyle`
 }
 
 :root{
-    --color-primary: #85E29C;
-    --color-secundary: #FE8537;
+    --color-primary: #4FD971;
+    --color-secundary: #ffa726;
     --color-support-1:#1DD3B0;
     --color-support-2: #B2FF9E;
     --yellow-1:#EEC73D;
+    --dirty-white: #FFFDFD;
     --gray-0:#FAFAFA;
     --gray-1:#DBDBDB;
     --gray-2:#B0B0B0;
@@ -24,8 +25,8 @@ export default createGlobalStyle`
 
 #root{
     background-color: var(--gray-5);
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,7 +50,7 @@ h3{
     font-size: 24px;
 }
 
-p,span{
+p,span, a{
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
 }
@@ -70,4 +71,4 @@ li{
     list-style: none;
 }
 
-`
+`;
