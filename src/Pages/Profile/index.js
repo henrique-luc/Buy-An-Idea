@@ -1,13 +1,17 @@
-import { BsArrowRightSquare } from "react-icons/bs";
 import EditIcon from "../../assets/Vetor-Edit.svg";
 import { useState } from "react";
-import ModalCompany from "../../Components/Modal/index";
+import ModalCompany from "../../Components/Modal/modal-company";
 import ModalProfile from "../../Components/Modal/modal-profile";
 import { Container, Content, Menu, Title } from "./style";
 
 const ProfilePage = () => {
   const [openModalCompany, setOpenModalCompany] = useState(false);
   const [openModalProfile, setOpenModalProfile] = useState(false);
+  const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login")) || {};
+
+  const { user } = userObj;
+
+  const { company, address, cnpj, name, lastName, cpf, email, phone } = user;
 
   const handleCloseCompany = () => setOpenModalCompany(false);
 
@@ -23,9 +27,6 @@ const ProfilePage = () => {
 
   return (
     <Container>
-      <Menu>
-        Menu <BsArrowRightSquare />
-      </Menu>
       <section>
         <Title>
           <h1>Meu perfil</h1>
@@ -43,13 +44,15 @@ const ProfilePage = () => {
         <hr />
 
         <Content>
-          <h2>Nome da empresa</h2>
-          <h3>Cidade, UF</h3>
+          <h2>{company.companyName}</h2>
+          <h3>
+            {address.city}, {address.uf}
+          </h3>
           <ul>
-            <li>Endereço: </li>
-            <li>CNPJ: </li>
-            <li>Telefone comercial: </li>
-            <li>Email Comercial: </li>
+            <li>Endereço: {address.street}</li>
+            <li>CNPJ: {cnpj}</li>
+            <li>Telefone comercial: companyPhone</li>
+            <li>Email Comercial: companyEmail</li>
           </ul>
         </Content>
       </section>
@@ -70,11 +73,13 @@ const ProfilePage = () => {
         <hr />
 
         <Content>
-          <h2>Nome do empreendedor</h2>
+          <h2>
+            {name} {lastName}
+          </h2>
           <ul>
-            <li>CPF: </li>
-            <li>Email: </li>
-            <li>Telefone: </li>
+            <li>CPF: {cpf}</li>
+            <li>Email: {email}</li>
+            <li>Telefone: {phone}</li>
           </ul>
           <button>Alterar Senha</button>
         </Content>
