@@ -6,17 +6,16 @@ import { CustomDiv, CustomForm, CustomMain, Logo , CustomLinearProgress, CustomB
 import logo from "../../assets/Vector.svg"
 import Select from "../../Components/Select"
 import { AiOutlineArrowRight } from "react-icons/ai"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Button from "../../Components/Button"
 import img from "../../assets/image2.jpg"
 import { useHistory } from "react-router-dom"
-import { api } from "../../Services/api"
-import { toast } from "react-toastify"
+import { useRegister } from "../../Providers/Register"
 
 const Register = () =>{
 
     const [progress, setProgress] = useState(20)
-    const [user, setUser] = useState({})
+    const {user, setUser, userRegister} = useRegister()
     const history = useHistory()
 
     const schema = yup.object().shape({
@@ -56,7 +55,7 @@ const Register = () =>{
            // postUser()
        // }
    // },[progress])
-   const postUser = () =>{
+  /*  const postUser = () =>{
            api.post("/register",user)
            .then(res => {
                toast.success('Conta Criada com sucesso!')
@@ -67,7 +66,7 @@ const Register = () =>{
                setUser({})
                setProgress(20)
            })
-   }
+   } */
 
     const onSubmit = (data) =>{
         if(progress === 20){
@@ -84,12 +83,12 @@ const Register = () =>{
             })
             setProgress(99)
         }else if(progress === 99){
-            const {password, confirmPassword, companyType} = data
-            setUser({...user, password:password, confirmPassword: confirmPassword, companyType: companyType, type:"company", matches: []})
-            //postUser()   não funciona o state é assincrono
-            if(user.password){
+            const {password, companyType} = data
+            setUser({...user, password:password, companyType: companyType, type:"company", matches: []})
+            userRegister(setProgress)
+            /* if(user.password){
                 postUser()
-            }
+            } */
         }
     }
 

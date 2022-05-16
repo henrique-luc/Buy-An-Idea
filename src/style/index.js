@@ -25,7 +25,6 @@ export default createGlobalStyle`
 }
 
 #root{
-    background-color: var(--gray-5);
     width: 100vw;
     min-height: 100vh;
     display: flex;
