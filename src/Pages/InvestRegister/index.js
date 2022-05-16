@@ -35,18 +35,18 @@ const InvestRegister = () =>{
 
     const onSubmit = (data) =>{
         const {email,password,name,lastName,cpfCnpj,phone,genre} = data
-        setUser({
-            email: email,
-            name: name,
-            lastName: lastName,
-            cpfCnpj: cpfCnpj,
-            phone:phone,
-            genre: genre,
+        const user = {
+            email,
+            name,
+            lastName,
+            cpfCnpj,
+            phone,
+            genre,
             type: "investor", 
             matches: [],
-            password: password,
-        })
-        userRegister(setProgress)
+            password,
+        }
+        userRegister(user, setProgress)
     }
 
     return(
