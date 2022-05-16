@@ -26,9 +26,14 @@ export default createGlobalStyle`
 }
 
 #root{
+<<<<<<< HEAD
     background-color: var(--gray-5);
     /* width: 100vw;
     height: 100vh; */
+=======
+    width: 100vw;
+    min-height: 100vh;
+>>>>>>> developer
     display: flex;
     flex-direction: column;
     align-items: center;

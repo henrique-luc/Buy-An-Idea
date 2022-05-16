@@ -4,8 +4,10 @@ import Home from "../Pages/Home";
 
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import InvestRegister from "../Pages/InvestRegister";
 
 const Routes = () => {
+<<<<<<< HEAD
 	return (
 		<>
 			<Switch>
@@ -21,6 +23,24 @@ const Routes = () => {
 			</Switch>
 		</>
 	);
+=======
+  return (
+    <>
+      <Switch>
+        <Route exact path={"/"}></Route>
+        <Route exact path={"/cadastro"}>
+          <Register />
+        </Route>
+        <Route path={"/cadastro/investidor"}>
+          <InvestRegister />
+        </Route>
+        <Route path={"/login"}>
+          <Login />
+        </Route>
+      </Switch>
+    </>
+  );
+>>>>>>> developer
 };
 
 export default Routes;

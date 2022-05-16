@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CustomSelect = styled.label`
-    width: 324px;
+    width: 90%;
     margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
@@ -28,7 +28,7 @@ export const CustomSelect = styled.label`
     }
 
     @media (min-width: 768px){
-        width: 414px;
+        width: 42%;
         select{
             height: 60px;
             border: 2px solid  var(--color-secundary);
