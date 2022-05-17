@@ -14,6 +14,8 @@ export default createGlobalStyle`
     --color-support-1:#1DD3B0;
     --color-support-2: #B2FF9E;
     --yellow-1:#EEC73D;
+    --green-1: #2A8F3490;
+    --white-1:#FFFDFD
     --gray-0:#FAFAFA;
     --gray-1:#DBDBDB;
     --gray-2:#B0B0B0;

@@ -65,6 +65,7 @@ const Register = () =>{
             setProgress(99)
         }
         if(progress === 99){
+            console.log(user)
             userRegister(user,setProgress)
         }  
     }
