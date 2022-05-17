@@ -1,4 +1,3 @@
-import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
@@ -22,7 +21,14 @@ const BottomNav = () => {
 
 	return (
 		<>
-			<SwipeableTemporaryDrawer state={state} setState={setState} />
+			<SwipeableTemporaryDrawer
+				state={state}
+				setState={setState}
+				sx={{
+					display: { xs: "block", md: "none" },
+				}}
+			/>
+
 			<Box
 				sx={{
 					display: { xs: "block", md: "none" },

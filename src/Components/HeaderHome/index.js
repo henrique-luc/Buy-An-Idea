@@ -36,10 +36,6 @@ const HeaderHome = () => {
 		setAnchorElNav(null);
 	};
 
-	const handleCloseUserMenu = () => {
-		setAnchorElUser(null);
-	};
-
 	return (
 		<>
 			<ModalLogin />

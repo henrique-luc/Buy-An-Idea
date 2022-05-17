@@ -7,38 +7,13 @@ import {
 	Container,
 	Typography,
 	Divider,
-	Menu,
-	MenuItem,
 } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { CustomIconButton } from "./style";
 
 const HeaderApplication = () => {
-	const [anchorElNav, setAnchorElNav] = React.useState(null);
-	const [anchorElUser, setAnchorElUser] = React.useState(null);
-	const [value, setValue] = React.useState(0);
-
-	const handleOpenNavMenu = (event) => {
-		setAnchorElNav(event.currentTarget);
-	};
-	const handleOpenUserMenu = (event) => {
-		setAnchorElUser(event.currentTarget);
-	};
-
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
-
-	const handleCloseUserMenu = () => {
-		setAnchorElUser(null);
-	};
 	return (
 		<>
 			<AppBar
@@ -70,6 +45,7 @@ const HeaderApplication = () => {
 								display: { xs: "none", md: "flex" },
 							}}
 						>
+							{/* BOTAO PERFIL*/}
 							<CustomIconButton>
 								<AccountCircleIcon />
 								<Typography className="ml-4">
@@ -77,6 +53,7 @@ const HeaderApplication = () => {
 								</Typography>
 							</CustomIconButton>
 
+							{/* BOTAO CHAT */}
 							<CustomIconButton>
 								<ChatBubbleIcon />
 								<Typography className="ml-4">Chat</Typography>
@@ -98,6 +75,17 @@ const HeaderApplication = () => {
 								<Typography className="ml-4">Sair</Typography>
 							</CustomIconButton>
 						</Box>
+
+						{/* BOTAO SAIR RESPONSIVO */}
+
+						<CustomIconButton
+							sx={{
+								display: { xs: "flex", md: "none" },
+							}}
+						>
+							<ExitToAppIcon />
+							<Typography className="ml-4">Sair</Typography>
+						</CustomIconButton>
 					</Toolbar>
 				</Container>
 			</AppBar>

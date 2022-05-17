@@ -1,5 +1,4 @@
 import Input from "../../Components/Input";
-import CarouselText from "../../Components/Carrossel/Login-Register";
 import { CustomFiEye, CustomFiEyeOff, CustomForm, Div } from "./style";
 
 import * as yup from "yup";

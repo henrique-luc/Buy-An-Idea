@@ -1,10 +1,5 @@
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { Box, Button, Typography } from "@mui/material";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
+import { Box, Button, Container, Typography } from "@mui/material";
 import SwipeableTemporaryDrawer from "../Swipeable";
 import { useState } from "react";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -34,12 +29,15 @@ const ResponsiveMenu = () => {
 				}}
 			>
 				<IconButton
-					aria-label="delete"
+					aria-label="open"
 					onClick={() => {
 						handleOpenSwipable();
 					}}
+					sx={{
+						display: { xs: "none", md: "flex" },
+					}}
 				>
-					<Typography>Menu</Typography>
+					<Typography>Abrir Menu</Typography>
 					<KeyboardArrowRightIcon />
 				</IconButton>
 			</Box>

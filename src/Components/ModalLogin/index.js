@@ -5,7 +5,6 @@ import Login from "../Login";
 import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import logo from "../../assets/logo_2.svg";
-import { CustomModal, BoxContainer } from "./style";
 
 const ModalLogin = () => {
 	const { handleCloseLoginModal, openLoginModal } = useModal();
