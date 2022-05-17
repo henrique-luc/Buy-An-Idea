@@ -1,19 +1,18 @@
 import { useModal } from "../../Providers/Modal";
 import { Box, Modal, Stack, IconButton, Container } from "@mui/material";
 import CloseIcon from "@material-ui/icons/Close";
-import Login from "../Login";
+import Register from "../Register";
 import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import logo from "../../assets/logo_2.svg";
-import { CustomModal, BoxContainer } from "./style";
 
-const ModalLogin = () => {
-	const { handleCloseLoginModal, openLoginModal } = useModal();
-
+const ModalEntrepreneur = () => {
+	const { handleCloseEntrepreneurRegister, openEntrepreneurRegister } =
+		useModal();
 	return (
 		<Modal
-			open={openLoginModal}
-			onClose={handleCloseLoginModal}
+			open={openEntrepreneurRegister}
+			onClose={handleCloseEntrepreneurRegister}
 			aria-labelledby="modal-modal-title"
 			aria-describedby="modal-modal-description"
 			sx={{
@@ -21,14 +20,15 @@ const ModalLogin = () => {
 				height: "100vh",
 				display: "flex",
 				justifyContent: "center",
-				alignItems: "center",
-				padding: "2rem",
+				alignItems: "Center",
+				padding: { xs: "1rem", md: "2rem" },
+				overflow: "scroll",
 			}}
 		>
 			<Box
 				sx={{
-					width: { xs: "100%", md: "100%", lg: "75vw" },
-					height: "90vh",
+					width: { xs: "100%", md: "100%", lg: "90%" },
+					minHeight: "90vh",
 					backgroundColor: "#FFF",
 				}}
 			>
@@ -38,9 +38,8 @@ const ModalLogin = () => {
 					width="100%"
 					position="relative"
 				>
-					{/* ICONE PARA FECHAR O CARROSSEL */}
 					<IconButton
-						onClick={handleCloseLoginModal}
+						onClick={handleCloseEntrepreneurRegister}
 						aria-label="close"
 						size="large"
 						sx={{
@@ -52,11 +51,11 @@ const ModalLogin = () => {
 						<CloseIcon />
 					</IconButton>
 
-					{/* CONTEUDO DO CARROSSEL */}
+					{/* //CONTEUDO DO CARROSSEL */}
 					<Container
 						sx={{
-							width: { xs: 0, md: "40%" },
-							display: { xs: "none", md: "flex" },
+							width: { xs: 0, md: 0, lg: "40%" },
+							display: { xs: "none", md: "none", lg: "flex" },
 							justifyContent: "center",
 							alignItems: "center",
 							background: "rgba(0, 96, 102)",
@@ -71,7 +70,6 @@ const ModalLogin = () => {
 								width: "60%",
 							}}
 						>
-							{/* LOGO */}
 							<img
 								src={logo}
 								alt="logo"
@@ -80,9 +78,6 @@ const ModalLogin = () => {
 									marginBottom: 48,
 								}}
 							/>
-
-							{/* SWIPER CONTAINER */}
-
 							<Swiper
 								modules={[Pagination, Autoplay]}
 								spaceBetween={30}
@@ -117,12 +112,12 @@ const ModalLogin = () => {
 
 					{/* FIM DO CONTEUDO DO CARROSSEL */}
 
-					{/* SESSAO DE LOGIN */}
-					<Login />
+					{/* <CarouselText /> */}
+					<Register />
 				</Stack>
 			</Box>
 		</Modal>
 	);
 };
 
-export default ModalLogin;
+export default ModalEntrepreneur;

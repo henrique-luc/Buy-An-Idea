@@ -3,6 +3,7 @@ import { Container, Box, Typography } from "@mui/material";
 import * as S from "../../Components/HeaderHome/style";
 import { useModal } from "../../Providers/Modal";
 import ModalInvest from "../../Components/ModalInvest";
+import ModalEntrepreneur from "../../Components/ModalEntrepreneur";
 
 const RegisterPage = () => {
 	const { handleOpenInvestidorRegister, handleOpenEntrepreneurRegister } =
@@ -10,6 +11,7 @@ const RegisterPage = () => {
 	return (
 		<>
 			<ModalInvest />
+			<ModalEntrepreneur />
 			<Container
 				className="main-container"
 				sx={{
@@ -65,7 +67,9 @@ const RegisterPage = () => {
 							dolore magna aliqua. Ut enim ad minim veniam, quis
 							nostrud exercitation ullamco laboris nisi ut.
 						</Typography>
-						<S.ButtonMUI>Cadastre-se</S.ButtonMUI>
+						<S.ButtonMUI onClick={handleOpenEntrepreneurRegister}>
+							Cadastre-se
+						</S.ButtonMUI>
 					</Box>
 					<Box>
 						<Typography

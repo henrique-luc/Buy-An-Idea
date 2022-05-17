@@ -1,12 +1,5 @@
-import {
-	CustomDiv,
-	CustomMain,
-	CustomText,
-	DivImg,
-	FormBox,
-	Logo,
-} from "../Register/style";
-import logo from "../../assets/Vector.svg";
+import { CustomDiv, CustomMain, DivImg, FormBox } from "../Register/style";
+
 import Input from "../../Components/Input";
 import Select from "../../Components/Select";
 import { yupResolver } from "@hookform/resolvers/yup";

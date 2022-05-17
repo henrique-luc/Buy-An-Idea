@@ -1,4 +1,4 @@
-import logo from "../../assets/logo_1.svg";
+import logo from "../../assets/logo_2.svg";
 import * as React from "react";
 import {
 	AppBar,
@@ -6,19 +6,19 @@ import {
 	Toolbar,
 	Container,
 	Typography,
+	Divider,
 	Menu,
 	MenuItem,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-
-const pages = ["Login", "Cadastre-se"];
+import { CustomIconButton } from "./style";
 
 const HeaderApplication = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -42,69 +42,65 @@ const HeaderApplication = () => {
 	return (
 		<>
 			<AppBar
-				position="static"
-				sx={{ bgcolor: "var(--gray-0)", boxShadow: "none" }}
+				position="fixed"
+				sx={{
+					background: `linear-gradient(
+                        214deg,
+                        rgba(79, 217, 113, 1) 0%,
+                        rgba(0, 96, 102, 1) 100%
+                    )`,
+					boxShadow: "none",
+					zIndex: 2,
+				}}
 			>
-				<Container maxWidth="lg" sx={{ padding: "1rem 0" }}>
-					<Toolbar disableGutters>
+				<Container maxWidth="xl" sx={{ padding: ".5rem 0" }}>
+					<Toolbar
+						disableGutters
+						sx={{
+							display: "flex",
+							justifyContent: "space-between",
+						}}
+					>
 						<Box>
-							<img src={logo} alt="logo" width={200} />
+							<img src={logo} alt="logo" width={180} />
 						</Box>
 
 						<Box
 							sx={{
-								margin: "0 auto",
 								display: { xs: "none", md: "flex" },
 							}}
 						>
-							<IconButton>
+							<CustomIconButton>
 								<AccountCircleIcon />
-								<Typography>Meu perfil</Typography>
-							</IconButton>
+								<Typography className="ml-4">
+									Meu perfil
+								</Typography>
+							</CustomIconButton>
 
-							<IconButton>
+							<CustomIconButton>
 								<ChatBubbleIcon />
-								<Typography>Chat</Typography>
-							</IconButton>
+								<Typography className="ml-4">Chat</Typography>
+							</CustomIconButton>
+
+							<Divider
+								orientation="vertical"
+								flexItem
+								sx={{
+									marginLeft: "20px",
+									marginRight: "4px",
+								}}
+							/>
+
+							{/* BOTAO SAIR */}
+
+							<CustomIconButton>
+								<ExitToAppIcon />
+								<Typography className="ml-4">Sair</Typography>
+							</CustomIconButton>
 						</Box>
-						<IconButton
-							sx={{
-								marginLeft: "auto",
-							}}
-						>
-							<ExitToAppIcon />
-							<Typography>Sair</Typography>
-						</IconButton>
 					</Toolbar>
 				</Container>
 			</AppBar>
-
-			<Box
-				sx={{
-					display: { xs: "block", md: "none" },
-					width: "100%",
-					position: "fixed",
-					bottom: 0,
-				}}
-			>
-				<BottomNavigation
-					showLabels
-					value={value}
-					onChange={(event, newValue) => {
-						setValue(newValue);
-					}}
-				>
-					<BottomNavigationAction
-						label="Meu perfil"
-						icon={<AccountCircleIcon />}
-					/>
-					<BottomNavigationAction
-						label="Chat"
-						icon={<ChatBubbleIcon />}
-					/>
-					<BottomNavigationAction label="Menu" icon={<MenuIcon />} />
-				</BottomNavigation>
-			</Box>
 		</>
 	);
 };

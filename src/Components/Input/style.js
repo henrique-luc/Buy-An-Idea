@@ -36,7 +36,7 @@ export const CustomInput = styled.input`
 	border: 1px solid ${(props) => (props.errors ? "#B22222" : "#FE8537")};
 
 	@media (min-width: 768px) {
-		height: 60px;
+		height: 42px;
 		border: 2px solid ${(props) => (props.errors ? "#B22222" : "#FE8537")};
 		border-radius: 10px;
 	}

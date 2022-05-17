@@ -8,6 +8,7 @@ import {
 	Typography,
 	Menu,
 	MenuItem,
+	Button,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -48,9 +49,9 @@ const HeaderHome = () => {
 			>
 				<Container maxWidth="lg" sx={{ padding: "2rem 0" }}>
 					<Toolbar disableGutters>
-						<Box>
+						<Button onClick={() => history.push("/")}>
 							<img src={logo} alt="logo" width={200} />
-						</Box>
+						</Button>
 
 						<Box
 							sx={{
