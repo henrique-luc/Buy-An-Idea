@@ -2,9 +2,10 @@ import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../Services/api";
 
-export const RegisterContext = createContext()
+export const RegisterContext = createContext();
 
-export const RegisterProvider = ({children}) =>{
+export const RegisterProvider = ({ children }) => {
+	const [user, setUser] = useState({});
 
     //const [user, setUser] = useState({})
 

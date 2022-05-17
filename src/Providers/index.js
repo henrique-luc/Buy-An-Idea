@@ -1,16 +1,17 @@
-import { LoginProvider } from "./Login"
-import { RegisterProvider } from "./Register"
+import { LoginProvider } from "./Login";
+import { ModalProvider } from "./Modal";
+import { RegisterProvider } from "./Register";
 
-const Providers = ({children}) =>{
-    return(
-        <>
-        <RegisterProvider>
-            <LoginProvider>
-                {children}
-            </LoginProvider>
-        </RegisterProvider>
-        </>
-    )
-}
+const Providers = ({ children }) => {
+	return (
+		<>
+			<ModalProvider>
+				<RegisterProvider>
+					<LoginProvider>{children}</LoginProvider>
+				</RegisterProvider>
+			</ModalProvider>
+		</>
+	);
+};
 
-export default Providers
+export default Providers;

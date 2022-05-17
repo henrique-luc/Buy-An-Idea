@@ -9,13 +9,14 @@ export default createGlobalStyle`
 }
 
 :root{
-    --color-primary: #85E29C;
-    --color-secundary: #FE8537;
+    --color-primary: #4FD971;
+    --color-secundary: #ffa726;
     --color-support-1:#1DD3B0;
     --color-support-2: #B2FF9E;
     --yellow-1:#EEC73D;
     --green-1: #2A8F3490;
     --white-1:#FFFDFD
+    --dirty-white: #FFFDFD;
     --gray-0:#FAFAFA;
     --gray-1:#DBDBDB;
     --gray-2:#B0B0B0;
@@ -23,12 +24,12 @@ export default createGlobalStyle`
     --gray-4:#4D4D4D;
     --gray-5:#AAAAAA;
     --gray-6:#F3F3F3;
-    --gradient-green-blue: 268.02deg, #00B0FF -86.38%, rgba(92, 207, 104, 0.9) 170.14%;
+    --gradient-green-blue: 214deg,
+					rgba(79, 217, 113, 1) 0%,
+					rgba(0, 96, 102, 1) 100%;
 }
 
 #root{
-    width: 100vw;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,7 +53,7 @@ h3{
     font-size: 24px;
 }
 
-p,span{
+p,span, a{
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
 }
