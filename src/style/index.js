@@ -22,18 +22,13 @@ export default createGlobalStyle`
     --gray-4:#4D4D4D;
     --gray-5:#AAAAAA;
     --gray-6:#F3F3F3;
-    --gradient-green-blue: 268.02deg, #00B0FF -86.38%, rgba(92, 207, 104, 0.9) 170.14%;
+    --gradient-green-blue: 214deg,
+					rgba(79, 217, 113, 1) 0%,
+					rgba(0, 96, 102, 1) 100%;
 }
 
 #root{
-<<<<<<< HEAD
     background-color: var(--gray-5);
-    /* width: 100vw;
-    height: 100vh; */
-=======
-    width: 100vw;
-    min-height: 100vh;
->>>>>>> developer
     display: flex;
     flex-direction: column;
     align-items: center;

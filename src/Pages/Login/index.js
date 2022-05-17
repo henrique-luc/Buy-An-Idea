@@ -42,7 +42,7 @@ const Login = () => {
 
 	return (
 		<Div>
-			<CarouselText className="container_login-carousel" />
+			{/* <CarouselText className="container_login-carousel" /> */}
 
 			<section className="container_login-form">
 				<h2>Login</h2>

@@ -1,15 +1,15 @@
-import heroImg from "../../assets/hero.png";
 import HeaderHome from "../../Components/HeaderHome";
-import * as S from "../../Components/HeaderHome/style";
 import { Container, Box, Typography } from "@mui/material";
-import FooterHome from "../../Components/FooterHome";
-import { useHistory } from "react-router-dom";
+import * as S from "../../Components/HeaderHome/style";
+import { useModal } from "../../Providers/Modal";
+import ModalInvest from "../../Components/ModalInvest";
 
-const Home = () => {
-	const history = useHistory();
-
+const RegisterPage = () => {
+	const { handleOpenInvestidorRegister, handleOpenEntrepreneurRegister } =
+		useModal();
 	return (
 		<>
+			<ModalInvest />
 			<Container
 				className="main-container"
 				sx={{
@@ -29,13 +29,15 @@ const Home = () => {
 
 				<Container
 					sx={{
+						height: "80vh",
 						display: "flex",
 						flexDirection: { xs: "column-reverse", md: "row" },
 						justifyContent: { xs: "center" },
 						alignItems: "center",
+						bgColor: "black",
 					}}
 				>
-					<Box flexGrow={1}>
+					<Box>
 						<Typography
 							variant="h3"
 							component={"h2"}
@@ -46,7 +48,7 @@ const Home = () => {
 								color: "var(--color-support-2)",
 							}}
 						>
-							A sua ideia tem valor
+							Cadastre-se como empreendedor
 						</Typography>
 						<Typography
 							sx={{
@@ -61,38 +63,48 @@ const Home = () => {
 							Lorem ipsum dolor sit amet, consectetur adipiscing
 							elit, sed do eiusmod tempor incididunt ut labore et
 							dolore magna aliqua. Ut enim ad minim veniam, quis
-							nostrud exercitation ullamco laboris nisi ut aliquip
-							ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore
-							eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia
-							deserunt mollit anim id est laborum
+							nostrud exercitation ullamco laboris nisi ut.
 						</Typography>
-						<S.ButtonMUI onClick={() => history.push("/cadastro")}>
+						<S.ButtonMUI>Cadastre-se</S.ButtonMUI>
+					</Box>
+					<Box>
+						<Typography
+							variant="h3"
+							component={"h2"}
+							mb={3}
+							sx={{
+								fontFamily: "Roboto Slab, serif",
+								fontWeight: "bold",
+								color: "var(--color-support-2)",
+							}}
+						>
+							Cadastre-se como Investidor
+						</Typography>
+						<Typography
+							sx={{
+								width: { xs: "100%", md: "500px" },
+								fontFamily: "Open Sans, sans-serif",
+								fontWeight: "500",
+								fontSize: "1rem",
+								color: "var(--gray-1)",
+								marginBottom: "2rem",
+							}}
+						>
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit, sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Ut enim ad minim veniam, quis
+							nostrud exercitation ullamco laboris nisi ut.
+						</Typography>
+						<S.ButtonMUI onClick={handleOpenInvestidorRegister}>
 							Cadastre-se
 						</S.ButtonMUI>
-					</Box>
-					<Box
-						sx={{
-							width: { xs: "300px", md: "500px" },
-						}}
-					>
-						<img
-							src={heroImg}
-							alt="mulher olhando para o horizonte"
-							style={{
-								width: "100%",
-							}}
-						/>
 					</Box>
 				</Container>
 
 				{/* FIM DO CONTEUDO PRINCIPAL */}
-
-				<FooterHome />
 			</Container>
 		</>
 	);
 };
 
-export default Home;
+export default RegisterPage;

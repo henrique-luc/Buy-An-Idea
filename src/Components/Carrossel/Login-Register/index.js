@@ -2,17 +2,14 @@ import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css";
-import Logo from "../../../assets/Logo.svg";
+import Logo from "../../../assets/logo_2.svg";
 
 import { Div } from "./style.js";
 
 const CarouselText = () => {
 	return (
 		<Div>
-			<figure>
-				<img src={Logo} alt="BuyAnIdeia" />
-				<figcaption>logo BuyAnIdeia</figcaption>
-			</figure>
+			<img src={Logo} alt="logo" />
 
 			<Swiper
 				modules={[Pagination, Autoplay]}
