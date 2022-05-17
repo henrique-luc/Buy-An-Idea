@@ -28,11 +28,6 @@ export const InvestidorContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  .header {
-    color: black;
-    background-color: blue;
-  }
-
   .ApoieEstaIdeia {
     width: 305px;
     gap: 10px;

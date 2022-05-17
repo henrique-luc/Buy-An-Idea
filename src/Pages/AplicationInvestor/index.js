@@ -20,9 +20,6 @@ export const AplicationInvestor = () => {
         </LoadingPage>
       ) : (
         <InvestidorContainer isInInfoCard={cardIsOpen}>
-          <header className="header">
-            <h1>H E A D E R</h1>
-          </header>
           <InterpriseList />
 
           <section className="ApoieEstaIdeia">
@@ -35,21 +32,6 @@ export const AplicationInvestor = () => {
               granhar mais destaque para outros investidores com o seu apoiop
             </p>
           </section>
-
-          <footer className="FooterButtons">
-            <button className="PerfilButton">
-              <img src={Perfil} alt="Ícone de perfil" />
-              <h6>Perfil</h6>
-            </button>
-            <button>
-              <img src={Chat} alt="Ícone de chat" />
-              <h6>Chat</h6>
-            </button>
-            <button>
-              <img src={Menu} alt="Ícone de menu" />
-              <h6>Menu</h6>
-            </button>
-          </footer>
         </InvestidorContainer>
       )}
     </>
