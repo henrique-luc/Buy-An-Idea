@@ -6,19 +6,19 @@ export const Container = styled.main`
   max-width: 1024px;
 `;
 
-export const Menu = styled.button`
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 500;
-  background-color: transparent;
-  color: var(--color-secundary);
-  border: 0;
-  margin-bottom: 3rem;
+// export const Menu = styled.button`
+//   font-family: "Open Sans", sans-serif;
+//   font-size: 1.5rem;
+//   font-weight: 500;
+//   background-color: transparent;
+//   color: var(--color-secundary);
+//   border: 0;
+//   margin-bottom: 3rem;
 
-  svg {
-    padding-top: 3px;
-  }
-`;
+//   svg {
+//     padding-top: 3px;
+//   }
+// `;
 
 export const Title = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ export const Title = styled.div`
 
   @media (min-width: 768px) {
     h1 {
-        font-size: 2rem;
+      font-size: 2rem;
     }
   }
 `;

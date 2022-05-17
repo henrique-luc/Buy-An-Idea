@@ -8,11 +8,12 @@ import {
   BoxEdit,
   ButtonEdit,
   CustomForm,
+  DivAddress,
+  InputEndereco,
   InputDiv,
   ModalSubtitle,
   ModalTitle,
 } from "./style";
-import { DivEndereco } from "../../Pages/Register/style";
 import { api } from "../../Services/api";
 import { toast } from "react-toastify";
 
@@ -23,14 +24,36 @@ const ModalCompany = ({ open, handleClose }) => {
 
   const { accessToken, user } = userObj;
 
-  const { id, email, password, company, address, name, lastName, cpf, phone } =
-    user;
+  const { id, email, password, company, address } = user;
+
+  const { street, city, cep, number, district, uf } = address;
+
+  const { companyName, companyEmail, companyPhone, cnpj } = company;
 
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
+    const {
+      companyEmail,
+      companyName,
+      companyPhone,
+      cnpj,
+      street,
+      district,
+      number,
+      city,
+      cep,
+      uf,
+      companyType,
+    } = data;
+
+    const user = {
+      company: { companyEmail, companyName, companyPhone, cnpj, companyType },
+      address: { street, district, number, city, cep, uf },
+    };
+
     api
-      .patch(`/users/${id}`, data, {
+      .patch(`/users/${id}`, user, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -65,14 +88,14 @@ const ModalCompany = ({ open, handleClose }) => {
             <CustomForm onSubmit={handleSubmit(onSubmit)}>
               <InputDiv>
                 <Input
-                  defaultValue={company.companyName}
+                  defaultValue={companyName}
                   register={register}
                   name={"companyName"}
                   label={"Nome da empresa"}
                   type="text"
                 />
                 <Input
-                  defaultValue={company.cnpj}
+                  defaultValue={cnpj}
                   register={register}
                   name={"cnpj"}
                   label={"CNPJ"}
@@ -81,67 +104,67 @@ const ModalCompany = ({ open, handleClose }) => {
               </InputDiv>
               <InputDiv>
                 <Input
-                  defaultValue={company.companyEmail}
+                  defaultValue={companyEmail}
                   register={register}
                   name={"companyEmail"}
                   label={"Email Comercial"}
                   type="text"
                 />
                 <Input
-                  defaultValue={company.companyPhone}
+                  defaultValue={companyPhone}
                   register={register}
                   name={"companyPhone"}
                   label={"Telefone Comercial"}
                   type="text"
                 />
               </InputDiv>
-              <div>
+              <DivAddress>
                 <p>Endereço</p>
-                <DivEndereco>
+                <InputEndereco>
                   <input
-                    defaultValue={address.street}
+                    defaultValue={street}
                     placeholder="Rua"
                     //errors={errors.street?.message}
                     {...register("street")}
                     type="text"
                   />
                   <input
-                    defaultValue={address.district}
+                    defaultValue={district}
                     placeholder="Bairro"
                     //errors={errors.district?.message}
                     {...register("district")}
                     type="text"
                   />
                   <input
-                    defaultValue={address.number}
+                    defaultValue={number}
                     placeholder="Número"
                     //errors={errors.number?.message}
                     {...register("number")}
                     type="number"
                   />
                   <input
-                    defaultValue={address.city}
+                    defaultValue={city}
                     placeholder="Cidade"
                     //errors={errors.city?.message}
                     {...register("city")}
                     type="text"
                   />
                   <input
-                    defaultValue={address.cep}
+                    defaultValue={cep}
                     placeholder="CEP"
                     //errors={errors.cep?.message}
                     {...register("cep")}
                     type="number"
                   />
                   <input
-                    defaultValue={address.uf}
+                    defaultValue={uf}
                     placeholder="UF"
                     //errors={errors.uf?.message}
                     {...register("uf")}
                     type="text"
                   />
-                </DivEndereco>
-              </div>
+                </InputEndereco>
+              </DivAddress>
               <ButtonEdit type="submit">Salvar Informações</ButtonEdit>
             </CustomForm>
           </BoxEdit>

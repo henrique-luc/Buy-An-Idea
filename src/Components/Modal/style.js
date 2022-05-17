@@ -1,6 +1,35 @@
 import styled from "styled-components";
 import styledMUI from "@emotion/styled";
 import { Box } from "@mui/material";
+import { DivEndereco } from "../../Pages/Register/style";
+
+export const DivAddress = styled.div`
+  p {
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: 16px;
+      margin-top: 1rem;
+      margin-left: 1rem;
+      font-weight: 500;
+      color: var(--gray-3);
+    }
+  }
+`;
+
+export const InputEndereco = styled(DivEndereco)`
+  width: 96%;
+  margin: 0 auto;
+  border: 2px solid var(--color-secundary);
+  border-radius: 10px;
+
+  input {
+    background-color: transparent;
+    font-family: "Open Sans", sans-serif;
+  }
+`;
 
 export const ModalTitle = styled.h1`
   font-family: "Roboto Slab", sans-serif;
@@ -40,6 +69,11 @@ export const ModalSubtitle = styled.p`
 // `;
 
 export const InputDiv = styled.div`
+  select {
+    height: 47px;
+    font-family: "Open Sans", sans-serif;
+  }
+
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
@@ -69,8 +103,13 @@ export const CustomForm = styled.form`
     width: 95%;
   }
 
+  input {
+    height: 45px;
+    font-family: "Open Sans", sans-serif;
+  }
+
   p {
-    margin-bottom: 1rem;
+    font-size: 16px;
     font-weight: 500;
     color: var(--gray-3);
   }
@@ -92,7 +131,7 @@ export const BoxEdit = styledMUI(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
+  width: 85vw;
   background-color: var(--gray-0);
   border-radius: 24px;
   padding: 3rem;

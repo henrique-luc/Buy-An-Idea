@@ -2,7 +2,7 @@ import EditIcon from "../../assets/Vetor-Edit.svg";
 import { useState } from "react";
 import ModalCompany from "../../Components/Modal/modal-company";
 import ModalProfile from "../../Components/Modal/modal-profile";
-import { Container, Content, Menu, Title } from "./style";
+import { Container, Content, Title } from "./style";
 
 const ProfilePage = () => {
   const [openModalCompany, setOpenModalCompany] = useState(false);
@@ -11,7 +11,11 @@ const ProfilePage = () => {
 
   const { user } = userObj;
 
-  const { company, address, cnpj, name, lastName, cpf, email, phone } = user;
+  const { company, address, name, lastName, cpf, email, phone } = user;
+
+  const { street, city, cep, number, district, uf } = address;
+
+  const { companyName, companyEmail, companyPhone, cnpj } = company;
 
   const handleCloseCompany = () => setOpenModalCompany(false);
 
@@ -44,15 +48,17 @@ const ProfilePage = () => {
         <hr />
 
         <Content>
-          <h2>{company.companyName}</h2>
+          <h2>{companyName}</h2>
           <h3>
-            {address.city}, {address.uf}
+            {city}, {uf}
           </h3>
           <ul>
-            <li>Endereço: {address.street}</li>
+            <li>
+              Endereço: {street} {number} - {district}, {cep}
+            </li>
             <li>CNPJ: {cnpj}</li>
-            <li>Telefone comercial: companyPhone</li>
-            <li>Email Comercial: companyEmail</li>
+            <li>Telefone comercial: {companyPhone}</li>
+            <li>Email Comercial: {companyEmail}</li>
           </ul>
         </Content>
       </section>
