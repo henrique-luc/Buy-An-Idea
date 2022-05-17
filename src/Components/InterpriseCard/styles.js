@@ -38,7 +38,7 @@ export const InterPriseCardContainer = styled.div`
     object-fit: cover;
 
     border-radius: 18.76px;
-    filter: ${({ inInfoCard }) => (inInfoCard ? "unset" : "blur(6px)")};
+    filter: ${({ inInfoCard }) => (inInfoCard ? "unset" : "blur(0px)")};
   }
 
   .CardAbout {
@@ -47,11 +47,16 @@ export const InterPriseCardContainer = styled.div`
 
     display: ${({ inInfoCard }) => (inInfoCard ? "none" : "block")};
 
+    border-radius: 6px;
+
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
 
     position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+
+    transition: 0.4s ease;
 
     font-weight: 600;
     font-size: 18px;
