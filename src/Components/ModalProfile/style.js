@@ -135,7 +135,7 @@ export const BoxEdit = styledMUI(Box)`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 85vw;
-  background-color: var(--gray-0);
+  background-color: #FAFAFA;
   border-radius: 24px;
   padding: 3rem;
   max-width: 768px;
