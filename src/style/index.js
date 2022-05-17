@@ -63,6 +63,7 @@ button{
 
 a{
     text-decoration: none;
+    font-family: 'Roboto Slab', serif;
 }
 
 ul{

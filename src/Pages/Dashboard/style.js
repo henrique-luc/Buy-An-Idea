@@ -3,6 +3,16 @@ import { BiUserCircle } from "react-icons/bi"
 import { BsFillChatLeftDotsFill } from "react-icons/bs"
 import { GiHamburgerMenu } from "react-icons/gi"
 
+
+export const CustomMain = styled.main`
+    display: flex;
+    min-height: 90vh;
+    max-width: 100%;
+    padding-left: 20px;
+`
+
+
+
 export const Title = styled.h1`
     color: var(--color-secundary);
     font-size: 36px;
@@ -29,12 +39,15 @@ export const MatchesUl = styled.ul`
 
 `
 export const Footer = styled.footer`
-    height: 60px;
+    height: 9vh;
     width: 100%;
+    background-color: var(--gray-6);
     border-top: solid 2px var(--gray-1);
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: fixed;
+    bottom: 0;
 
     @media(min-width: 768px){
         display: none;
@@ -68,10 +81,13 @@ export const HamburgerMenu = styled(GiHamburgerMenu)`
     height: 30px;
 `
 
-export const CustomMain = styled.main`
+export const CustomDiv = styled.div`
     width: 100vw;
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
+    @media (min-width: 768px){
+        padding-top: 100px;
+    }
 `

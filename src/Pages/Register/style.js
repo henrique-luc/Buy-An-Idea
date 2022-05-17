@@ -59,7 +59,7 @@ export const CustomText = styled.div`
             margin-top: 25%;
             display: flex;
             width: 80%;
-            color: var(--gray-0);
+            color: var(--gray-6);
             font-size: 36px;
         }
     }
@@ -243,7 +243,7 @@ export const Logo = styled.div`
             width: 276px;
             height: 55px;
             font-size: 36px;
-            background: var(--gray-0);
+            background: var(--gray-6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
