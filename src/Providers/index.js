@@ -1,4 +1,5 @@
 import { LoginProvider } from "./Login"
+import { MatchProvider } from "./Match"
 import { RegisterProvider } from "./Register"
 
 const Providers = ({children}) =>{
@@ -6,7 +7,9 @@ const Providers = ({children}) =>{
         <>
         <RegisterProvider>
             <LoginProvider>
-                {children}
+                <MatchProvider>
+                    {children}
+                </MatchProvider>
             </LoginProvider>
         </RegisterProvider>
         </>

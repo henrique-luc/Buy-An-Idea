@@ -1,17 +1,24 @@
 import { HamburgerMenu, LiCard } from "./style"
-import match from "../../assets/match.svg"
+import matchImg from "../../assets/match.svg"
+import img from "../../assets/pitou.jpg"
+import { useMatch } from "../../Providers/Match"
 
-const Card = ({img,name, description}) =>{
+const Card = ({match}) =>{
+
+    const {loggedUser, getMatch, acceptMatch} = useMatch()
+
+    const {name,lastName, id} = match
+
     return(
         <>
         <LiCard>
             <img src={img} alt="foto-perfil"/>
-            <h3>{name}</h3>
-            <p>{description}</p>
+            <h3>{name} {lastName}</h3>
+            <p>"loren ipsum dolor"</p>
             <div>
                 <button>X</button>
                 <button><HamburgerMenu/></button>
-                <button><img src={match}/></button>
+                <button onClick={()=> acceptMatch(id)}><img src={matchImg}/></button>
             </div>
         </LiCard>
         </>
