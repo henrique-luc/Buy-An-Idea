@@ -5,8 +5,6 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      {/* <img src={logo} alt="logo"/> */}
-      <AplicationInvestor />
     </>
   );
 }
