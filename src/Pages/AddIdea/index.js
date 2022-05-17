@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Input } from "../../Components/AddIdeaComponents/Input";
-import { InputBottom } from "../../Components/AddIdeaComponents/inputBottom";
-import { Textarea } from "../../Components/AddIdeaComponents/Textarea";
+import { Input } from "../../Components/Input-add-idea";
+import { InputBottom } from "../../Components/inputBottom-add-idea";
+import { Textarea } from "../../Components/Textarea-add-idea";
 
 import { DivAddidea } from "./style.js";
 import facebook from "../../assets/facebook.svg";
@@ -82,6 +82,7 @@ const AddIdea = () => {
                   type="url"
                   placeholder="Link para o seu video de apresentação no Youtube"
                   onChange={videoLink}
+                  {...register("video")}
                 />
               </div>
 
@@ -108,12 +109,7 @@ const AddIdea = () => {
                 <div className="container_addIdea-main-form-core-first">
                   <h4>Payback</h4>
                   <p>Coloque aqui o retorno do investimento</p>
-                  <Input
-                    register={register}
-                    name={"payback"}
-                    type="text"
-                    placeholder="R$"
-                  />
+                  <Input type="text" placeholder="R$" />
                 </div>
 
                 <div className="container_addIdea-main-form-core-second">
