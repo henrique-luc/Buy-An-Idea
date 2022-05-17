@@ -79,7 +79,6 @@ const AddIdea = () => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 ></iframe>
                 <Input
-                  {...register("video")}
                   type="url"
                   placeholder="Link para o seu video de apresentação no Youtube"
                   onChange={videoLink}
@@ -93,7 +92,6 @@ const AddIdea = () => {
                   história sobre a sua iniciativa.
                 </p>
                 <Textarea
-                  {...register("about")}
                   height="160"
                   placeholder="Conte mais detalhes sobre a história da sua empresa. Coloque aqui informações relevantes sobre a sua idéia, as pessoas por trás dela e como tudo começou para você."
                 ></Textarea>
@@ -103,10 +101,7 @@ const AddIdea = () => {
             <section>
               <div className="container_addIdea-main-form-core">
                 <h4>Core business</h4>
-                <Textarea
-                  {...register("coreBusiness")}
-                  placeholder="Descreva aqui a principal atividade da sua empresa"
-                ></Textarea>
+                <Textarea placeholder="Descreva aqui a principal atividade da sua empresa"></Textarea>
               </div>
 
               <div className="container_addIdea-main-form-core-itens">
@@ -114,7 +109,8 @@ const AddIdea = () => {
                   <h4>Payback</h4>
                   <p>Coloque aqui o retorno do investimento</p>
                   <Input
-                    {...register("payback")}
+                    register={register}
+                    name={"payback"}
                     type="text"
                     placeholder="R$"
                   />
@@ -123,11 +119,7 @@ const AddIdea = () => {
                 <div className="container_addIdea-main-form-core-second">
                   <h4>Valuation</h4>
                   <p>Valor estimado da empresa</p>
-                  <Input
-                    {...register("valuation")}
-                    type="text"
-                    placeholder="R$"
-                  />
+                  <Input type="text" placeholder="R$" />
                 </div>
               </div>
             </section>
@@ -136,7 +128,6 @@ const AddIdea = () => {
               <div>
                 <h4>Link útil para documentos e patentes</h4>
                 <Input
-                  {...register("document")}
                   type="url"
                   placeholder="Coloque aqui o endereço para baixar o seu documento"
                 />
@@ -145,7 +136,6 @@ const AddIdea = () => {
               <div>
                 <h4>Endereço do seu site</h4>
                 <Input
-                  {...register("website")}
                   type="url"
                   placeholder="Coloque aqui o endereço do seu site"
                 />
@@ -164,7 +154,7 @@ const AddIdea = () => {
                     <figcaption>facebook icon</figcaption>
                   </figure>
                   <small>facebook/</small>
-                  <InputBottom {...register("facebook")} type="text" />
+                  <InputBottom type="text" />
                 </div>
 
                 <div className="container_addIdea-main-form-icons">
@@ -173,7 +163,7 @@ const AddIdea = () => {
                     <figcaption>instagram icon</figcaption>
                   </figure>
                   <small>instagram/</small>
-                  <InputBottom {...register("instagram")} type="text" />
+                  <InputBottom type="text" />
                 </div>
               </div>
 
@@ -184,7 +174,7 @@ const AddIdea = () => {
                     <figcaption>linkedin icon</figcaption>
                   </figure>
                   <small>linkedin/</small>
-                  <InputBottom {...register("linkedin")} type="text" />
+                  <InputBottom type="text" />
                 </div>
 
                 <div className="container_addIdea-main-form-icons">
@@ -193,7 +183,7 @@ const AddIdea = () => {
                     <figcaption>twitter icon</figcaption>
                   </figure>
                   <small>twitter/</small>
-                  <InputBottom {...register("twitter")} type="text" />
+                  <InputBottom type="text" />
                 </div>
               </div>
             </section>
@@ -202,7 +192,6 @@ const AddIdea = () => {
               <div>
                 <h4>Valor do investimento na sua ideia</h4>
                 <Textarea
-                  {...register("ideaValue")}
                   height="100"
                   placeholder="De quanto ou do quê você precisa para viabilizar a sua ideia? Coloque aqui como os investidores podem te ajudar e o que você dará em troca pelo investimento"
                   className="container_addIdea-main-form-button-textarea"
