@@ -19,7 +19,7 @@ export const DivAddress = styled.div`
   }
 `;
 
-export const InputEndereco = styled(DivEndereco)`
+export const InputAddress = styled(DivEndereco)`
   width: 96%;
   margin: 0 auto;
   border: 2px solid var(--color-secundary);
@@ -29,6 +29,10 @@ export const InputEndereco = styled(DivEndereco)`
     background-color: transparent;
     font-family: "Open Sans", sans-serif;
   }
+`;
+
+export const HeaderModal = styled.div`
+  max-width: 768px;
 `;
 
 export const ModalTitle = styled.h1`
@@ -46,31 +50,26 @@ export const ModalSubtitle = styled.p`
   margin-bottom: 1rem;
 `;
 
-// export const ButtonClose = styled.button`
-//   position: relative;
-//   left: 63vw;
-//   bottom: 100px;
-//   width: 32px;
-//   height: 32px;
-//   font-size: 24px;
-//   font-family: "Open Sans", sans-serif;
-//   font-weight: 500;
-//   color: var(--gray-3);
-//   background: transparent;
-//   border: 0;
+export const ButtonCloseModal = styled.button`
+  position: fixed;
+  left: 85%;
+  top: 60px;
+  background: transparent;
+  border: 0;
 
-//   @media (min-width: 768px) {
-//     left: 75vw;
-//   }
-
-//   @media (max-width: 768px) {
-//     left: 75vw;
-//   }
-// `;
+  img {
+    width: 25px;
+    height: 25px;
+  }
+`;
 
 export const InputDiv = styled.div`
+  p {
+    font-size: 16px;
+  }
+
   select {
-    height: 47px;
+    max-height: 45px;
     font-family: "Open Sans", sans-serif;
   }
 
@@ -91,6 +90,10 @@ export const ButtonEdit = styled.button`
   font-weight: 700;
   font-size: 14px;
   margin-top: 2rem;
+
+  :hover {
+    background-color: var(--gray-2);
+  }
 `;
 
 export const CustomForm = styled.form`

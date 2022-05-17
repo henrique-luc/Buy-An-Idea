@@ -1,9 +1,9 @@
 import Backdrop from "@mui/material/Backdrop";
-//import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Input from "../Input/index";
 import Select from "../Select/index";
+import ButtonClose from "../../assets/Vector-CloseModal.svg";
 import { useForm } from "react-hook-form";
 import { api } from "../../Services/api";
 import { toast } from "react-toastify";
@@ -12,20 +12,38 @@ import {
   ButtonEdit,
   CustomForm,
   InputDiv,
+  HeaderModal,
+  ButtonCloseModal,
   ModalSubtitle,
   ModalTitle,
 } from "./style";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const ModalProfile = ({ open, handleClose }) => {
-  //FAZER SCHEMA
+  const schema = yup.object().shape({
+    name: yup.string().required("Preencha o campo"),
+    lastName: yup.string().required("Preencha o campo"),
+    cpf: yup
+      .string()
+      .required("Preencha o campo")
+      .min(11, "Mínimo de 11 dígitos"),
+    email: yup
+      .string()
+      .required("Preencha o campo")
+      .email("Este email não é válido"),
+    phone: yup.string().required("Preencha o campo"),
+  });
 
   const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login"));
-
   const { accessToken, user } = userObj;
-
   const { id, email, password, name, lastName, cpf, phone } = user;
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
     const { name, email, lastName, cpf, phone, companyType } = data;
@@ -53,7 +71,6 @@ const ModalProfile = ({ open, handleClose }) => {
     <div>
       <Modal
         open={open}
-        onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -62,11 +79,17 @@ const ModalProfile = ({ open, handleClose }) => {
       >
         <Fade in={open}>
           <BoxEdit>
-            <ModalTitle>Editar Perfil</ModalTitle>
-            <ModalSubtitle>Informações pessoais</ModalSubtitle>
+            <HeaderModal>
+              <ModalTitle>Editar Perfil</ModalTitle>
+              <ModalSubtitle>Informações pessoais</ModalSubtitle>
+              <ButtonCloseModal onClick={handleClose}>
+                <img src={ButtonClose} alt="" />
+              </ButtonCloseModal>
+            </HeaderModal>
             <CustomForm onSubmit={handleSubmit(onSubmit)}>
               <InputDiv>
                 <Input
+                  errors={errors.name?.message}
                   defaultValue={name}
                   register={register}
                   name={"name"}
@@ -74,6 +97,7 @@ const ModalProfile = ({ open, handleClose }) => {
                   type="text"
                 />
                 <Input
+                  errors={errors.lastName?.message}
                   defaultValue={lastName}
                   register={register}
                   name={"lastName"}
@@ -83,6 +107,7 @@ const ModalProfile = ({ open, handleClose }) => {
               </InputDiv>
               <InputDiv>
                 <Input
+                  errors={errors.cpf?.message}
                   defaultValue={cpf}
                   register={register}
                   name={"cpf"}
@@ -90,6 +115,7 @@ const ModalProfile = ({ open, handleClose }) => {
                   type="text"
                 />
                 <Input
+                  errors={errors.email?.message}
                   defaultValue={email}
                   register={register}
                   name={"email"}
@@ -112,6 +138,7 @@ const ModalProfile = ({ open, handleClose }) => {
                   <option value="non-binary">Gênero Não-Binário</option>
                 </Select>
                 <Input
+                  errors={errors.phone?.message}
                   defaultValue={phone}
                   register={register}
                   name={"phone"}

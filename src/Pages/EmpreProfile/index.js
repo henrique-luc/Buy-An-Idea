@@ -1,10 +1,10 @@
 import EditIcon from "../../assets/Vetor-Edit.svg";
 import { useState } from "react";
-import ModalCompany from "../../Components/Modal/modal-company";
-import ModalProfile from "../../Components/Modal/modal-profile";
+import ModalCompany from "../../Components/ModalProfile/modal-company";
+import ModalProfile from "../../Components/ModalProfile/modal-profile";
 import { Container, Content, Title } from "./style";
 
-const ProfilePage = () => {
+const EmpreProfile = () => {
   const [openModalCompany, setOpenModalCompany] = useState(false);
   const [openModalProfile, setOpenModalProfile] = useState(false);
   const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login")) || {};
@@ -94,4 +94,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default EmpreProfile;

@@ -1,17 +1,21 @@
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
-import ProfilePage from "../Pages/Profile";
+import EmpreProfile from "../Pages/EmpreProfile";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import InvestRegister from "../Pages/InvestRegister";
+import InvestProfile from "../Pages/InvestProfile";
 
 const Routes = () => {
   return (
     <>
       <Switch>
         <Route exact path={"/"}></Route>
-        <Route path={"/perfil"}>
-          <ProfilePage />
+        <Route exact path={"/perfil"}>
+          <EmpreProfile />
+        </Route>
+        <Route path={"/perfil/investidor"}>
+          <InvestProfile />
         </Route>
         <Route exact path={"/cadastro"}>
           <Register />
