@@ -95,6 +95,7 @@ const AddIdea = () => {
                 <Textarea
                   height="160"
                   placeholder="Conte mais detalhes sobre a história da sua empresa. Coloque aqui informações relevantes sobre a sua idéia, as pessoas por trás dela e como tudo começou para você."
+                  {...register("about")}
                 ></Textarea>
               </div>
             </section>
@@ -102,20 +103,31 @@ const AddIdea = () => {
             <section>
               <div className="container_addIdea-main-form-core">
                 <h4>Core business</h4>
-                <Textarea placeholder="Descreva aqui a principal atividade da sua empresa"></Textarea>
+                <Textarea
+                  {...register("coreBusiness")}
+                  placeholder="Descreva aqui a principal atividade da sua empresa"
+                ></Textarea>
               </div>
 
               <div className="container_addIdea-main-form-core-itens">
                 <div className="container_addIdea-main-form-core-first">
                   <h4>Payback</h4>
                   <p>Coloque aqui o retorno do investimento</p>
-                  <Input type="text" placeholder="R$" />
+                  <Input
+                    {...register("payback")}
+                    type="text"
+                    placeholder="R$"
+                  />
                 </div>
 
                 <div className="container_addIdea-main-form-core-second">
                   <h4>Valuation</h4>
                   <p>Valor estimado da empresa</p>
-                  <Input type="text" placeholder="R$" />
+                  <Input
+                    {...register("valuation")}
+                    type="text"
+                    placeholder="R$"
+                  />
                 </div>
               </div>
             </section>
@@ -126,6 +138,7 @@ const AddIdea = () => {
                 <Input
                   type="url"
                   placeholder="Coloque aqui o endereço para baixar o seu documento"
+                  {...register("document")}
                 />
               </div>
 
@@ -134,6 +147,7 @@ const AddIdea = () => {
                 <Input
                   type="url"
                   placeholder="Coloque aqui o endereço do seu site"
+                  {...register("website")}
                 />
               </div>
             </section>
@@ -150,7 +164,7 @@ const AddIdea = () => {
                     <figcaption>facebook icon</figcaption>
                   </figure>
                   <small>facebook/</small>
-                  <InputBottom type="text" />
+                  <InputBottom {...register("facebook")} type="text" />
                 </div>
 
                 <div className="container_addIdea-main-form-icons">
@@ -159,7 +173,7 @@ const AddIdea = () => {
                     <figcaption>instagram icon</figcaption>
                   </figure>
                   <small>instagram/</small>
-                  <InputBottom type="text" />
+                  <InputBottom {...register("instagram")} type="text" />
                 </div>
               </div>
 
@@ -170,7 +184,7 @@ const AddIdea = () => {
                     <figcaption>linkedin icon</figcaption>
                   </figure>
                   <small>linkedin/</small>
-                  <InputBottom type="text" />
+                  <InputBottom {...register("linkedin")} type="text" />
                 </div>
 
                 <div className="container_addIdea-main-form-icons">
@@ -179,7 +193,7 @@ const AddIdea = () => {
                     <figcaption>twitter icon</figcaption>
                   </figure>
                   <small>twitter/</small>
-                  <InputBottom type="text" />
+                  <InputBottom {...register("twitter")} type="text" />
                 </div>
               </div>
             </section>
@@ -188,6 +202,7 @@ const AddIdea = () => {
               <div>
                 <h4>Valor do investimento na sua ideia</h4>
                 <Textarea
+                  {...register("ideaValue")}
                   height="100"
                   placeholder="De quanto ou do quê você precisa para viabilizar a sua ideia? Coloque aqui como os investidores podem te ajudar e o que você dará em troca pelo investimento"
                   className="container_addIdea-main-form-button-textarea"
