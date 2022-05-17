@@ -1,7 +1,10 @@
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import Register from "../Pages/Register";
+
 import AddIdea from "../Pages/AddIdea";
+
+import Login from "../Pages/Login";
 
 const Routes = () => {
   return (
@@ -13,6 +16,9 @@ const Routes = () => {
         </Route>
         <Route path={"/adicionar-ideia"}>
           <AddIdea />
+        </Route>
+        <Route path={"/login"}>
+          <Login />
         </Route>
       </Switch>
     </>

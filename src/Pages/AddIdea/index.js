@@ -1,8 +1,16 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Input } from "../../Components/AddIdeaComponents/Input";
+import { InputBottom } from "../../Components/AddIdeaComponents/inputBottom";
+import { Textarea } from "../../Components/AddIdeaComponents/Textarea";
 
 import { DivAddidea } from "./style.js";
+import facebook from "../../assets/facebook.svg";
+import instagram from "../../assets/instagram.svg";
+import linkedin from "../../assets/linkedin.svg";
+import twitter from "../../assets/twitter.svg";
 
 const AddIdea = () => {
   const schema = yup.object().shape({
@@ -28,8 +36,17 @@ const AddIdea = () => {
     resolver: yupResolver(schema),
   });
 
+  const [addIdea, setAddIdea] = useState();
+
   const onSubmitFunction = (data) => {
-    console.log(data);
+    console.log("oi");
+    //return setAddIdea(data);
+  };
+
+  const [video, setVideo] = useState();
+
+  const videoLink = (event) => {
+    return setVideo(event.target.value);
   };
 
   return (
@@ -44,16 +61,17 @@ const AddIdea = () => {
 
           <form onSubmit={handleSubmit(onSubmitFunction)}>
             <section>
-              <div>
+              <div className="container_addIdea-main-form-video">
                 <h4>Adicone um video apresentativo</h4>
                 <p>
                   Supreenda seus investidores contando as suas melhores ideias
                   em um vídeo. Sugerimos um material de até 2 min.
                 </p>
-                <video preload="" controls src=""></video>
-                <input
+                <video src={video} preload="auto" controls></video>
+                <Input
                   type="url"
                   placeholder="Link para o seu video de apresentação no Youtube"
+                  onChange={videoLink}
                 />
               </div>
 
@@ -63,33 +81,38 @@ const AddIdea = () => {
                   Chegou a hora de inspirar os seus investidores com uma bela
                   história sobre a sua iniciativa.
                 </p>
-                <textarea placeholder="Conte mais detalhes sobre a história da sua empresa. COloque aqui informações relevantes sobre a sua idéia, as pessoas por trás dela e como tudo começou para você."></textarea>
+                <Textarea
+                  height="160"
+                  placeholder="Conte mais detalhes sobre a história da sua empresa. Coloque aqui informações relevantes sobre a sua idéia, as pessoas por trás dela e como tudo começou para você."
+                ></Textarea>
               </div>
             </section>
 
             <section>
-              <div>
+              <div className="container_addIdea-main-form-core">
                 <h4>Core business</h4>
-                <textarea placeholder="Descreva aqui a principal atividade da sua empresa"></textarea>
+                <Textarea placeholder="Descreva aqui a principal atividade da sua empresa"></Textarea>
               </div>
 
-              <div>
-                <h4>Payback</h4>
-                <p>Coloque aqui o retorno do investimento</p>
-                <input type="text" placeholder="R$" />
-              </div>
+              <div className="container_addIdea-main-form-core-itens">
+                <div className="container_addIdea-main-form-core-first">
+                  <h4>Payback</h4>
+                  <p>Coloque aqui o retorno do investimento</p>
+                  <Input type="text" placeholder="R$" />
+                </div>
 
-              <div>
-                <h4>Valuation</h4>
-                <p>Valor estimado da empresa</p>
-                <input type="text" placeholder="R$" />
+                <div className="container_addIdea-main-form-core-second">
+                  <h4>Valuation</h4>
+                  <p>Valor estimado da empresa</p>
+                  <Input type="text" placeholder="R$" />
+                </div>
               </div>
             </section>
 
             <section>
               <div>
                 <h4>Link útil para documentos e patentes</h4>
-                <input
+                <Input
                   type="url"
                   placeholder="Coloque aqui o endereço para baixar o seu documento"
                 />
@@ -97,63 +120,67 @@ const AddIdea = () => {
 
               <div>
                 <h4>Endereço do seu site</h4>
-                <input
+                <Input
                   type="url"
                   placeholder="Coloque aqui o endereço do seu site"
                 />
               </div>
             </section>
 
-            <section>
+            <section className="container_addIdea-main-form-icons-title">
               <div>
                 <h4>Redes Sociais</h4>
               </div>
 
               <div>
-                <div>
+                <div className="container_addIdea-main-form-icons">
                   <figure>
-                    <img src="" alt="facebook icon" />
+                    <img src={facebook} alt="facebook icon" />
                     <figcaption>facebook icon</figcaption>
                   </figure>
                   <small>facebook/</small>
-                  <input type="text" />
+                  <InputBottom type="text" />
                 </div>
 
-                <div>
+                <div className="container_addIdea-main-form-icons">
                   <figure>
-                    <img src="" alt="instagram icon" />
+                    <img src={instagram} alt="instagram icon" />
                     <figcaption>instagram icon</figcaption>
                   </figure>
                   <small>instagram/</small>
-                  <input type="text" />
+                  <InputBottom type="text" />
                 </div>
               </div>
 
               <div>
-                <div>
+                <div className="container_addIdea-main-form-icons">
                   <figure>
-                    <img src="" alt="linkedin icon" />
+                    <img src={linkedin} alt="linkedin icon" />
                     <figcaption>linkedin icon</figcaption>
                   </figure>
                   <small>linkedin/</small>
-                  <input type="text" />
+                  <InputBottom type="text" />
                 </div>
 
-                <div>
+                <div className="container_addIdea-main-form-icons">
                   <figure>
-                    <img src="" alt="twitter icon" />
+                    <img src={twitter} alt="twitter icon" />
                     <figcaption>twitter icon</figcaption>
                   </figure>
                   <small>twitter/</small>
-                  <input type="text" />
+                  <InputBottom type="text" />
                 </div>
               </div>
             </section>
 
-            <section>
+            <section className="container_addIdea-main-form-button">
               <div>
                 <h4>Valor do investimento na sua ideia</h4>
-                <textarea placeholder="De quanto ou do quê você precisa para viabilizar a sua ideia? Coloque aqui como os investidores podem te ajudar e o que você dará em troca pelo investimento"></textarea>
+                <Textarea
+                  height="100"
+                  placeholder="De quanto ou do quê você precisa para viabilizar a sua ideia? Coloque aqui como os investidores podem te ajudar e o que você dará em troca pelo investimento"
+                  className="container_addIdea-main-form-button-textarea"
+                ></Textarea>
               </div>
 
               <div>
