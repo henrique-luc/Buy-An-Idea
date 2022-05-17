@@ -9,12 +9,14 @@ export default createGlobalStyle`
 }
 
 :root{
+    --primary: #85E29C;
     --green-1: #5CCF6890;
     --green-2: #5CCF6880;
     --green-3:#2A8F3490;
     --blue-1:#C0DECD;
     --blue-2: #7753CF;
     --yellow-1:#EEC73D;
+    --orange: #FE8537;
     --white-1:#E5E5E5;
     --white-2:#FFFFFF;
     --gray-1:#5E5E5E;
@@ -27,27 +29,13 @@ export default createGlobalStyle`
 
 #root{
     background-color: var(--gray-5);
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-img{
-    width: 200px;
-    animation: identifier 10s linear infinite;
-}
-
-@keyframes identifier {
-    0%{
-        transform: rotate(0);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
 
 button{
     cursor: pointer;
@@ -65,4 +53,4 @@ li{
     list-style: none;
 }
 
-`
+`;

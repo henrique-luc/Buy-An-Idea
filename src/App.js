@@ -1,11 +1,12 @@
-import GlobalStyle from "./style"
-import logo from "./assets/Vector.svg"
+import GlobalStyle from "./style";
+import { AplicationInvestor } from "./Pages/AplicationInvestor";
 
 function App() {
   return (
     <>
-    <GlobalStyle/>
-    <img src={logo} alt="logo"/>
+      <GlobalStyle />
+      {/* <img src={logo} alt="logo"/> */}
+      <AplicationInvestor />
     </>
   );
 }
