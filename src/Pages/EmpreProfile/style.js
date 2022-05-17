@@ -2,8 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   width: 80vw;
+  display: flex;
+  justify-content: center;
+  max-width: 1440px;
+`;
+
+export const BoxContainer = styled.main`
+  width: 80vw;
   justify-content: center;
   max-width: 1024px;
+
+  @media (min-width: 768px) {
+    margin-left: 2rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -38,7 +49,7 @@ export const Title = styled.div`
 
 export const Content = styled.div`
   margin-top: 20px;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 
   h2 {
     font-size: 1.5rem;
@@ -59,8 +70,19 @@ export const Content = styled.div`
       font-size: 14px;
       font-family: "Open Sans", sans-serif;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-top: 1rem;
       color: var(--gray-3);
+
+      svg {
+        margin-right: 6px;
+      }
+
+      p {
+        margin-top: 2px;
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--gray-2);
+      }
     }
   }
 
