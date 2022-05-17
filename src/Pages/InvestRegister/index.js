@@ -44,6 +44,7 @@ const InvestRegister = () =>{
             genre,
             type: "investor", 
             matches: [],
+            contacts: [],
             password,
         }
         userRegister(user, setProgress)

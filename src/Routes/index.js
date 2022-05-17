@@ -5,6 +5,7 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import InvestRegister from "../Pages/InvestRegister";
 import InvestProfile from "../Pages/InvestProfile";
+import Dashboard from "../Pages/Dashboard";
 
 const Routes = () => {
   return (
@@ -25,6 +26,9 @@ const Routes = () => {
         </Route>
         <Route path={"/login"}>
           <Login />
+        </Route>
+        <Route path={"/dashboard"}>
+          <Dashboard />
         </Route>
       </Switch>
     </>
