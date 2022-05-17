@@ -59,8 +59,19 @@ export const Content = styled.div`
       font-size: 14px;
       font-family: "Open Sans", sans-serif;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-top: 2rem;
       color: var(--gray-3);
+
+      svg {
+        margin-right: 6px;
+      }
+
+      p {
+        margin-top: 5px;
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--gray-2);
+      }
     }
   }
 
