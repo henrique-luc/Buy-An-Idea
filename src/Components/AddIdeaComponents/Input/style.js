@@ -11,6 +11,7 @@ export const InputContainer = styled.input`
     font-weight: 500;
     font-size: 14px;
     color: #b5b5b5;
+    line-break: auto;
   }
 
   @media screen and (min-width: 768px) {

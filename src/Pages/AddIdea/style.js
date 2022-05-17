@@ -57,7 +57,7 @@ export const DivAddidea = styled.div`
     flex-direction: column;
   }
 
-  .container_addIdea-main-form-video video {
+  .container_addIdea-main-form-video iframe {
     border: 2px solid var(--color-support-2);
     margin-bottom: 10px;
   }
@@ -167,7 +167,7 @@ export const DivAddidea = styled.div`
       width: 100%;
     }
 
-    .container_addIdea-main-form-video video {
+    .container_addIdea-main-form-video iframe {
       height: 200px;
     }
 
