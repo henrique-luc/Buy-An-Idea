@@ -2,6 +2,7 @@ import EditIcon from "../../assets/Vetor-Edit.svg";
 import { useState } from "react";
 import ModalProfile from "../../Components/ModalProfile/modal-profile";
 import { Container, Content, Title } from "./style";
+import { FiUser, FiPhone, FiMail, FiCreditCard } from "react-icons/fi";
 
 const InvestProfile = () => {
   const [openModalProfile, setOpenModalProfile] = useState(false);
@@ -36,14 +37,25 @@ const InvestProfile = () => {
 
         <Content>
           <h2>
-            {name} {lastName}
+            <FiUser /> {name} {lastName}
           </h2>
           <ul>
-            <li>CPF: {cpf}</li>
-            <li>Email: {email}</li>
-            <li>Telefone: {phone}</li>
+            <li>
+              <FiCreditCard />
+              CPF
+              <p>{cpf}</p>
+            </li>
+            <li>
+              <FiMail />
+              Email
+              <p>{email}</p>
+            </li>
+            <li>
+              <FiPhone />
+              Telefone
+              <p>{phone}</p>
+            </li>
           </ul>
-          <button>Alterar Senha</button>
         </Content>
       </section>
     </Container>
