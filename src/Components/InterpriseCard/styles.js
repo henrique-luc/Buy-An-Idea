@@ -20,7 +20,7 @@ export const InterPriseCardContainer = styled.div`
 
     font-weight: 700;
     font-size: 24px;
-    color: var(--orange);
+    color: var(--color-secundary);
     padding-bottom: 60px;
     /* padding-top temporário */
   }
@@ -87,7 +87,7 @@ export const InterPriseCardContainer = styled.div`
   }
 
   .ButtonX {
-    border: 3px solid var(--orange);
+    border: 3px solid var(--color-secundary);
   }
 
   .ButtonHamb {
@@ -130,14 +130,14 @@ export const InfoCard = styled.div`
   h2,
   h4 {
     font-weight: 700;
-    color: var(--orange);
+    color: var(--color-secundary);
   }
 
   h2 {
     width: 90%;
     margin: 41px auto 36px auto;
 
-    color: var(--orange);
+    color: var(--color-secundary);
     font-size: 24px;
   }
 
@@ -219,7 +219,7 @@ export const InfoCard = styled.div`
   }
 
   .ButtonX2 {
-    border: 3px solid var(--orange);
+    border: 3px solid var(--color-secundary);
   }
 
   .ButtonHamb2 {

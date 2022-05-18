@@ -10,7 +10,23 @@ import Facebook from "../../assets/facebook.svg";
 import Linkedin from "../../assets/linkedin.svg";
 
 export const IntrerPriseCard = ({ empresa }) => {
+  // const { name, idea } = empresa;
   const { name } = empresa;
+
+  // const {
+  //   video,
+  //   about,
+  //   coreBusiness,
+  //   payback,
+  //   valuation,
+  //   document,
+  //   website,
+  //   facebook,
+  //   instagram,
+  //   linkedin,
+  //   twitter,
+  //   ideaValue,
+  // } = idea;
 
   const { cardIsOpen, setCardIsOpen } = useContext(InterpriseListContext);
 
@@ -24,21 +40,7 @@ export const IntrerPriseCard = ({ empresa }) => {
           alt="exemplo de empresa"
         />
         {/* simulação do sobre */}
-        <p className="CardAbout">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-          voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-          fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-          accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut
-          molestias architecto voluptate aliquam nihil, eveniet aliquid culpa
-          officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum
-          nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque
-          error repudiandae fuga? Ipsa laudantium molestias eos sapiente
-          officiis modi at sunt excepturi expedita sint? Sed quibusdam
-          recusandae alias error harum maxime adipisci amet laborum.
-          Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a
-          cumque velit
-        </p>
+        <p className="CardAbout">{/* {about} */}</p>
 
         <section className="CardButtons">
           <button className="ButtonX">
@@ -59,25 +61,11 @@ export const IntrerPriseCard = ({ empresa }) => {
         <h2>{name}</h2>
         <div className="InfoCardSobre">
           <h4>Sobre</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-            voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-            fugiat iusto fuga praesentium optio, eaque rerum! Provident
-            similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-            eius earum ut molestias architecto voluptate aliquam nihil, eveniet
-            aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur
-            error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-            quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias
-            eos sapiente officiis modi at sunt excepturi expedita sint? Sed
-            quibusdam recusandae alias error harum maxime adipisci amet laborum.
-            Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates
-            a cumque velit
-          </p>
+          <p>{/* {about} */}</p>
         </div>
         <div className="InfoCardValor">
           <h4>Valor do investimento</h4>
-          <p>R$300k ou mentoria por 50% da empresa.</p>
+          <p>{/* {ideaValue} */}</p>
         </div>
         <div className="InfoCardImages">
           <h4>imagens</h4>
@@ -101,40 +89,28 @@ export const IntrerPriseCard = ({ empresa }) => {
 
         <div className="InfoCardSite">
           <h4>Site da empresa</h4>
-          <a href="https://kenzie.com.br/">https://kenzie.com.br/</a>
+          {/* <a href={`${website}`}>{website}</a> */}
         </div>
 
         {/* Quando obtiver acesso ao objeto empresa de fato, fazer um map  */}
         <section className="InfoCardContact">
           <div className="InfoCardSocial InfoCardContact--insta">
             <img alt="Ícone do instagram" src={Insta} />
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href="https://www.instagram.com/kenzieacademybr/"
-            >
-              @kenzieacademybr
-            </a>
+            {/* <a rel="noreferrer" target="_blank" href={`${instagram}`}> */}
+            @kenzieacademybr
+            {/* </a> */}
           </div>
           <div className="InfoCardSocial InfoCardContact--facebook">
             <img alt="Ícone do instagram" src={Facebook} />
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href="https://www.facebook.com/kenzieacademybr/"
-            >
-              @kenzieacademybr
-            </a>
+            {/* <a rel="noreferrer" target="_blank" href={`${facebook}`}> */}
+            Facebook da empresa
+            {/* </a> */}
           </div>
           <div className="InfoCardSocial InfoCardContact--linkedin">
             <img alt="Ícone do instagram" src={Linkedin} />
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href="https://www.linkedin.com/school/kenzie-brasil/mycompany/"
-            >
-              Kenzie Academy Brasil
-            </a>
+            {/* <a rel="noreferrer" target="_blank" href={`${linkedin}`}>
+              Linkedin da empresa
+            </a> */}
           </div>
         </section>
         <section className="CardButtons2">
