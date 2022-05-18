@@ -57,7 +57,7 @@ const AddIdea = () => {
     <DivAddidea>
       <section className="container_addIdea-main">
         <main>
-          <h2>Adicione a sua ideia </h2>
+          <h2>Adicione a sua ideia</h2>
 
           <form onSubmit={handleSubmit(onSubmitFunction)}>
             <section>
