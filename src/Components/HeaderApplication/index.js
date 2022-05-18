@@ -7,18 +7,44 @@ import {
 	Container,
 	Typography,
 	Divider,
+	Stack,
+	IconButton,
 } from "@mui/material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import { CustomIconButton } from "./style";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
+import ResponsiveMenu from "../ResponsiveMenu";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const HeaderApplication = () => {
-	const history = useHistory()
+	const history = useHistory();
+
+	const handleLogout = () => {
+		history.push("/");
+		localStorage.removeItem("@buyAnIdea:Login");
+	};
+
+	const [state, setState] = useState({
+		top: false,
+		left: false,
+		bottom: false,
+		right: false,
+	});
+
+	const handleOpenSwipable = () => {
+		setState({ ...state, left: true });
+	};
 
 	return (
 		<>
+			<ResponsiveMenu
+				state={state}
+				setState={setState}
+				handleOpenSwipable={handleOpenSwipable}
+			/>
 			<AppBar
 				position="fixed"
 				sx={{
@@ -37,11 +63,27 @@ const HeaderApplication = () => {
 						sx={{
 							display: "flex",
 							justifyContent: "space-between",
+							alignItems: "center",
 						}}
 					>
-						<Box>
-							<img src={logo} alt="logo" width={180} />
-						</Box>
+						{/* LOGO E ICONE DO MENU RESPONSIVO */}
+
+						<Stack direction={"row"}>
+							<img src={logo} alt="logo" width={150} />
+
+							{/* ICONE MENU */}
+							<IconButton
+								onClick={() => handleOpenSwipable()}
+								sx={{
+									display: { xs: "none", md: "flex" },
+									fontSize: "large",
+									color: "var(--color-secundary)",
+									marginLeft: 3,
+								}}
+							>
+								<MenuIcon />
+							</IconButton>
+						</Stack>
 
 						<Box
 							sx={{
@@ -49,7 +91,9 @@ const HeaderApplication = () => {
 							}}
 						>
 							{/* BOTAO PERFIL*/}
-							<CustomIconButton >
+							<CustomIconButton
+								onClick={() => history.push("/perfil")}
+							>
 								<AccountCircleIcon />
 								<Typography className="ml-4">
 									Meu perfil
@@ -73,18 +117,17 @@ const HeaderApplication = () => {
 
 							{/* BOTAO SAIR */}
 
-							<CustomIconButton>
+							<CustomIconButton onClick={() => handleLogout()}>
 								<ExitToAppIcon />
 								<Typography className="ml-4">Sair</Typography>
 							</CustomIconButton>
 						</Box>
-
 						{/* BOTAO SAIR RESPONSIVO */}
-
 						<CustomIconButton
 							sx={{
 								display: { xs: "flex", md: "none" },
 							}}
+							onClick={() => handleLogout()}
 						>
 							<ExitToAppIcon />
 							<Typography className="ml-4">Sair</Typography>

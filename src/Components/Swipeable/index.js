@@ -5,14 +5,19 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import {ListItemIcon} from "@mui/material";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { Typography, IconButton } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { usePageLink } from "../../Providers/PageLink";
+import { useLocation } from "react-router-dom";
+import { useLogin } from "../../Providers/Login";
 
 export default function SwipeableTemporaryDrawer({ state, setState }) {
+	const { investorPages, entrepreneurPages } = usePageLink();
+	const history = useHistory();
+
 	const toggleDrawer = (anchor, open) => (event) => {
 		if (
 			event &&
@@ -24,6 +29,16 @@ export default function SwipeableTemporaryDrawer({ state, setState }) {
 
 		setState({ ...state, [anchor]: open });
 	};
+
+	const { user } = useLogin();
+
+	const pages = () => {
+		if (user.type === "company") return entrepreneurPages;
+
+		return investorPages;
+	};
+
+	const location = useLocation();
 
 	const list = (anchor) => (
 		<Box
@@ -41,32 +56,55 @@ export default function SwipeableTemporaryDrawer({ state, setState }) {
 				onClick={() => {
 					toggleDrawer("left", false);
 				}}
+				sx={{
+					color: "var(--color-secundary)",
+					marginTop: 5,
+					marginLeft: 3,
+					"&:hover": {
+						color: "var(--color-support-1)",
+						bgcolor: "transparent",
+					},
+				}}
 			>
-				<Typography>Menu</Typography>
 				<KeyboardArrowLeftIcon />
+				<Typography
+					sx={{
+						fontFamily: "Roboto Slab",
+					}}
+				>
+					Fechar Menu
+				</Typography>
 			</IconButton>
 
-			{/* LISTA COM OS LINKS RENDERIZADOS     */}
-
-			<List>
-				{["Inbox", "Starred", "Send email", "Drafts"].map(
-					(text, index) => (
-						<ListItem key={text} disablePadding>
-							<ListItemButton>
-								<ListItemIcon>
-									{index % 2 === 0 ? (
-										<InboxIcon />
-									) : (
-										<MailIcon />
-									)}
-								</ListItemIcon>
-								<ListItemText primary={text} />
-							</ListItemButton>
-						</ListItem>
-					)
-				)}
-			</List>
+			{/* LISTA COM OS LINKS RENDERIZADOS */}
 			<Divider />
+			<List
+				sx={{
+					color: "var(--gray-3)",
+					fontFamily: "Open Sans",
+					marginTop: 5,
+				}}
+			>
+				{pages().map((page) => (
+					<ListItem
+						key={page.name}
+						disablePadding
+						selected={page.link === location.pathname}
+					>
+						<ListItemButton onClick={() => history.push(page.link)}>
+							<ListItemText
+								primary={page.name}
+								sx={{
+									"&:hover": {
+										color: "var(--gray-4)",
+										bgColor: "var(--color-secundary)",
+									},
+								}}
+							/>
+						</ListItemButton>
+					</ListItem>
+				))}
+			</List>
 		</Box>
 	);
 

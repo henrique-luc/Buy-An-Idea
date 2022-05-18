@@ -4,23 +4,12 @@ import SwipeableTemporaryDrawer from "../Swipeable";
 import { useState } from "react";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-const ResponsiveMenu = () => {
-	const [state, setState] = useState({
-		top: false,
-		left: false,
-		bottom: false,
-		right: false,
-	});
-
-	const handleOpenSwipable = () => {
-		setState({ ...state, left: true });
-	};
-
+const ResponsiveMenu = ({ state, setState, handleOpenSwipable }) => {
 	return (
 		<>
 			<SwipeableTemporaryDrawer state={state} setState={setState} />
 
-			<Box
+			{/* <Box
 				sx={{
 					width: "100%",
 					position: "fixed",
@@ -40,7 +29,7 @@ const ResponsiveMenu = () => {
 					<Typography>Abrir Menu</Typography>
 					<KeyboardArrowRightIcon />
 				</IconButton>
-			</Box>
+			</Box> */}
 		</>
 	);
 };

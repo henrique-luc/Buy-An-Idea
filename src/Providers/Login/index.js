@@ -15,10 +15,11 @@ export const LoginProvider = ({ children }) => {
     api
       .post("/login", userData)
       .then((response) => {
-        setUser(userData);
-        localStorage.setItem("@buyAnIdea:Login", JSON.stringify(response.data));
-        toast.success("Login Realizado");
-        history.push("/dashboard");
+        const {user} = response.data
+        setUser(response.data)
+        localStorage.setItem("@buyAnIdea:Login", JSON.stringify(response.data))
+        toast.success("Login Realizado")
+        user.type === "company"? history.push("/dashboard") : history.push("/dashboard/investidor")
       })
       .catch((err) => {
         toast.error("Email ou senha Incorreto");

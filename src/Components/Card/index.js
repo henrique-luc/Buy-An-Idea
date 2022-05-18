@@ -5,7 +5,7 @@ import { useMatch } from "../../Providers/Match"
 
 const Card = ({match}) =>{
 
-    const {loggedUser, getMatch, acceptMatch} = useMatch()
+    const {loggedUser, getMatch, acceptMatch, refuseMatch} = useMatch()
 
     const {name,lastName, id} = match
 
@@ -16,7 +16,7 @@ const Card = ({match}) =>{
             <h3>{name} {lastName}</h3>
             <p>"loren ipsum dolor"</p>
             <div>
-                <button>X</button>
+                <button onClick={()=> refuseMatch(id)}>X</button>
                 <button><HamburgerMenu/></button>
                 <button onClick={()=> acceptMatch(id)}><img src={matchImg}/></button>
             </div>

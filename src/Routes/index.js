@@ -10,48 +10,58 @@ import ApplicationContainer from "../Components/ApplicationContainer";
 import { AplicationInvestor } from "../Pages/AplicationInvestor";
 import AddIdea from "../Pages/AddIdea";
 import IdeaPage from "../Pages/IdeaPage";
+import { useLogin } from "../Providers/Login";
 
 const Routes = () => {
+  const { user } = useLogin();
   return (
     <>
       <Switch>
         <Route exact path={"/"}>
           <Home />
         </Route>
+
         <Route path={"/cadastro"}>
           <RegisterPage />
         </Route>
+
         <Route path={"/aplicacao"}>
           <Application />
         </Route>
+
         <Route exact path={"/perfil"}>
-          <ApplicationContainer>
-            <EmpreProfile />
-          </ApplicationContainer>
+          {user.type === "company" ? (
+            <ApplicationContainer>
+              <EmpreProfile />
+            </ApplicationContainer>
+          ) : (
+            <ApplicationContainer>
+              <InvestProfile />
+            </ApplicationContainer>
+          )}
         </Route>
+
         <Route path={"/adicionar-ideia"}>
           <ApplicationContainer>
             <AddIdea />
           </ApplicationContainer>
         </Route>
-        <Route path={"/ideia"}>
-          <ApplicationContainer>
-            <IdeaPage />
-          </ApplicationContainer>
-        </Route>
-        <Route path={"/perfil/investidor"}>
-          <ApplicationContainer>
-            <InvestProfile />
-          </ApplicationContainer>
-        </Route>
+
         <Route exact path={"/dashboard"}>
           <ApplicationContainer>
             <Dashboard />
           </ApplicationContainer>
         </Route>
+
         <Route path={"/dashboard/investidor"}>
           <ApplicationContainer>
             <AplicationInvestor />
+          </ApplicationContainer>
+        </Route>
+
+        <Route path={"/ideia"}>
+          <ApplicationContainer>
+            <IdeaPage />
           </ApplicationContainer>
         </Route>
       </Switch>

@@ -32,6 +32,17 @@ export const MatchesUl = styled.ul`
     display: flex;
     align-items: center;
 
+    div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    h2{
+        color: var(--color-primary);
+        width: 100%;
+    }
+
     @media (min-width: 768px){
         min-height: 600px;
         overflow-x: auto;

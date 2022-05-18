@@ -6,6 +6,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import SwipeableTemporaryDrawer from "../Swipeable";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const BottomNav = () => {
 	const [state, setState] = useState({
@@ -18,6 +19,8 @@ const BottomNav = () => {
 	const handleOpenSwipable = () => {
 		setState({ ...state, left: true });
 	};
+
+	const history = useHistory();
 
 	return (
 		<>
@@ -50,6 +53,7 @@ const BottomNav = () => {
 					<BottomNavigationAction
 						label="Meu perfil"
 						icon={<AccountCircleIcon />}
+						onClick={() => history.push("/perfil")}
 					/>
 					<BottomNavigationAction
 						label="Chat"

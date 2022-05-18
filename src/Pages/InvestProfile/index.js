@@ -3,12 +3,19 @@ import { useState } from "react";
 import ModalProfile from "../../Components/ModalProfile/modal-profile";
 import { Container, Content, Title } from "./style";
 import { FiUser, FiPhone, FiMail, FiCreditCard } from "react-icons/fi";
+import { Redirect } from "react-router-dom";
 
 const InvestProfile = () => {
   const [openModalProfile, setOpenModalProfile] = useState(false);
   const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login")) || {};
 
   const { user } = userObj;
+
+
+  if(!userObj.accessToken || user.type !== "investor"){
+    return <Redirect to="/"/>
+  }
+
   const { name, lastName, cpf, email, phone } = user;
 
   const handleCloseProfile = () => setOpenModalProfile(false);
