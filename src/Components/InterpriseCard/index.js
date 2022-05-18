@@ -11,7 +11,7 @@ import Linkedin from "../../assets/linkedin.svg";
 
 export const IntrerPriseCard = ({ empresa }) => {
   // const { name, idea } = empresa;
-  const { name } = empresa;
+  const { email } = empresa;
 
   // const {
   //   video,
@@ -28,11 +28,13 @@ export const IntrerPriseCard = ({ empresa }) => {
   //   ideaValue,
   // } = idea;
 
-  const { cardIsOpen, setCardIsOpen } = useContext(InterpriseListContext);
+  const { cardIsOpen, setCardIsOpen, counter, setCounter } = useContext(
+    InterpriseListContext
+  );
 
   return (
     <InterPriseCardContainer inInfoCard={cardIsOpen}>
-      <h2 className="CardTitle">{name}</h2>
+      <h2 className="CardTitle">{email}</h2>
       <div className="CardVideoContainer">
         <img
           className="CardVideo"
@@ -43,7 +45,7 @@ export const IntrerPriseCard = ({ empresa }) => {
         <p className="CardAbout">{/* {about} */}</p>
 
         <section className="CardButtons">
-          <button className="ButtonX">
+          <button className="ButtonX" onClick={() => setCounter(counter + 1)}>
             <img src={ButtonX} alt="botão de excluir" />
           </button>
           <button
@@ -52,13 +54,20 @@ export const IntrerPriseCard = ({ empresa }) => {
           >
             <img src={ButtonHamb} alt="botão de abrir menu" />
           </button>
-          <button className="ButtonHeart">
+          <button
+            className="ButtonHeart"
+            onClick={() => {
+              //Lógica para adicionar ao contacts
+              console.log(counter);
+              setCounter(counter + 1);
+            }}
+          >
             <img src={ButtonHeart} alt="botão de curtir proposta" />
           </button>
         </section>
       </div>
       <InfoCard inInfoCard={cardIsOpen}>
-        <h2>{name}</h2>
+        <h2>{email}</h2>
         <div className="InfoCardSobre">
           <h4>Sobre</h4>
           <p>{/* {about} */}</p>
