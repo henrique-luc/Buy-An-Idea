@@ -9,8 +9,10 @@ import Application from "../Pages/Application";
 import ApplicationContainer from "../Components/ApplicationContainer";
 import { AplicationInvestor } from "../Pages/AplicationInvestor";
 import AddIdea from "../Pages/AddIdea";
+import { useLogin } from "../Providers/Login";
 
 const Routes = () => {
+	const { user } = useLogin();
 	return (
 		<>
 			<Switch>
@@ -27,20 +29,20 @@ const Routes = () => {
 				</Route>
 
 				<Route exact path={"/perfil"}>
-					<ApplicationContainer>
-						<EmpreProfile />
-					</ApplicationContainer>
+					{user.type === "company" ? (
+						<ApplicationContainer>
+							<EmpreProfile />
+						</ApplicationContainer>
+					) : (
+						<ApplicationContainer>
+							<InvestProfile />
+						</ApplicationContainer>
+					)}
 				</Route>
 
 				<Route path={"/adicionar-ideia"}>
 					<ApplicationContainer>
 						<AddIdea />
-					</ApplicationContainer>
-				</Route>
-
-				<Route path={"/perfil/investidor"}>
-					<ApplicationContainer>
-						<InvestProfile />
 					</ApplicationContainer>
 				</Route>
 
