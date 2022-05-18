@@ -87,50 +87,24 @@ const Register = () => {
 	});
 
 	const onSubmit = (data) => {
-		if (progress === 20) {
-			setUser(data);
-			setProgress(55);
-		} else if (progress === 55) {
-			const {
-				companyName,
-				companyEmail,
-				companyPhone,
-				cnpj,
-				street,
-				district,
-				number,
-				city,
-				cep,
-				uf,
-			} = data;
-			setUser({
-				...user,
-				companyName: companyName,
-				companyEmail: companyEmail,
-				companyPhone: companyPhone,
-				cnpj: cnpj,
-				address: {
-					street: street,
-					district: district,
-					number: number,
-					city: city,
-					cep: cep,
-					uf: uf,
-				},
-			});
-			setProgress(99);
-		} else if (progress === 99) {
-			const { password, companyType } = data;
-			setUser({
-				...user,
-				password: password,
-				companyType: companyType,
-				type: "company",
-				matches: [],
-			});
-			userRegister(setProgress);
-		}
-	};
+		const {name,lastName,cpf,phone,email,companyEmail,companyName,companyPhone,cnpj,street,district,number,city,cep,uf,password, companyType} = data
+        
+        const user = {
+            name, lastName, cpf, phone, email, password, matches: [{name: "maria", lastName:"paula", id: 1},{name: "jose", lastName:"paula",id: 2},{name: "pitou", lastName:"ant",id: 3}],type: "company",contacts: [],
+            company:{companyEmail,companyName,companyPhone,cnpj,companyType,},
+            address:{street,district,number,city,cep,uf}
+        }
+
+        if(progress === 20){
+            setProgress(55)
+        }
+        if(progress === 55){
+            setProgress(99)
+        }
+        if(progress === 99){
+            userRegister(user,setProgress)
+        }  
+	}
 
 	return (
 		<CustomMain>
@@ -349,7 +323,7 @@ const Register = () => {
 					<DivImg>
 						<img src={img} alt="cadasto-realizado" />
 						<h3>Cadastro Realizado com sucesso!</h3>
-						<Button onClick={() => history.push("/login")}>
+						<Button onClick={() => history.push("/")}>
 							Login
 						</Button>
 					</DivImg>

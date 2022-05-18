@@ -14,6 +14,8 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import { CustomIconButton } from "./style";
 
 const HeaderApplication = () => {
+	const history = useHistory()
+
 	return (
 		<>
 			<AppBar
@@ -46,7 +48,7 @@ const HeaderApplication = () => {
 							}}
 						>
 							{/* BOTAO PERFIL*/}
-							<CustomIconButton>
+							<CustomIconButton >
 								<AccountCircleIcon />
 								<Typography className="ml-4">
 									Meu perfil

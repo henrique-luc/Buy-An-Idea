@@ -4,6 +4,7 @@ import Dashboard from "../Pages/Dashboard";
 import Home from "../Pages/Home";
 import RegisterPage from "../Pages/RegisterPage";
 import Application from "../Pages/Application"
+import ApplicationContainer from "../Components/ApplicationContainer";
 
 const Routes = () => {
   return (
@@ -19,7 +20,9 @@ const Routes = () => {
 					<Application />
 				</Route>
         <Route path={"/dashboard"}>
+          <ApplicationContainer>
             <Dashboard/>
+          </ApplicationContainer>
         </Route>
       </Switch>
     </>

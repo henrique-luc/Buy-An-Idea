@@ -23,7 +23,7 @@ export const RegisterProvider = ({ children }) => {
     }   
 
     return(
-        <RegisterContext.Provider value={{ userRegister}}>
+        <RegisterContext.Provider value={{userRegister}}>
             {children}
         </RegisterContext.Provider>
     )
