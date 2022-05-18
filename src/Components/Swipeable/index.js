@@ -12,6 +12,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { usePageLink } from "../../Providers/PageLink";
 import { useLocation } from "react-router-dom";
+import { useLogin } from "../../Providers/Login";
 
 export default function SwipeableTemporaryDrawer({ state, setState }) {
 	const { investorPages, entrepreneurPages } = usePageLink();
@@ -29,12 +30,12 @@ export default function SwipeableTemporaryDrawer({ state, setState }) {
 		setState({ ...state, [anchor]: open });
 	};
 
-	const [isInvestor, setIsInvestor] = useState(false);
+	const { user } = useLogin();
 
 	const pages = () => {
-		if (isInvestor) return investorPages;
+		if (user.type === "company") return entrepreneurPages;
 
-		return entrepreneurPages;
+		return investorPages;
 	};
 
 	const location = useLocation();
