@@ -8,6 +8,7 @@ import RegisterPage from "../Pages/RegisterPage";
 import Application from "../Pages/Application"
 import ApplicationContainer from "../Components/ApplicationContainer";
 import { AplicationInvestor } from "../Pages/AplicationInvestor";
+import AddIdea from "../Pages/AddIdea";
 
 const Routes = () => {
   return (
@@ -25,6 +26,11 @@ const Routes = () => {
         <Route exact path={"/perfil"}>
           <ApplicationContainer>
             <EmpreProfile />
+          </ApplicationContainer>
+        </Route>
+        <Route path={"/adicionar-ideia"}>
+          <ApplicationContainer>
+            <AddIdea />
           </ApplicationContainer>
         </Route>
         <Route path={"/perfil/investidor"}>
