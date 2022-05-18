@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import Providers from './Providers';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Providers>
@@ -14,4 +14,3 @@ root.render(
     </Providers>
   </BrowserRouter>
 );
-

@@ -1,3 +1,4 @@
+import { InterpriseListProvider } from "./interpriseList"
 import { LoginProvider } from "./Login"
 import { MatchProvider } from "./Match"
 import { ModalProvider } from "./Modal"
@@ -10,7 +11,9 @@ const Providers = ({children}) =>{
             <LoginProvider>
                 <MatchProvider>
                     <ModalProvider>
-                        {children}
+                        <InterpriseListProvider>
+                            {children}
+                        </InterpriseListProvider>
                     </ModalProvider>
                 </MatchProvider>
             </LoginProvider>

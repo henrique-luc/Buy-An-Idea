@@ -1,8 +1,8 @@
 import GlobalStyle from "./style";
 import Routes from "./Routes";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AplicationInvestor } from "./Pages/AplicationInvestor";
 
 function App() {
 	return (
@@ -24,4 +24,4 @@ function App() {
 	);
 }
 
-export default App;
+export default App

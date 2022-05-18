@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import RegisterPage from "../Pages/RegisterPage";
 import Application from "../Pages/Application"
 import ApplicationContainer from "../Components/ApplicationContainer";
+import { AplicationInvestor } from "../Pages/AplicationInvestor";
 
 const Routes = () => {
   return (
@@ -19,10 +20,15 @@ const Routes = () => {
 				<Route path={"/aplicacao"}>
 					<Application />
 				</Route>
-        <Route path={"/dashboard"}>
+        <Route exact path={"/dashboard"}>
           <ApplicationContainer>
             <Dashboard/>
           </ApplicationContainer>
+        </Route>
+        <Route path={"/dashboard/investidor"}>
+            <ApplicationContainer>
+              <AplicationInvestor/>
+            </ApplicationContainer>
         </Route>
       </Switch>
     </>

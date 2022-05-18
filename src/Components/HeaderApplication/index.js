@@ -12,6 +12,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import { CustomIconButton } from "./style";
+import { useHistory } from "react-router-dom";
 
 const HeaderApplication = () => {
 	const history = useHistory()
