@@ -7,9 +7,9 @@ import { InputBottom } from "../../Components/inputBottom-add-idea";
 import { Textarea } from "../../Components/Textarea-add-idea";
 
 import { DivAddidea } from "./style.js";
-import facebook from "../../assets/facebook.svg";
+import facebook from "../../assets/Facebook.svg";
 import instagram from "../../assets/instagram.svg";
-import linkedin from "../../assets/facebook.svg";
+import linkedin from "../../assets/linkedin.svg";
 import twitter from "../../assets/twitter.svg";
 import { useLogin } from "../../Providers/Login";
 import { Redirect } from "react-router-dom";
