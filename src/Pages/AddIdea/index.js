@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { Input } from "../../Components/Input-add-idea";
 import { InputBottom } from "../../Components/inputBottom-add-idea";
 import { Textarea } from "../../Components/Textarea-add-idea";
+import { useAddIdea } from "../../Providers/Add-Idea";
 
 import { DivAddidea } from "./style.js";
 import facebook from "../../assets/facebook.svg";
@@ -36,10 +37,11 @@ const AddIdea = () => {
     resolver: yupResolver(schema),
   });
 
-  const [addIdea, setAddIdea] = useState();
+  const { userAddIdea } = useAddIdea();
 
   const onSubmitFunction = (data) => {
-    setAddIdea(data);
+    console.log(data);
+    userAddIdea(data);
   };
 
   const [video, setVideo] = useState();

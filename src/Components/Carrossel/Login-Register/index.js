@@ -7,38 +7,32 @@ import Logo from "../../../assets/logo_2.svg";
 import { Div } from "./style.js";
 
 const CarouselText = () => {
-	return (
-		<Div>
-			<img src={Logo} alt="logo" />
+  return (
+    <Div>
+      <img src={Logo} alt="logo" />
 
-			<Swiper
-				modules={[Pagination, Autoplay]}
-				spaceBetween={30}
-				slidesPerView={1}
-				autoplay={true}
-				className="mySwiper"
-			>
-				<SwiperSlide className="swiper-slide">
-					lorem ipsum dolor sit amet, consectetur adipiscing lorem
-					ipsum dolor sit amet lorem ipsum dolor sit amet, consectetur
-					adipiscing lorem ipsum dolor sit amet lorem ipsum dolor sit
-					amet
-				</SwiperSlide>
-				<SwiperSlide>
-					lorem ipsum dolor sit amet, consectetur adipiscing lorem
-					ipsum dolor sit amet lorem ipsum dolor sit amet, consectetur
-					adipiscing lorem ipsum dolor sit amet lorem ipsum dolor sit
-					amet
-				</SwiperSlide>
-				<SwiperSlide>
-					lorem ipsum dolor sit amet, consectetur adipiscing lorem
-					ipsum dolor sit amet lorem ipsum dolor sit amet, consectetur
-					adipiscing lorem ipsum dolor sit amet lorem ipsum dolor sit
-					amet
-				</SwiperSlide>
-			</Swiper>
-		</Div>
-	);
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        spaceBetween={30}
+        slidesPerView={1}
+        autoplay={true}
+        className="mySwiper"
+      >
+        <SwiperSlide className="swiper-slide">
+          "Sem uma língua comum não se podem concluir os negócios" - Confúcio
+        </SwiperSlide>
+        <SwiperSlide>
+          Nós unimos o útil ao agradável para fazer acontecer parcerias
+          brilhantes
+        </SwiperSlide>
+        <SwiperSlide>
+          lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor
+          sit amet lorem ipsum dolor sit amet, consectetur adipiscing lorem
+          ipsum dolor sit amet lorem ipsum dolor sit amet
+        </SwiperSlide>
+      </Swiper>
+    </Div>
+  );
 };
 
 export default CarouselText;
