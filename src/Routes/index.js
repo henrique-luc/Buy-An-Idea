@@ -1,32 +1,55 @@
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
-import Register from "../Pages/Register";
-
+import EmpreProfile from "../Pages/EmpreProfile";
+import InvestProfile from "../Pages/InvestProfile";
+import Dashboard from "../Pages/Dashboard";
+import Home from "../Pages/Home";
+import RegisterPage from "../Pages/RegisterPage";
+import Application from "../Pages/Application"
+import ApplicationContainer from "../Components/ApplicationContainer";
+import { AplicationInvestor } from "../Pages/AplicationInvestor";
 import AddIdea from "../Pages/AddIdea";
-
-import Login from "../Pages/Login";
-import InvestRegister from "../Pages/InvestRegister";
 
 const Routes = () => {
   return (
     <>
       <Switch>
-        <Route exact path={"/"}></Route>
-        <Route exact path={"/cadastro"}>
-          <Register />
+        <Route exact path={"/"}>
+          <Home />
+        </Route>
+				<Route path={"/cadastro"}>
+					<RegisterPage />
+				</Route>
+				<Route path={"/aplicacao"}>
+					<Application />
+				</Route>
+        <Route exact path={"/perfil"}>
+          <ApplicationContainer>
+            <EmpreProfile />
+          </ApplicationContainer>
         </Route>
         <Route path={"/adicionar-ideia"}>
-          <AddIdea />
+          <ApplicationContainer>
+            <AddIdea />
+          </ApplicationContainer>
         </Route>
-        <Route path={"/cadastro/investidor"}>
-          <InvestRegister />
+        <Route path={"/perfil/investidor"}>
+          <ApplicationContainer>
+            <InvestProfile />
+          </ApplicationContainer>
         </Route>
-        <Route path={"/login"}>
-          <Login />
+        <Route exact path={"/dashboard"}>
+          <ApplicationContainer>
+            <Dashboard/>
+          </ApplicationContainer>
+        </Route>
+        <Route path={"/dashboard/investidor"}>
+            <ApplicationContainer>
+              <AplicationInvestor/>
+            </ApplicationContainer>
         </Route>
       </Switch>
     </>
   );
-};
-
+}
 export default Routes;

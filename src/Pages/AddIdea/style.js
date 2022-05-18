@@ -139,6 +139,10 @@ export const DivAddidea = styled.div`
       display: flex;
     }
 
+    main{
+      width: 100%;
+    }
+
     main h2 {
       font-size: 34px;
     }

@@ -2,15 +2,16 @@ import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../Services/api";
 
-export const RegisterContext = createContext()
+export const RegisterContext = createContext();
 
-export const RegisterProvider = ({children}) =>{
+export const RegisterProvider = ({ children }) => {
+	const [user, setUser] = useState({});
 
-    const [user, setUser] = useState({})
+    //const [user, setUser] = useState({})
 
-    const userRegister = (setProgress) =>{
+    const userRegister = (user,setProgress) =>{
 
-       user.password&&api.post("/register",user)
+       api.post("/register",user)
            .then(res => {
                setProgress(100)
                toast.success('Conta Criada com sucesso!')
@@ -22,7 +23,7 @@ export const RegisterProvider = ({children}) =>{
     }   
 
     return(
-        <RegisterContext.Provider value={{user,setUser, userRegister}}>
+        <RegisterContext.Provider value={{userRegister}}>
             {children}
         </RegisterContext.Provider>
     )

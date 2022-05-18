@@ -7,9 +7,9 @@ import { InputBottom } from "../../Components/inputBottom-add-idea";
 import { Textarea } from "../../Components/Textarea-add-idea";
 
 import { DivAddidea } from "./style.js";
-import facebook from "../../assets/facebook.svg";
+import facebook from "../../assets/Facebook.svg";
 import instagram from "../../assets/instagram.svg";
-import linkedin from "../../assets/linkedin.svg";
+import linkedin from "../../assets/Linkedin.svg";
 import twitter from "../../assets/twitter.svg";
 
 const AddIdea = () => {
@@ -54,11 +54,7 @@ const AddIdea = () => {
 
   return (
     <DivAddidea>
-      <section className="container_addIdea-header"></section>
-
       <section className="container_addIdea-main">
-        <div className="container_addIdea-main-aside"></div>
-
         <main>
           <h2>Adicione a sua ideia </h2>
 
