@@ -7,7 +7,7 @@ import { InterpriseListContext } from "../../Providers/interpriseList";
 
 import Insta from "../../assets/Insta.svg";
 import Facebook from "../../assets/facebook.svg";
-import Linkedin from "../../assets/linkedin.svg";
+import Linkedin from "../../assets/facebook.svg";
 
 export const IntrerPriseCard = ({ empresa }) => {
 	const { name } = empresa;

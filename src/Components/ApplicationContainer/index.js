@@ -14,21 +14,23 @@ const ApplicationContainer = ({ children }) => {
 				}}
 			>
 				{/* HEADER DA APLICACAO */}
-				<HeaderApplication />
+				<HeaderApplication>
+					<ResponsiveMenu />
+				</HeaderApplication>
 
 				{/* CONTEUDO DA APLICACAO */}
 				<Container
 					sx={{
-						marginTop: 20,
+						marginY: 15,
 						minHeight: "100vh",
-						bgcolor: "var(--gray-0)",
+						bgcolor: "#FFF",
 					}}
 				>
 					{children}
 				</Container>
 
 				{/* MENU RESPONSIVO */}
-				<ResponsiveMenu />
+
 				<BottomNav />
 			</Box>
 		</>

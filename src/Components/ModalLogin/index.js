@@ -82,7 +82,7 @@ const ModalLogin = () => {
 
 							{/* SWIPER CONTAINER */}
 
-							<Swiper
+							{/* <Swiper
 								modules={[Pagination, Autoplay]}
 								spaceBetween={30}
 								slidesPerView={1}
@@ -110,7 +110,7 @@ const ModalLogin = () => {
 									lorem ipsum dolor sit amet lorem ipsum dolor
 									sit amet
 								</SwiperSlide>
-							</Swiper>
+							</Swiper> */}
 						</Box>
 					</Container>
 
