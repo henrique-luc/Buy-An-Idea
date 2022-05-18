@@ -1,5 +1,7 @@
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
+import EmpreProfile from "../Pages/EmpreProfile";
+import InvestProfile from "../Pages/InvestProfile";
 import Dashboard from "../Pages/Dashboard";
 import Home from "../Pages/Home";
 import RegisterPage from "../Pages/RegisterPage";
@@ -20,6 +22,16 @@ const Routes = () => {
 				<Route path={"/aplicacao"}>
 					<Application />
 				</Route>
+        <Route exact path={"/perfil"}>
+          <ApplicationContainer>
+            <EmpreProfile />
+          </ApplicationContainer>
+        </Route>
+        <Route path={"/perfil/investidor"}>
+          <ApplicationContainer>
+            <InvestProfile />
+          </ApplicationContainer>
+        </Route>
         <Route exact path={"/dashboard"}>
           <ApplicationContainer>
             <Dashboard/>
