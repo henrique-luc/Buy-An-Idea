@@ -11,6 +11,8 @@ import facebook from "../../assets/facebook.svg";
 import instagram from "../../assets/instagram.svg";
 import linkedin from "../../assets/facebook.svg";
 import twitter from "../../assets/twitter.svg";
+import { useLogin } from "../../Providers/Login";
+import { Redirect } from "react-router-dom";
 
 const AddIdea = () => {
 	const schema = yup.object().shape({
@@ -36,6 +38,7 @@ const AddIdea = () => {
 		resolver: yupResolver(schema),
 	});
 
+<<<<<<< HEAD
 	const [addIdea, setAddIdea] = useState();
 
 	const onSubmitFunction = (data) => {
@@ -44,6 +47,21 @@ const AddIdea = () => {
 	};
 
 	const [video, setVideo] = useState();
+=======
+  const {user} = useLogin()
+  const [video, setVideo] = useState();
+  const [addIdea, setAddIdea] = useState();
+
+  if(!user.accessToken || user.user.type !== "company"){
+    return <Redirect to="/"/>
+  }
+
+  const onSubmitFunction = (data) => {
+    console.log(data);
+    //return setAddIdea(data);
+  };
+
+>>>>>>> 2dfc617d7bf2b0dab2369b350f497ef3c7372afb
 
 	const videoLink = (event) => {
 		const originalLink = event.target.value;

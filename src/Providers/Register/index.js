@@ -5,8 +5,7 @@ import { api } from "../../Services/api";
 export const RegisterContext = createContext();
 
 export const RegisterProvider = ({ children }) => {
-	const [user, setUser] = useState({});
-
+	//const [user, setUser] = useState({});
     //const [user, setUser] = useState({})
 
     const userRegister = (user,setProgress) =>{
