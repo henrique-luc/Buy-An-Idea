@@ -5,7 +5,7 @@ import {
 	Box,
 	Toolbar,
 	Container,
-	Typography,
+	Link,
 	Menu,
 	MenuItem,
 	Button,
@@ -16,7 +16,6 @@ import * as S from "./style";
 import { useHistory } from "react-router-dom";
 import ModalLogin from "../ModalLogin";
 import { useModal } from "../../Providers/Modal";
-const pages = ["Login", "Cadastre-se"];
 
 const HeaderHome = () => {
 	const history = useHistory();
@@ -99,9 +98,10 @@ const HeaderHome = () => {
 								onClose={handleCloseNavMenu}
 								sx={{
 									display: { xs: "block", md: "none" },
+									color: "var(--gray-3)",
 								}}
 							>
-								{pages.map((page) => (
+								{/* {pages.map((page) => (
 									<MenuItem
 										key={page}
 										onClick={handleCloseNavMenu}
@@ -110,7 +110,30 @@ const HeaderHome = () => {
 											{page}
 										</Typography>
 									</MenuItem>
-								))}
+								))} */}
+								<MenuItem
+									key={"modal-login"}
+									onClick={handleCloseNavMenu}
+								>
+									<Link
+										textAlign="center"
+										onClick={handleOpenLoginModal}
+										sx={{ textDecoration: "none" }}
+									>
+										Login
+									</Link>
+								</MenuItem>
+								<MenuItem
+									key={"pagina-cadastro"}
+									onClick={() => history.push("/cadastro")}
+								>
+									<Link
+										textAlign="center"
+										sx={{ textDecoration: "none" }}
+									>
+										Cadastre-se
+									</Link>
+								</MenuItem>
 							</Menu>
 						</Box>
 					</Toolbar>
