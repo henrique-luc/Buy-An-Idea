@@ -50,21 +50,22 @@ const InvestRegister = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit = (data) => {
-		const { email, password, name, lastName, cpfCnpj, phone, genre } = data;
-		setUser({
-			email: email,
-			name: name,
-			lastName: lastName,
-			cpfCnpj: cpfCnpj,
-			phone: phone,
-			genre: genre,
-			type: "investor",
-			matches: [],
-			password: password,
-		});
-		userRegister(setProgress);
-	};
+	const onSubmit = (data) =>{
+        const {email,password,name,lastName,cpfCnpj,phone,genre} = data
+        const user = {
+            email,
+            name,
+            lastName,
+            cpfCnpj,
+            phone,
+            genre,
+            type: "investor", 
+            matches: [],
+            contacts: [],
+            password,
+        }
+        userRegister(user, setProgress)
+    }
 
 	return (
 		<>
@@ -161,7 +162,7 @@ const InvestRegister = () => {
 						<DivImg>
 							<img src={img} alt="cadasto-realizado" />
 							<h3>Cadastro Realizado com sucesso!</h3>
-							<Button onClick={() => history.push("/login")}>
+							<Button onClick={() => history.push("/")}>
 								Login
 							</Button>
 						</DivImg>

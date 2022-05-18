@@ -4,16 +4,22 @@ import { BiUser, BsChat, CustomDiv, CustomMain, Footer, HamburgerMenu, MatchesUl
 import Menu from "../../Components/Menu"
 import { useEffect} from "react"
 import { useMatch } from "../../Providers/Match"
+import { useLogin } from "../../Providers/Login"
+import { Redirect } from "react-router-dom"
 
 const Dashboard = () =>{
 
     const {loggedUser, getMatch} = useMatch()
-
+    const {user} = useLogin()
     const {matches} = loggedUser
- 
+    
     useEffect(()=>{
         getMatch()
     },[matches])
+    
+    if(!user.accessToken || user.user.type !== "company"){
+        return <Redirect to="/"/>
+    }
 
     return (
         <>

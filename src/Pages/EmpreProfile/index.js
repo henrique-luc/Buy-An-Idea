@@ -11,6 +11,8 @@ import {
   FiCreditCard,
 } from "react-icons/fi";
 import Menu from "../../Components/Menu";
+import { Redirect } from "react-router-dom";
+
 
 const EmpreProfile = () => {
   const [openModalCompany, setOpenModalCompany] = useState(false);
@@ -18,12 +20,18 @@ const EmpreProfile = () => {
   const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login")) || {};
 
   const { user } = userObj;
+  
+  if(!userObj.accessToken || user.type !== "company"){
+    return <Redirect to="/"/>
+  } 
+  
 
   const { company, address, name, lastName, cpf, email, phone } = user;
 
   const { street, city, cep, number, district, uf } = address;
 
   const { companyName, companyEmail, companyPhone, cnpj } = company;
+
 
   const handleCloseCompany = () => setOpenModalCompany(false);
 
