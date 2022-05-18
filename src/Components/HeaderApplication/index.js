@@ -101,9 +101,13 @@ const HeaderApplication = () => {
 							</CustomIconButton>
 
 							{/* BOTAO CHAT */}
-							<CustomIconButton>
+							<CustomIconButton
+								onClick={() => history.push("/conversas")}
+							>
 								<ChatBubbleIcon />
-								<Typography className="ml-4">Chat</Typography>
+								<Typography className="ml-4">
+									Conversas
+								</Typography>
 							</CustomIconButton>
 
 							<Divider

@@ -8,6 +8,10 @@ export const PageLinkProvider = ({ children }) => {
 			name: "Dashboard",
 			link: "/dashboard/investidor",
 		},
+		{
+			name: "Conversas",
+			link: "/conversas",
+		},
 	];
 
 	const entrepreneurPagesList = [
@@ -18,6 +22,10 @@ export const PageLinkProvider = ({ children }) => {
 		{
 			name: "Adicionar ideia",
 			link: "/adicionar-ideia",
+		},
+		{
+			name: "Conversas",
+			link: "/conversas",
 		},
 	];
 
