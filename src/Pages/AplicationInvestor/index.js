@@ -2,16 +2,19 @@ import { useContext } from "react";
 import { InterpriseList } from "../../Components/InterpriseList";
 import { InterpriseListContext } from "../../Providers/interpriseList";
 import { InvestidorContainer, LoadingPage } from "./styles";
-
-import Perfil from "../../assets/Perfil.svg";
-import Chat from "../../assets/Chat.svg";
-import Menu from "../../assets/Menu.svg";
+import { useLogin } from "../../Providers/Login";
 import Lamp from "../../assets/Lamp.svg";
-
 import logo from "../../assets/Vector.svg";
+import { Redirect } from "react-router-dom";
 
 export const AplicationInvestor = () => {
   const { list, cardIsOpen } = useContext(InterpriseListContext);
+  const { user } = useLogin()
+
+  if(!user.accessToken || user.user.type !== "investor"){
+    return <Redirect to="/"/>
+}
+
   return (
     <>
       {list.length === 0 ? (

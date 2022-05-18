@@ -16,11 +16,10 @@ const InvestRegister = () => {
 	const schema = yup.object().shape({
 		name: yup.string().required("Preencha o campo").trim(),
 		lastName: yup.string().required("Preencha o campo").trim(),
-		cpfCnpj: yup
+		cpf: yup
 			.string()
 			.required("Preencha o campo")
 			.min(11, "Insira um cpf valido")
-			.max(14, "Insira um Cpf ou Cnpj valido")
 			.trim(),
 		email: yup
 			.string()
@@ -50,21 +49,22 @@ const InvestRegister = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit = (data) => {
-		const { email, password, name, lastName, cpfCnpj, phone, genre } = data;
-		setUser({
-			email: email,
-			name: name,
-			lastName: lastName,
-			cpfCnpj: cpfCnpj,
-			phone: phone,
-			genre: genre,
-			type: "investor",
-			matches: [],
-			password: password,
-		});
-		userRegister(setProgress);
-	};
+	const onSubmit = (data) =>{
+        const {email,password,name,lastName,cpf,phone,genre} = data
+        const user = {
+            email,
+            name,
+            lastName,
+            cpf,
+            phone,
+            genre,
+            type: "investor", 
+            matches: [],
+            contacts: [],
+            password,
+        }
+        userRegister(user, setProgress)
+    }
 
 	return (
 		<>
@@ -96,11 +96,11 @@ const InvestRegister = () => {
 								type="text"
 							/>
 							<Input
-								errors={errors.cpfCnpj?.message}
+								errors={errors.cpf?.message}
 								register={register}
-								name={"cpfCnpj"}
-								label={"CPF / CNPJ"}
-								placeholder="Insira seu CPF/CNPJ"
+								name={"cpf"}
+								label={"CPF"}
+								placeholder="Insira seu CPF"
 								type="number"
 							/>
 							<Input
@@ -161,7 +161,7 @@ const InvestRegister = () => {
 						<DivImg>
 							<img src={img} alt="cadasto-realizado" />
 							<h3>Cadastro Realizado com sucesso!</h3>
-							<Button onClick={() => history.push("/login")}>
+							<Button onClick={() => history.push("/")}>
 								Login
 							</Button>
 						</DivImg>

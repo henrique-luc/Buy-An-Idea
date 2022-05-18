@@ -28,7 +28,6 @@ export const AddIdeaProvider = ({ children }) => {
         },
       })
       .then((response) => {
-        console.log(response);
         /* localStorage.setItem(
           "@buyAnIdea:AddIdea",
           JSON.stringify(response.addIdeaData)
