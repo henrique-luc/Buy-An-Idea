@@ -25,6 +25,14 @@ const CarouselText = () => {
           Nós unimos o útil ao agradável para fazer acontecer parcerias
           brilhantes.
         </SwiperSlide>
+        <SwiperSlide>
+          As chances de receber melhores propostas aumenta com um bom video de
+          apresentação.
+        </SwiperSlide>
+        <SwiperSlide>
+          O BuyAnIdea é um espaço virtual, onde estão apresentados as melhores
+          empresas esperando pelo seu investimento.
+        </SwiperSlide>
       </Swiper>
     </Div>
   );
