@@ -13,6 +13,7 @@ export const AddIdeaProvider = ({ children }) => {
 	const [addIdea, setAddIdea] = useState({});
 
 	const userAddIdea = (addIdeaData) => {
+		console.log(info)
 		const { user, accessToken } = info;
 		const { id, email, password } = user;
 
