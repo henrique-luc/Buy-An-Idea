@@ -23,8 +23,7 @@ export const AddIdeaProvider = ({ children }) => {
         },
         body: {
           email: email,
-          password: password,
-          idea: { addIdeaData },
+          password: password
         },
       })
       .then((response) => {

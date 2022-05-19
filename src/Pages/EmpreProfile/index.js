@@ -20,19 +20,20 @@ const EmpreProfile = () => {
 	const [openModalCompany, setOpenModalCompany] = useState(false);
 	const [openModalProfile, setOpenModalProfile] = useState(false);
 	const {user} = useLogin()
-	const {editUser,setEditUser} = useEditProfile()
+	const {editUser,setEditUser, isLoading, setIsLoading} = useEditProfile()
 	
 
-	/* useEffect(()=>{
+	 useEffect(()=>{
 		api.get(`/users/${user.user.id}`,{
 			headers:{
 				Authorization: `Bearer ${user.accessToken}`
 			}
 		})
 		.then(res =>{
+			setIsLoading(true)
 			setEditUser(res.data)
 		})
-	},[userData]) */
+	},[isLoading]) 
 	/* const {name,email,lastName,cpf,company,address,phone} = editUser
 	const {street, district, uf,number,cep,city} = address
 	const {companyEmail, companyName,companyPhone,cnpj} = company */
@@ -50,7 +51,10 @@ const EmpreProfile = () => {
 	};
 
 	return (
-		<BoxContainer>
+			<>
+			{ !isLoading ? <h1>Loading...</h1> :
+				<>
+					<BoxContainer>
 			<section>
 				<Title>
 					<h1>Meu perfil</h1>
@@ -116,28 +120,32 @@ const EmpreProfile = () => {
 
 				<Content>
 					<h2>
-						<FiUser /> {editUser.name} {editUser.lastName}
+						<FiUser /> {editUser&&editUser.name} {editUser&&editUser.lastName}
 					</h2>
 					<ul>
 						<li>
 							<FiCreditCard />
 							CPF
-							<p>{editUser.cpf}</p>
+							<p>{editUser&&editUser.cpf}</p>
 						</li>
 						<li>
 							<FiMail />
 							Email
-							<p>{editUser.email}</p>
+							<p>{editUser&&editUser.email}</p>
 						</li>
 						<li>
 							<FiPhone />
 							Telefone
-							<p>{editUser.phone}</p>
+							<p>{editUser&&editUser.phone}</p>
 						</li>
 					</ul>
 				</Content>
 			</section>
 		</BoxContainer>
+				</>
+			}
+			
+		</>
 	);
 };
 
