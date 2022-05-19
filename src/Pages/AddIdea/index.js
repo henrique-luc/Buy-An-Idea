@@ -8,7 +8,7 @@ import { Textarea } from "../../Components/Textarea-add-idea";
 import { useAddIdea } from "../../Providers/Add-Idea";
 
 import { DivAddidea } from "./style.js";
-import facebook from "../../assets/Facebook.svg";
+import facebook from "../../assets/facebook.svg";
 import instagram from "../../assets/instagram.svg";
 import linkedin from "../../assets/linkedin.svg";
 import twitter from "../../assets/twitter.svg";
@@ -43,18 +43,45 @@ const AddIdea = () => {
   const { user } = useLogin();
   const [video, setVideo] = useState();
 
-	if (!user) {
-		return <Redirect to="/" />;
-	}
-	if (user.user.type === "investor") {
-		return <Redirect to="/dashboard/investidor" />;
-	}
+  if (!user) {
+    return <Redirect to="/" />;
+  }
+  if (user.user.type === "investor") {
+    return <Redirect to="/dashboard/investidor" />;
+  }
 
   const onSubmitFunction = (data) => {
-    const {video,coreBusiness,payback,valuation,document,website,facebook,instagram,linkedin,twitter,ideaValue,about} = data
+    const {
+      video,
+      coreBusiness,
+      payback,
+      valuation,
+      document,
+      website,
+      facebook,
+      instagram,
+      linkedin,
+      twitter,
+      ideaValue,
+      about,
+    } = data;
     const userIdea = {
-      idea: {video,coreBusiness,payback,valuation,document,website,facebook,instagram,linkedin,twitter,ideaValue,about, exist: true}
-    }
+      idea: {
+        video,
+        coreBusiness,
+        payback,
+        valuation,
+        document,
+        website,
+        facebook,
+        instagram,
+        linkedin,
+        twitter,
+        ideaValue,
+        about,
+        exist: true,
+      },
+    };
 
     userAddIdea(userIdea);
   };
@@ -63,7 +90,7 @@ const AddIdea = () => {
     const originalLink = event.target.value;
     const sliceLink = originalLink.slice(-11);
     const link = `https://www.youtube.com/embed/${sliceLink}`;
-    setVideo(link)
+    setVideo(link);
   };
 
   return (
@@ -167,7 +194,7 @@ const AddIdea = () => {
                 />
               </div>
             </section>
-            
+
             <section>
               <div>
                 <h4>Redes Sociais</h4>
