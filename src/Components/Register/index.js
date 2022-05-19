@@ -13,6 +13,7 @@ import {
   DivEndereco,
   DivImg,
 } from "./style";
+import CarouselText from "../Carrossel/Login-Register";
 
 import Select from "../../Components/Select";
 import { AiOutlineArrowRight } from "react-icons/ai";
@@ -138,10 +139,7 @@ const Register = () => {
 
   return (
     <CustomMain>
-      {/* <CustomText>
-            <Logo><img src={logo} alt="logo"/> <h1>Buy<span>An</span>Idea</h1></Logo>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra sapien nec vel consequat lacus volutpat id.</p>
-            </CustomText> */}
+      <CarouselText />
       <FormBox>
         <CustomDiv>
           <h2>Cadastre a sua empresa</h2>
