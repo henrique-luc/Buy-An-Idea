@@ -62,6 +62,8 @@ const InvestRegister = () => {
       type: "investor",
       matches: [],
       contacts: [],
+      img:"",
+      about:"",
       password,
     };
     userRegister(user, setProgress);
