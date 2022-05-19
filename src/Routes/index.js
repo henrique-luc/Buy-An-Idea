@@ -34,28 +34,16 @@ const Routes = () => {
 					<Home />
 				</Route>
 
-        <Route path={"/cadastro"}>
-          <RegisterPage />
-        </Route>
+				<Route path={"/cadastro"}>
+					<RegisterPage />
+				</Route>
 
-        <Route path={"/aplicacao"}>
-          <Application />
-        </Route>
+				<Route path={"/aplicacao"}>
+					<Application />
+				</Route>
 
-<<<<<<< HEAD
-				{/* <Route exact path={"/perfil"}>
-					(
-					<ApplicationContainer>
-						{user.user.type === "investor" ? (
-							<InvestProfile />
-						) : (
-							<EmpreProfile />
-						)}
-					</ApplicationContainer>
-				</Route> */}
-=======
 				<Route exact path={"/perfil"}>
-					{user&&user.user.type === "company" ? (
+					{user && user.user.type === "company" ? (
 						<ApplicationContainer>
 							<EmpreProfile />
 						</ApplicationContainer>
@@ -65,7 +53,6 @@ const Routes = () => {
 						</ApplicationContainer>
 					)}
 				</Route>
->>>>>>> 64210481354d844c89e9bb0b605e21ea006f101b
 
 				<Route exact path={"/adicionar-ideia"}>
 					<ApplicationContainer>
@@ -74,9 +61,9 @@ const Routes = () => {
 				</Route>
 
 				<Route exact path={"/dashboard"}>
-				<ApplicationContainer>
-					<Dashboard />
-				</ApplicationContainer>
+					<ApplicationContainer>
+						<Dashboard />
+					</ApplicationContainer>
 				</Route>
 
 				<Route path={"/dashboard/investidor"}>

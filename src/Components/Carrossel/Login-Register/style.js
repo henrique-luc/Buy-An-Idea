@@ -11,37 +11,16 @@ export const Div = styled.div`
 	img {
 		width: 200px;
 	}
-	/* figure {
-		height: 100%;
-		display: none;
-	} */
-	/* figure img {
-		width: 40%;
-		height: 100%;
-		margin-left: 2%;
-	} */
+
 	figcaption {
 		display: none;
 	}
-
-	/* .swiper-slide {
-		display: none;
-	} */
 
 	@media screen and (min-width: 768px) {
 		width: 40%;
 		/* height: 40%; */
 		font-family: "Open Sans", sans-serif;
 		font-size: 1.5em;
-
-		/* figure {
-			height: 200px;
-		}
-
-		figure img {
-			width: 21vw;
-			margin: 90px 50px;
-		} */
 
 		.mySwiper {
 			display: flex;
@@ -54,14 +33,11 @@ export const Div = styled.div`
 			display: flex;
 			margin-top: 70px;
 		}
+	}
 
-		@media screen and (max-width: 768px) {
-			/* figure img {
-				margin: 55px 50px;
-			} */
-			img {
-				display: none;
-			}
+	@media screen and (max-width: 1024px) {
+		& {
+			display: none;
 		}
 	}
 `;
