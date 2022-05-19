@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../Services/api";
 
-export const MatchContext = createContext()
+export const MatchContext = createContext();
 
 export const MatchProvider = ({children}) =>{
     
@@ -29,14 +29,16 @@ export const MatchProvider = ({children}) =>{
         })
     }
 
-    const acceptMatch = (userId) =>{
-        const {user,accessToken} = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
+  const acceptMatch = (userId) => {
+    const { user, accessToken } = JSON.parse(
+      localStorage.getItem("@buyAnIdea:Login")
+    );
 
-        const {id, email, password} = user
+    const {id, email, password} = user
 
-        const {contacts} = loggedUser
-        const accept = loggedUser.matches.filter(match => match.id === userId)
-        const pending = loggedUser.matches.filter(match => match.id !== userId)
+    const {contacts} = loggedUser
+    const accept = loggedUser.matches.filter(match => match.id === userId)
+    const pending = loggedUser.matches.filter(match => match.id !== userId)
 
         api.patch(`/users/${id}`,{matches: pending, contacts: [...contacts,...accept]},{
             headers: {
@@ -92,4 +94,4 @@ export const MatchProvider = ({children}) =>{
     )
 }
 
-export const useMatch = () => useContext(MatchContext)
+export const useMatch = () => useContext(MatchContext);

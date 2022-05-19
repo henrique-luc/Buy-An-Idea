@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const InterPriseCardContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 80px auto;
   margin-top: ${({ inInfoCard }) => (inInfoCard ? "75px" : 0)};
 
   display: flex;
@@ -16,12 +16,12 @@ export const InterPriseCardContainer = styled.div`
 
   .CardTitle {
     align-self: start;
-    padding-left: 12px;
+    padding-left: 8px;
 
     font-weight: 700;
-    font-size: 24px;
-    color: var(--orange);
-    padding-bottom: 60px;
+    font-size: 28px;
+    color: var(--color-secundary);
+    padding-bottom: 10px;
     /* padding-top temporário */
   }
 
@@ -29,12 +29,18 @@ export const InterPriseCardContainer = styled.div`
     display: flex;
     justify-content: center;
     position: relative;
+    width: 100%;
+    height: 456px;
+    background: black;
+    /* padding-bottom: 0px; */
+    border-radius: 20px;
   }
 
   .CardVideo {
     /* position: relative; */
-    width: ${({ inInfoCard }) => (inInfoCard ? "367px" : "342px")};
-    height: ${({ inInfoCard }) => (inInfoCard ? "302px" : "411px")};
+    /* width: ${({ inInfoCard }) => (inInfoCard ? "367px" : "342px")}; */
+    width: 90%;
+    height: ${({ inInfoCard }) => (inInfoCard ? "408px" : "411px")};
     object-fit: cover;
 
     border-radius: 18.76px;
@@ -87,7 +93,7 @@ export const InterPriseCardContainer = styled.div`
   }
 
   .ButtonX {
-    border: 3px solid var(--orange);
+    border: 3px solid var(--color-secundary);
   }
 
   .ButtonHamb {
@@ -111,33 +117,33 @@ export const InterPriseCardContainer = styled.div`
 `;
 
 export const InfoCard = styled.div`
-  bottom: 18px;
+  bottom: 40px;
 
   display: ${({ inInfoCard }) => (inInfoCard ? "flex" : "none")};
   align-items: flex-start;
   flex-direction: column;
-  width: 342px;
+  width: 95%;
   height: 900px;
 
   position: relative;
   background-color: #fff;
 
   border-radius: 8px;
-  margin: 0 auto 100px auto;
+  margin: 0 auto;
 
   border: 2px solid var(--gray-4);
 
   h2,
   h4 {
     font-weight: 700;
-    color: var(--orange);
+    color: var(--color-secundary);
   }
 
   h2 {
     width: 90%;
     margin: 41px auto 36px auto;
 
-    color: var(--orange);
+    color: var(--color-secundary);
     font-size: 24px;
   }
 
@@ -185,6 +191,10 @@ export const InfoCard = styled.div`
     align-items: center;
     gap: 4px;
   }
+  .InfoCardSocial img {
+    width: 17px;
+    height: 18px;
+  }
 
   .ImgContainer {
     display: flex;
@@ -204,12 +214,12 @@ export const InfoCard = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-
+    width: 100%;
+    margin: 0 auto;
     gap: 28.6px;
 
     position: absolute;
     bottom: -40px;
-    left: 34px;
   }
 
   .CardButtons2 button {
@@ -219,7 +229,7 @@ export const InfoCard = styled.div`
   }
 
   .ButtonX2 {
-    border: 3px solid var(--orange);
+    border: 3px solid var(--color-secundary);
   }
 
   .ButtonHamb2 {

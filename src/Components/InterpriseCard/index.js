@@ -6,42 +6,58 @@ import { useContext } from "react";
 import { InterpriseListContext } from "../../Providers/interpriseList";
 
 import Insta from "../../assets/Insta.svg";
-import Facebook from "../../assets/Facebook.svg";
+import Facebook from "../../assets/facebook.svg";
 import Linkedin from "../../assets/linkedin.svg";
+import { MatchContext } from "../../Providers/Match";
 
 export const IntrerPriseCard = ({ empresa }) => {
-  const { name } = empresa;
+  const { name, idea } = empresa;
 
-  const { cardIsOpen, setCardIsOpen } = useContext(InterpriseListContext);
+  const {
+    video,
+    about,
+    coreBusiness,
+    payback,
+    valuation,
+    document,
+    website,
+    facebook,
+    instagram,
+    linkedin,
+    twitter,
+    ideaValue,
+  } = idea;
+
+  const embedCodeVideo = video.slice(32, 43);
+
+  const { cardIsOpen, setCardIsOpen, counter, setCounter } = useContext(
+    InterpriseListContext
+  );
+
+  const { acceptMatch } = useContext(MatchContext);
 
   return (
     <InterPriseCardContainer inInfoCard={cardIsOpen}>
       <h2 className="CardTitle">{name}</h2>
       <div className="CardVideoContainer">
-        <img
+        <iframe
           className="CardVideo"
-          src="https://xerpay.com.br/blog/wp-content/uploads/sites/2/2018/09/reuni%C3%A3o-produtiva-1434x957.jpg"
-          alt="exemplo de empresa"
-        />
-        {/* simulação do sobre */}
-        <p className="CardAbout">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-          voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-          fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-          accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut
-          molestias architecto voluptate aliquam nihil, eveniet aliquid culpa
-          officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum
-          nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque
-          error repudiandae fuga? Ipsa laudantium molestias eos sapiente
-          officiis modi at sunt excepturi expedita sint? Sed quibusdam
-          recusandae alias error harum maxime adipisci amet laborum.
-          Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a
-          cumque velit
-        </p>
+          src={`https://www.youtube.com/embed/${embedCodeVideo}`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+
+        <p className="CardAbout">{about}</p>
 
         <section className="CardButtons">
-          <button className="ButtonX">
+          <button
+            className="ButtonX"
+            onClick={() => {
+              setCounter(counter + 1);
+            }}
+          >
             <img src={ButtonX} alt="botão de excluir" />
           </button>
           <button
@@ -50,7 +66,14 @@ export const IntrerPriseCard = ({ empresa }) => {
           >
             <img src={ButtonHamb} alt="botão de abrir menu" />
           </button>
-          <button className="ButtonHeart">
+          <button
+            className="ButtonHeart"
+            onClick={() => {
+              //Lógica para adicionar ao contacts
+              setCounter(counter + 1);
+              acceptMatch();
+            }}
+          >
             <img src={ButtonHeart} alt="botão de curtir proposta" />
           </button>
         </section>
@@ -59,61 +82,35 @@ export const IntrerPriseCard = ({ empresa }) => {
         <h2>{name}</h2>
         <div className="InfoCardSobre">
           <h4>Sobre</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-            voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-            fugiat iusto fuga praesentium optio, eaque rerum! Provident
-            similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-            eius earum ut molestias architecto voluptate aliquam nihil, eveniet
-            aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur
-            error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-            quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias
-            eos sapiente officiis modi at sunt excepturi expedita sint? Sed
-            quibusdam recusandae alias error harum maxime adipisci amet laborum.
-            Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates
-            a cumque velit
-          </p>
+          <p>{about}</p>
         </div>
         <div className="InfoCardValor">
-          <h4>Valor do investimento</h4>
-          <p>R$300k ou mentoria por 50% da empresa.</p>
+          <h4>Proposta inicial</h4>
+          <p>{ideaValue}</p>
         </div>
-        <div className="InfoCardImages">
-          <h4>imagens</h4>
-          {/* Fazer um map para renderizar as imagens */}
-          {/* Aqui ficarão imagens de exemplo apenas */}
-          <section className="ImgContainer">
-            <img
-              src="https://madmais.vteximg.com.br/arquivos/ids/157264-1000-1000/FORMICA-PLASTICA-CINZA-MEDIO-TX.jpg?v=637310219714400000"
-              alt="Imagem exemplo"
-            />
-            <img
-              src="https://madmais.vteximg.com.br/arquivos/ids/157264-1000-1000/FORMICA-PLASTICA-CINZA-MEDIO-TX.jpg?v=637310219714400000"
-              alt="Imagem exemplo"
-            />
-            <img
-              src="https://madmais.vteximg.com.br/arquivos/ids/157264-1000-1000/FORMICA-PLASTICA-CINZA-MEDIO-TX.jpg?v=637310219714400000"
-              alt="Imagem exemplo"
-            />
-          </section>
+        <div className="InfoCardPayback">
+          <h4>Payback</h4>
+          <p>{payback}</p>
+        </div>
+        <div className="InfoCardValuation">
+          <h4>Valuation</h4>
+          <p>{valuation}</p>
         </div>
 
         <div className="InfoCardSite">
           <h4>Site da empresa</h4>
-          <a href="https://kenzie.com.br/">https://kenzie.com.br/</a>
+          <a href={`${website}`}>{website}</a>
         </div>
 
-        {/* Quando obtiver acesso ao objeto empresa de fato, fazer um map  */}
         <section className="InfoCardContact">
           <div className="InfoCardSocial InfoCardContact--insta">
             <img alt="Ícone do instagram" src={Insta} />
             <a
               rel="noreferrer"
               target="_blank"
-              href="https://www.instagram.com/kenzieacademybr/"
+              href={`https://instagram.com/${instagram}`}
             >
-              @kenzieacademybr
+              @{instagram}
             </a>
           </div>
           <div className="InfoCardSocial InfoCardContact--facebook">
@@ -121,9 +118,9 @@ export const IntrerPriseCard = ({ empresa }) => {
             <a
               rel="noreferrer"
               target="_blank"
-              href="https://www.facebook.com/kenzieacademybr/"
+              href={`https://www.facebook.com/${facebook}`}
             >
-              @kenzieacademybr
+              {facebook}
             </a>
           </div>
           <div className="InfoCardSocial InfoCardContact--linkedin">
@@ -131,9 +128,9 @@ export const IntrerPriseCard = ({ empresa }) => {
             <a
               rel="noreferrer"
               target="_blank"
-              href="https://www.linkedin.com/school/kenzie-brasil/mycompany/"
+              href={`https://www.linkedin.com/in/${linkedin}`}
             >
-              Kenzie Academy Brasil
+              {linkedin}
             </a>
           </div>
         </section>
