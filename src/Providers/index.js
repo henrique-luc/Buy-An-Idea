@@ -6,6 +6,7 @@ import { ModalProvider } from "./Modal";
 import { RegisterProvider } from "./Register";
 import { AddIdeaProvider } from "./Add-Idea";
 import { PageLinkProvider } from "./PageLink";
+import { MessageProvider } from "./Message";
 
 const Providers = ({ children }) => {
 	return (
@@ -17,7 +18,9 @@ const Providers = ({ children }) => {
 							<InterpriseListProvider>
 								<PageLinkProvider>
 									<EditProfileProvider>
-										{children}
+										<MessageProvider>
+											{children}
+										</MessageProvider>
 									</EditProfileProvider>
 								</PageLinkProvider>
 							</InterpriseListProvider>

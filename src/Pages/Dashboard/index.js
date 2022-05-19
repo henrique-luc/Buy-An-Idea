@@ -16,7 +16,7 @@ import { useMatch } from "../../Providers/Match";
 import { useLogin } from "../../Providers/Login";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import ModalSendMessage from "../../Components/ModalSendMessage";
 
 const Dashboard = () => {
 	const { loggedUser, getMatch } = useMatch();
@@ -31,8 +31,8 @@ const Dashboard = () => {
 	if (!user) {
 		return <Redirect to="/" />;
 	}
-	if(user.user.type === "investor"){
-		return <Redirect to="/dashboard/investidor"/>
+	if (user.user.type === "investor") {
+		return <Redirect to="/dashboard/investidor" />;
 	}
 
 	return (
@@ -50,6 +50,7 @@ const Dashboard = () => {
 								<div>
 									<h2>que tal melhorar o seu perfil?</h2>
 									<Link to={"/perfil"}>Perfil</Link>
+									<ModalSendMessage />
 								</div>
 							</>
 						) : (
