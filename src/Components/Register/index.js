@@ -91,7 +91,7 @@ const Register = () => {
 		const {name,lastName,cpf,phone,email,companyEmail,companyName,companyPhone,cnpj,street,district,number,city,cep,uf,password, companyType} = data
         
         const user = {
-            name, lastName, cpf, phone, email, password, matches: [],type: "company",contacts: [],
+            name, lastName, cpf, phone, email, password,img:"", matches: [],type: "company",contacts: [],
             company:{companyEmail,companyName,companyPhone,cnpj,companyType,},
             address:{street,district,number,city,cep,uf}
         }

@@ -6,11 +6,12 @@ export const EditProfileContext = createContext()
 
 export const EditProfileProvider = ({children}) =>{
     const {user} = useLogin()
+    const [isLoading, setIsLoading] = useState(false)
     const [editUser, setEditUser] = useState(user&&user.user)
 
     return(
         <>
-        <EditProfileContext.Provider value={{editUser, setEditUser}}>
+        <EditProfileContext.Provider value={{editUser, setEditUser,isLoading, setIsLoading}}>
             {children}
         </EditProfileContext.Provider>
         </>

@@ -43,7 +43,7 @@ const ModalCompany = ({ open, handleClose }) => {
     uf: yup.string().required("Preencha o campo"),
   });
   const {user} = useLogin()
-	const {setEditUser, editUser} = useEditProfile()
+	const {setEditUser, editUser,isLoading, setIsLoading} = useEditProfile()
   //const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login"));
  
   const { id, email, password, company, address } = editUser;
@@ -87,17 +87,10 @@ const ModalCompany = ({ open, handleClose }) => {
           password: password,
         },
       })
-      .then((res) => {
+       .then((res) => {
         toast.success("Dados editados com sucesso");
-        api.get(`/users/${user.user.id}`,{
-          headers:{
-            Authorization: `Bearer ${user.accessToken}`
-          }
-        })
-        .then(res =>{
-          setEditUser(res.data)
-        })
-      })
+        setIsLoading(false)
+        }) 
       .catch((err) => toast.error("Ops! Algo deu errado"));
   };
 

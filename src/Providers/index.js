@@ -18,9 +18,9 @@ const Providers = ({ children }) => {
 							<InterpriseListProvider>
 								<PageLinkProvider>
 									<EditProfileProvider>
-										<MessageProvider>
+										<AddIdeaProvider>
 											{children}
-										</MessageProvider>
+										</AddIdeaProvider>
 									</EditProfileProvider>
 								</PageLinkProvider>
 							</InterpriseListProvider>

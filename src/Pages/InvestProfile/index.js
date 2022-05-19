@@ -10,13 +10,13 @@ import { useLogin } from "../../Providers/Login";
 const InvestProfile = () => {
   const [openModalProfile, setOpenModalProfile] = useState(false)
   const {user} = useLogin()
-	const {setEditUser, editUser} = useEditProfile()
+	const {setEditUser, editUser,isLoading, setIsLoading} = useEditProfile()
 
     if(!user){
       return <Redirect to="/"/>
     }
 
-	// if(!userObj.accessToken || user.type !== "investor"){
+	// if(!userObj ){
 	//   return <Redirect to="/"/>
 	// }
 
