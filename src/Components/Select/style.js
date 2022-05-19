@@ -13,6 +13,7 @@ export const CustomSelect = styled.label`
     padding-left: 15px;
     border-radius: 5px;
     border: 1px solid var(--color-secundary);
+    font-family: "Open Sans", sans-serif;
   }
 
   p {
@@ -34,7 +35,7 @@ export const CustomSelect = styled.label`
       border-radius: 10px;
     }
     p {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 `;
