@@ -1,5 +1,5 @@
 import { InputContainer } from "./style";
 
-export const Input = ({ height = 30, ...rest }) => {
-  return <InputContainer {...rest} height={height} />;
+export const Input = ({ register, name, height = 30, ...rest }) => {
+  return <InputContainer {...register(name)} {...rest} height={height} />;
 };

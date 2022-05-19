@@ -17,6 +17,7 @@ import { useLogin } from "../../Providers/Login";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+
 const Dashboard = () => {
 	const { loggedUser, getMatch } = useMatch();
 	const { user } = useLogin();
@@ -27,8 +28,11 @@ const Dashboard = () => {
 	}, [matches]);
 
 	//console.log(loggedUser)
-	if (!user.accessToken || user.user.type !== "company") {
+	if (!user) {
 		return <Redirect to="/" />;
+	}
+	if(user.user.type === "investor"){
+		return <Redirect to="/dashboard/investidor"/>
 	}
 
 	return (

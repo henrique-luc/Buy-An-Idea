@@ -11,9 +11,12 @@ export const AplicationInvestor = () => {
   const { list, cardIsOpen } = useContext(InterpriseListContext);
   const { user } = useLogin()
 
-  if(!user.accessToken || user.user.type !== "investor"){
+  if(!user){
     return <Redirect to="/"/>
-}
+  }
+  if(user.user.type === "company"){
+    return <Redirect to="/dashboard"/>
+  }
 
   return (
     <>

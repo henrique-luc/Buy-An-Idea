@@ -20,6 +20,9 @@ import { api } from "../../Services/api";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useEditProfile } from "../../Providers/EditProfile";
+import { useLogin } from "../../Providers/Login";
+import { useEffect } from "react";
 
 const ModalCompany = ({ open, handleClose }) => {
   const schema = yup.object().shape({
@@ -39,10 +42,11 @@ const ModalCompany = ({ open, handleClose }) => {
     number: yup.string().required("Preencha o campo"),
     uf: yup.string().required("Preencha o campo"),
   });
-
-  const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login"));
-  const { accessToken, user } = userObj;
-  const { id, email, password, company, address } = user;
+  const {user} = useLogin()
+	const {setEditUser, editUser} = useEditProfile()
+  //const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login"));
+ 
+  const { id, email, password, company, address } = editUser;
   const { street, city, cep, number, district, uf } = address;
   const { companyName, companyEmail, companyPhone, cnpj } = company;
 
@@ -67,15 +71,15 @@ const ModalCompany = ({ open, handleClose }) => {
       companyType,
     } = data;
 
-    const user = {
+    const userData= {
       company: { companyEmail, companyName, companyPhone, cnpj, companyType },
       address: { street, district, number, city, cep, uf },
     };
 
     api
-      .patch(`/users/${id}`, user, {
+      .patch(`/users/${id}`, userData, {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${user.accessToken}`,
         },
         body: {
           userId: id,
@@ -85,6 +89,14 @@ const ModalCompany = ({ open, handleClose }) => {
       })
       .then((res) => {
         toast.success("Dados editados com sucesso");
+        api.get(`/users/${user.user.id}`,{
+          headers:{
+            Authorization: `Bearer ${user.accessToken}`
+          }
+        })
+        .then(res =>{
+          setEditUser(res.data)
+        })
       })
       .catch((err) => toast.error("Ops! Algo deu errado"));
   };

@@ -1,9 +1,11 @@
+import { EditProfileProvider } from "./EditProfile";
 import { InterpriseListProvider } from "./interpriseList";
 import { LoginProvider } from "./Login";
 import { MatchProvider } from "./Match";
 import { ModalProvider } from "./Modal";
-import { PageLinkProvider } from "./PageLink";
 import { RegisterProvider } from "./Register";
+import { AddIdeaProvider } from "./Add-Idea";
+import { PageLinkProvider } from "./PageLink";
 
 const Providers = ({ children }) => {
 	return (
@@ -13,7 +15,11 @@ const Providers = ({ children }) => {
 					<MatchProvider>
 						<ModalProvider>
 							<InterpriseListProvider>
-								<PageLinkProvider>{children}</PageLinkProvider>
+								<PageLinkProvider>
+									<EditProfileProvider>
+										{children}
+									</EditProfileProvider>
+								</PageLinkProvider>
 							</InterpriseListProvider>
 						</ModalProvider>
 					</MatchProvider>
