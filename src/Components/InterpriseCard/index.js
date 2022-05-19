@@ -6,8 +6,9 @@ import { useContext } from "react";
 import { InterpriseListContext } from "../../Providers/interpriseList";
 
 import Insta from "../../assets/Insta.svg";
-import Facebook from "../../assets/facebook.svg";
+import Facebook from "../../assets/Facebook.svg";
 import Linkedin from "../../assets/linkedin.svg";
+import { MatchContext } from "../../Providers/Match";
 
 export const IntrerPriseCard = ({ empresa }) => {
   const { name, idea } = empresa;
@@ -33,24 +34,30 @@ export const IntrerPriseCard = ({ empresa }) => {
     InterpriseListContext
   );
 
+  const { acceptMatch } = useContext(MatchContext);
+
   return (
     <InterPriseCardContainer inInfoCard={cardIsOpen}>
       <h2 className="CardTitle">{name}</h2>
       <div className="CardVideoContainer">
         <iframe
           className="CardVideo"
-          // src={`https://www.youtube.com/embed/${embedCodeVideo}`}
-          src="https://www.youtube.com/embed/fqfYy_il2-Q"
+          src={`https://www.youtube.com/embed/${embedCodeVideo}`}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
 
         <p className="CardAbout">{about}</p>
 
         <section className="CardButtons">
-          <button className="ButtonX" onClick={() => setCounter(counter + 1)}>
+          <button
+            className="ButtonX"
+            onClick={() => {
+              setCounter(counter + 1);
+            }}
+          >
             <img src={ButtonX} alt="botão de excluir" />
           </button>
           <button
@@ -63,8 +70,8 @@ export const IntrerPriseCard = ({ empresa }) => {
             className="ButtonHeart"
             onClick={() => {
               //Lógica para adicionar ao contacts
-              console.log(counter);
               setCounter(counter + 1);
+              acceptMatch();
             }}
           >
             <img src={ButtonHeart} alt="botão de curtir proposta" />
@@ -80,6 +87,14 @@ export const IntrerPriseCard = ({ empresa }) => {
         <div className="InfoCardValor">
           <h4>Valor do investimento</h4>
           <p>{ideaValue}</p>
+        </div>
+        <div className="InfoCardPayback">
+          <h4>Payback</h4>
+          <p>{payback}</p>
+        </div>
+        <div className="InfoCardValuation">
+          <h4>Valuation</h4>
+          <p>{valuation}</p>
         </div>
         <div className="InfoCardImages">
           <h4>imagens</h4>

@@ -1,24 +1,7 @@
 import styled from "styled-components";
 
-export const LoadingPage = styled.div`
-  img {
-    width: 200px;
-    animation: identifier 10s linear infinite;
-  }
-
-  @keyframes identifier {
-    0% {
-      transform: rotate(0);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
 export const InvestidorContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
 
   overflow-x: hidden;
 
