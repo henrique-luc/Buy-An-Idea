@@ -9,6 +9,7 @@ import Application from "../Pages/Application";
 import ApplicationContainer from "../Components/ApplicationContainer";
 import { AplicationInvestor } from "../Pages/AplicationInvestor";
 import AddIdea from "../Pages/AddIdea";
+import IdeaPage from "../Pages/IdeaPage";
 import { useLogin } from "../Providers/Login";
 import Chat from "../Pages/Chat";
 import { useEffect, useRef, useState } from "react";
@@ -33,13 +34,13 @@ const Routes = () => {
 					<Home />
 				</Route>
 
-				<Route path={"/cadastro"}>
-					<RegisterPage />
-				</Route>
+        <Route path={"/cadastro"}>
+          <RegisterPage />
+        </Route>
 
-				<Route path={"/aplicacao"}>
-					<Application />
-				</Route>
+        <Route path={"/aplicacao"}>
+          <Application />
+        </Route>
 
 				<Route exact path={"/perfil"}>
 					{user&&user.user.type === "company" ? (
@@ -60,9 +61,9 @@ const Routes = () => {
 				</Route>
 
 				<Route exact path={"/dashboard"}>
-					<ApplicationContainer>
-						<Dashboard />
-					</ApplicationContainer>
+				<ApplicationContainer>
+					<Dashboard />
+				</ApplicationContainer>
 				</Route>
 
 				<Route path={"/dashboard/investidor"}>
@@ -74,6 +75,12 @@ const Routes = () => {
 				<Route path={"/conversas"}>
 					<ApplicationContainer>
 						<Chat />
+					</ApplicationContainer>
+				</Route>
+
+				<Route path={"/ideia"}>
+					<ApplicationContainer>
+						<IdeaPage />
 					</ApplicationContainer>
 				</Route>
 			</Switch>
