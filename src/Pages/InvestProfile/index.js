@@ -7,6 +7,7 @@ import { Redirect } from "react-router-dom";
 import { useEditProfile } from "../../Providers/EditProfile";
 import { useLogin } from "../../Providers/Login";
 import { api } from "../../Services/api";
+import Loading from "../../Components/Loading";
 
 const InvestProfile = () => {
   const [openModalProfile, setOpenModalProfile] = useState(false)
@@ -20,7 +21,9 @@ const InvestProfile = () => {
         }
       })
       .then(res =>{
-        setIsLoading(true)
+        setTimeout(()=>{
+          setIsLoading(true)
+        },1500)
         setEditUser(res.data)
       })
     },[isLoading]) 
@@ -41,7 +44,7 @@ const InvestProfile = () => {
 
 	return (
     <>
-      {!isLoading? <h1>Loading...</h1> :
+      {!isLoading? <Loading/> :
         <Container>
         <section>
           <Title>
