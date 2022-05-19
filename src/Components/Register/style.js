@@ -128,13 +128,14 @@ export const DivButton = styled.div`
   button {
     background-color: transparent;
     border: none;
-    color: var(--color-secundary);
+    color: #fe8537;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     width: 135px;
     justify-content: space-between;
+    font-family: "Open Sans", sans-serif;
   }
 
   @media (min-width: 768px) {
@@ -172,6 +173,7 @@ export const DivImg = styled.div`
 export const CustomForm = styled.form`
   display: flex;
   flex-direction: column;
+
   align-items: center;
 
   > section > p {
@@ -185,6 +187,11 @@ export const CustomForm = styled.form`
 
   button {
     margin-top: ${(props) => props.progress >= 99 && "20px"};
+  }
+
+  @media (min-width: 1024px) {
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   @media (min-width: 768px) {

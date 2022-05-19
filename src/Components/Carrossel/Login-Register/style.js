@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Div = styled.div`
   background: linear-gradient(var(--gradient-green-blue));
   height: 100%;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 4rem;
+  display: none;
 
   /* img {
     width: 200px;
@@ -30,15 +30,12 @@ export const Div = styled.div`
 		display: none;
 	} */
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 40%;
+  @media screen and (min-width: 900px) {
+    width: 30%;
     /* height: 40%; */
     font-family: "Open Sans", sans-serif;
-    font-size: 1.5em;
+    font-size: 1.2rem;
+    display: flex;
 
     /* figure {
 			height: 200px;
@@ -59,15 +56,6 @@ export const Div = styled.div`
     .swiper-slide {
       display: flex;
       margin-top: 70px;
-    }
-
-    @media screen and (max-width: 768px) {
-      /* figure img {
-				margin: 55px 50px;
-			} */
-      img {
-        display: none;
-      }
     }
   }
 `;
