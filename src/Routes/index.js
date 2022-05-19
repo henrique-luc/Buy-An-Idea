@@ -16,23 +16,23 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const Routes = () => {
-	const { user } = useLogin();
-	const location = useLocation();
-	const [type, setType] = useState("");
+  const { user } = useLogin();
+  const location = useLocation();
+  const [type, setType] = useState("");
 
-	/* useEffect(() => {
+  /* useEffect(() => {
 		if (location.pathname === "/perfil") {
 			console.log(user.user.type);
 			setType(user.user.type);
 		}
 	}, []); */
 
-	return (
-		<>
-			<Switch>
-				<Route exact path={"/"}>
-					<Home />
-				</Route>
+  return (
+    <>
+      <Switch>
+        <Route exact path={"/"}>
+          <Home />
+        </Route>
 
         <Route path={"/cadastro"}>
           <RegisterPage />
@@ -42,49 +42,49 @@ const Routes = () => {
           <Application />
         </Route>
 
-				<Route exact path={"/perfil"}>
-					{user&&user.user.type === "company" ? (
-						<ApplicationContainer>
-							<EmpreProfile />
-						</ApplicationContainer>
-					) : (
-						<ApplicationContainer>
-							<InvestProfile />
-						</ApplicationContainer>
-					)}
-				</Route>
+        <Route exact path={"/perfil"}>
+          {user && user.user.type === "company" ? (
+            <ApplicationContainer>
+              <EmpreProfile />
+            </ApplicationContainer>
+          ) : (
+            <ApplicationContainer>
+              <InvestProfile />
+            </ApplicationContainer>
+          )}
+        </Route>
 
-				<Route exact path={"/adicionar-ideia"}>
-					<ApplicationContainer>
-						<AddIdea />
-					</ApplicationContainer>
-				</Route>
+        <Route exact path={"/adicionar-ideia"}>
+          <ApplicationContainer>
+            <AddIdea />
+          </ApplicationContainer>
+        </Route>
 
-				<Route exact path={"/dashboard"}>
-				<ApplicationContainer>
-					<Dashboard />
-				</ApplicationContainer>
-				</Route>
+        <Route exact path={"/dashboard"}>
+          <ApplicationContainer>
+            <Dashboard />
+          </ApplicationContainer>
+        </Route>
 
-				<Route path={"/dashboard/investidor"}>
-					<ApplicationContainer>
-						<AplicationInvestor />
-					</ApplicationContainer>
-				</Route>
+        <Route path={"/dashboard/investidor"}>
+          <ApplicationContainer>
+            <AplicationInvestor />
+          </ApplicationContainer>
+        </Route>
 
-				<Route path={"/conversas"}>
-					<ApplicationContainer>
-						<Chat />
-					</ApplicationContainer>
-				</Route>
+        <Route path={"/conversas"}>
+          <ApplicationContainer>
+            <Chat />
+          </ApplicationContainer>
+        </Route>
 
-				<Route path={"/ideia"}>
-					<ApplicationContainer>
-						<IdeaPage />
-					</ApplicationContainer>
-				</Route>
-			</Switch>
-		</>
-	);
+        <Route path={"/ideia"}>
+          <ApplicationContainer>
+            <IdeaPage />
+          </ApplicationContainer>
+        </Route>
+      </Switch>
+    </>
+  );
 };
 export default Routes;
