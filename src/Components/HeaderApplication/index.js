@@ -18,11 +18,14 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import ResponsiveMenu from "../ResponsiveMenu";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useEditProfile } from "../../Providers/EditProfile";
 
 const HeaderApplication = () => {
 	const history = useHistory();
+	const {setIsLoading} = useEditProfile()
 
 	const handleLogout = () => {
+		setIsLoading(false)
 		history.push("/");
 		localStorage.removeItem("@buyAnIdea:Login");
 	};

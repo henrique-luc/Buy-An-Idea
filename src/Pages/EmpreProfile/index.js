@@ -24,7 +24,7 @@ const EmpreProfile = () => {
 	
 
 	 useEffect(()=>{
-		api.get(`/users/${user.user.id}`,{
+		user&&api.get(`/users/${user.user.id}`,{
 			headers:{
 				Authorization: `Bearer ${user.accessToken}`
 			}
