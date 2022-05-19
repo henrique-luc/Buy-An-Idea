@@ -41,7 +41,7 @@ const Routes = () => {
 					<Application />
 				</Route>
 
-				<Route exact path={"/perfil"}>
+				{/* <Route exact path={"/perfil"}>
 					(
 					<ApplicationContainer>
 						{user.user.type === "investor" ? (
@@ -50,7 +50,7 @@ const Routes = () => {
 							<EmpreProfile />
 						)}
 					</ApplicationContainer>
-				</Route>
+				</Route> */}
 
 				<Route exact path={"/adicionar-ideia"}>
 					<ApplicationContainer>
