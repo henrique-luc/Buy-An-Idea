@@ -3,6 +3,9 @@ import { createContext, useState, useContext } from "react";
 export const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
+	const [openMessageModal, setOpenMessageModal] = useState(false);
+	const handleOpenMessageModal = () => setOpenMessageModal(true);
+	const handleCloseMessageModal = () => setOpenMessageModal(false);
 	//LOGIN
 	const [openLoginModal, setOpenLoginModal] = useState(false);
 	const handleOpenLoginModal = () => setOpenLoginModal(true);
@@ -35,6 +38,10 @@ export const ModalProvider = ({ children }) => {
 				handleCloseLoginModal,
 				handleCloseInvestidorRegister,
 				handleCloseEntrepreneurRegister,
+				openMessageModal, 
+				setOpenMessageModal,
+				handleOpenMessageModal,
+				handleCloseMessageModal
 			}}
 		>
 			{children}

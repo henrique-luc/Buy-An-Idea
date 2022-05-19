@@ -2,6 +2,7 @@ import { useCallback, useContext } from "react";
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../Services/api";
+import { useMessage } from "../Message";
 
 export const MatchContext = createContext();
 
@@ -9,6 +10,7 @@ export const MatchProvider = ({children}) =>{
     
     const [loggedUser, setLoggedUser] = useState({})
     const [isLoading,setIsLoading] = useState(false)
+    const { getMessageObj } = useMessage()
 
     const getMatch = () =>{
         const userData = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
@@ -29,20 +31,17 @@ export const MatchProvider = ({children}) =>{
         })
     }
 
-  const acceptMatch = (userId) => {
-    const { user, accessToken } = JSON.parse(
-      localStorage.getItem("@buyAnIdea:Login")
-    );
+    const userData = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
+    const getUserInfo = userData&&api.get(`/users/${userData.user.id}`)
 
-    const {id, email, password} = user
+    const acceptMatch = async (objData) => {
+        const {data} = await getUserInfo
+        const {id, matches, email,password} = data
+        console.log(objData)
 
-    const {contacts} = loggedUser
-    const accept = loggedUser.matches.filter(match => match.id === userId)
-    const pending = loggedUser.matches.filter(match => match.id !== userId)
-
-        api.patch(`/users/${id}`,{matches: pending, contacts: [...contacts,...accept]},{
+        api.patch(`/users/${id}`,{matches: [...matches, objData]},{
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: `Bearer ${userData.accessToken}`,
               },
               body: {
                 userId: id,

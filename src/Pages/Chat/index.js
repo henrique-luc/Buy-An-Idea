@@ -1,21 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { users as list } from "../../Services/users";
 import { ContactCard } from "../../Components/ContactCard";
 import { Box } from "@mui/material";
+import { api } from "../../Services/api";
+import { useLogin } from "../../Providers/Login";
 
 const Chat = () => {
 	// const users = list;
-	const myId = 2;
+	const [usersList, setUsersList] = useState([])
+	const {user} = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
 
-	const [users, setUsers] = useState(list);
+	useEffect(()=>{
+		api.get("/users")
+		.then( res =>{
+			setUsersList(res.data)
+			console.log(res.data)
+		})
+	},[])
+
 	return (
 		<div>
 			<h2>Conversas</h2>
 			<Box mt={5}>
-				{users.map((user, index) => {
-					if (user.type !== "company") {
-						const data = user.matches.filter(
-							(data) => data.companyId === myId
+				{usersList.map((userData, index) => {
+						console.log(userData)
+						const data = userData.matches.filter(
+							(data) => data.matchId === user.id
 						);
 
 						console.log(data);
@@ -28,7 +38,7 @@ const Chat = () => {
 									message={data[0].message}
 								/>
 							);
-					}
+					
 				})}
 			</Box>
 		</div>

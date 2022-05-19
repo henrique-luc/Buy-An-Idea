@@ -14,6 +14,9 @@ import IconButton from "@mui/material/IconButton";
 
 import CloseIcon from "@mui/icons-material/Close";
 import TrapFocus from "@mui/base/TrapFocus";
+import { useModal } from "../../Providers/Modal";
+import { InterpriseListContext } from "../../Providers/interpriseList";
+import { useMatch } from "../../Providers/Match";
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
 	const { open, className, ...other } = props;
@@ -68,27 +71,27 @@ const style = (theme) => ({
 	borderRadius: "12px",
 });
 
-const ModalSendMessage = ({ id = "5" }) => {
-	const [open, setOpen] = React.useState(false);
+const ModalSendMessage = ({ id }) => {
 	const [whatsapp, setWhatsapp] = useState("");
 	const [message, setMessage] = useState("");
-	const { getMessageObj } = useMessage();
-
-	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
+	const { getMessageObj } = useMessage()
+	const {acceptMatch} = useMatch()
+	const {openMessageModal, handleOpenMessageModal, handleCloseMessageModal} = useModal()
+	const { cardIsOpen, setCardIsOpen, counter, setCounter } = React.useContext(
+		InterpriseListContext
+	  );
 
 	return (
 		<div>
-			<Button onClick={handleOpen}>Open modal</Button>
 			<Modal
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description"
-				open={open}
-				onClose={handleClose}
+				open={openMessageModal}
+				onClose={handleCloseMessageModal}
 				closeAfterTransition
 				BackdropComponent={Backdrop}
 			>
-				<Fade in={open} timeout={300}>
+				<Fade in={openMessageModal} timeout={300}>
 					<Box sx={style}>
 						<IconButton
 							sx={{
@@ -98,7 +101,7 @@ const ModalSendMessage = ({ id = "5" }) => {
 								padding: "1rem",
 							}}
 							onClick={() => {
-								handleClose();
+								handleCloseMessageModal();
 							}}
 						>
 							<CloseIcon />
@@ -152,9 +155,9 @@ const ModalSendMessage = ({ id = "5" }) => {
 							</BoxSwitch>
 							<Button
 								onClick={() => {
-									console.log(
-										getMessageObj(message, id, whatsapp)
-									);
+									setCounter(counter+1)
+									acceptMatch(getMessageObj(message, id, whatsapp))
+
 								}}
 							>
 								Enviar

@@ -9,11 +9,11 @@ import Insta from "../../assets/Insta.svg";
 import Facebook from "../../assets/facebook.svg";
 import Linkedin from "../../assets/linkedin.svg";
 import { MatchContext } from "../../Providers/Match";
+import { useModal } from "../../Providers/Modal";
+import ModalSendMessage from "../ModalSendMessage";
 
 export const IntrerPriseCard = ({ empresa }) => {
   const { idea, company } = empresa;
-
-  console.log(company.companyName);
 
   const {
     video,
@@ -37,9 +37,12 @@ export const IntrerPriseCard = ({ empresa }) => {
   );
 
   const { acceptMatch } = useContext(MatchContext);
+  const { handleOpenMessageModal } = useModal()
 
   return (
+
     <InterPriseCardContainer inInfoCard={cardIsOpen}>
+      <ModalSendMessage id={empresa.id} />
       <h2 className="CardTitle">{company.companyName}</h2>
       <div className="CardVideoContainer">
         <iframe
@@ -71,8 +74,8 @@ export const IntrerPriseCard = ({ empresa }) => {
           <button
             className="ButtonHeart"
             onClick={() => {
-              //Lógica para adicionar ao contacts
-              setCounter(counter + 1);
+              handleOpenMessageModal()
+              /* setCounter(counter + 1) */;
             }}
           >
             <img src={ButtonHeart} alt="botão de curtir proposta" />
@@ -158,7 +161,8 @@ export const IntrerPriseCard = ({ empresa }) => {
           <button
             className="ButtonHeart2"
             onClick={() => {
-              setCounter(counter + 1);
+              handleOpenMessageModal()
+              /* setCounter(counter + 1); */
             }}
           >
             <img src={ButtonHeart} alt="botão de curtir proposta" />
