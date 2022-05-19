@@ -129,7 +129,7 @@ export const InfoCard = styled.div`
   background-color: #fff;
 
   border-radius: 8px;
-  margin: 0 auto 100px auto;
+  margin: 0 auto;
 
   border: 2px solid var(--gray-4);
 
@@ -190,6 +190,10 @@ export const InfoCard = styled.div`
     justify-content: center;
     align-items: center;
     gap: 4px;
+  }
+  .InfoCardSocial img {
+    width: 17px;
+    height: 18px;
   }
 
   .ImgContainer {

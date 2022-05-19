@@ -14,7 +14,7 @@ export const InterpriseListProvider = ({ children }) => {
 
   useEffect(() => {
     api
-      .get(`/users?_page=${localStorageCounter}&_limit=1`)
+      .get(`/users?idea.exist=true&_page=${localStorageCounter}&_limit=1`)
       .then((res) => setList(res.data, console.log(res.data)));
   }, [localStorageCounter]);
 
@@ -26,13 +26,3 @@ export const InterpriseListProvider = ({ children }) => {
     </InterpriseListContext.Provider>
   );
 };
-
-// useEffect(() => {
-//   getUsers();
-// }, []);
-
-// async function getUsers() {
-//   const response = await fetch("https://jsonplaceholder.typicode.com/users");
-//   const users = await response.json();
-//   setUsers(users);
-// }

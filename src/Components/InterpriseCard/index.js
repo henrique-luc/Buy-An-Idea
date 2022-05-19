@@ -85,7 +85,7 @@ export const IntrerPriseCard = ({ empresa }) => {
           <p>{about}</p>
         </div>
         <div className="InfoCardValor">
-          <h4>Valor do investimento</h4>
+          <h4>Proposta inicial</h4>
           <p>{ideaValue}</p>
         </div>
         <div className="InfoCardPayback">
@@ -95,25 +95,6 @@ export const IntrerPriseCard = ({ empresa }) => {
         <div className="InfoCardValuation">
           <h4>Valuation</h4>
           <p>{valuation}</p>
-        </div>
-        <div className="InfoCardImages">
-          <h4>imagens</h4>
-          {/* Fazer um map para renderizar as imagens */}
-          {/* Aqui ficarão imagens de exemplo apenas */}
-          {/* <section className="ImgContainer">
-            <img
-              src="https://madmais.vteximg.com.br/arquivos/ids/157264-1000-1000/FORMICA-PLASTICA-CINZA-MEDIO-TX.jpg?v=637310219714400000"
-              alt="Imagem exemplo"
-            />
-            <img
-              src="https://madmais.vteximg.com.br/arquivos/ids/157264-1000-1000/FORMICA-PLASTICA-CINZA-MEDIO-TX.jpg?v=637310219714400000"
-              alt="Imagem exemplo"
-            />
-            <img
-              src="https://madmais.vteximg.com.br/arquivos/ids/157264-1000-1000/FORMICA-PLASTICA-CINZA-MEDIO-TX.jpg?v=637310219714400000"
-              alt="Imagem exemplo"
-            />
-          </section> */}
         </div>
 
         <div className="InfoCardSite">
@@ -129,7 +110,7 @@ export const IntrerPriseCard = ({ empresa }) => {
               target="_blank"
               href={`https://instagram.com/${instagram}`}
             >
-              @kenzieacademybr
+              @{instagram}
             </a>
           </div>
           <div className="InfoCardSocial InfoCardContact--facebook">
@@ -139,7 +120,7 @@ export const IntrerPriseCard = ({ empresa }) => {
               target="_blank"
               href={`https://www.facebook.com/${facebook}`}
             >
-              Facebook da empresa
+              {facebook}
             </a>
           </div>
           <div className="InfoCardSocial InfoCardContact--linkedin">
@@ -149,7 +130,7 @@ export const IntrerPriseCard = ({ empresa }) => {
               target="_blank"
               href={`https://www.linkedin.com/in/${linkedin}`}
             >
-              Linkedin da empresa
+              {linkedin}
             </a>
           </div>
         </section>
