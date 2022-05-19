@@ -16,6 +16,7 @@ import { useMatch } from "../../Providers/Match";
 import { useLogin } from "../../Providers/Login";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Loading from "../../Components/Loading";
 
 
 const Dashboard = () => {
@@ -36,6 +37,9 @@ const Dashboard = () => {
 	}
 
 	return (
+		<>
+		{ !isLoading? <Loading/> 
+		:
 		<>
 			<CustomMain>
 				<CustomDiv>
@@ -68,6 +72,8 @@ const Dashboard = () => {
 				<BsChat />
 				<HamburgerMenu />
 			</Footer>
+		</>
+		}
 		</>
 	);
 };
