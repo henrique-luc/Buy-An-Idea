@@ -8,14 +8,13 @@ export const InterpriseListProvider = ({ children }) => {
   const [counter, setCounter] = useState(1);
   localStorage.setItem("counter", counter);
   const localStorageCounter = JSON.parse(localStorage.getItem("counter"));
-  console.log("localStorage: ", localStorageCounter);
   const [list, setList] = useState([]);
   const [cardIsOpen, setCardIsOpen] = useState(false);
 
   useEffect(() => {
     api
       .get(`/users?idea.exist=true&_page=${localStorageCounter}&_limit=1`)
-      .then((res) => setList(res.data, console.log(res.data)));
+      .then((res) => setList(res.data));
   }, [localStorageCounter]);
 
   return (
