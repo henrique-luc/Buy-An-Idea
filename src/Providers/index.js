@@ -4,6 +4,7 @@ import { MatchProvider } from "./Match";
 import { ModalProvider } from "./Modal";
 import { RegisterProvider } from "./Register";
 import { AddIdeaProvider } from "./Add-Idea";
+import { PageLinkProvider } from "./PageLink";
 
 const Providers = ({ children }) => {
   return (
@@ -13,7 +14,9 @@ const Providers = ({ children }) => {
           <MatchProvider>
             <ModalProvider>
               <InterpriseListProvider>
-                <AddIdeaProvider>{children}</AddIdeaProvider>
+                <AddIdeaProvider>
+                  <PageLinkProvider>{children}</PageLinkProvider>
+                </AddIdeaProvider>
               </InterpriseListProvider>
             </ModalProvider>
           </MatchProvider>

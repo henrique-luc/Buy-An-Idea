@@ -48,7 +48,6 @@ const AddIdea = () => {
   }
 
   const onSubmitFunction = (data) => {
-    console.log(data);
     userAddIdea(data);
   };
 
@@ -56,8 +55,6 @@ const AddIdea = () => {
     const originalLink = event.target.value;
     const sliceLink = originalLink.slice(-11);
     const link = `https://www.youtube.com/embed/${sliceLink}`;
-
-    setVideo(link);
   };
 
   return (
@@ -162,11 +159,7 @@ const AddIdea = () => {
               </div>
             </section>
 
-            <section className="container_addIdea-main-form-icons-title">
-              <div>
-                <h4>Redes Sociais</h4>
-              </div>
-
+            <section>
               <div>
                 <div className="container_addIdea-main-form-icons">
                   <figure>
