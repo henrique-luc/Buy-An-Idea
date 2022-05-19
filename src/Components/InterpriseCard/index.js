@@ -10,23 +10,24 @@ import Facebook from "../../assets/facebook.svg";
 import Linkedin from "../../assets/linkedin.svg";
 
 export const IntrerPriseCard = ({ empresa }) => {
-  // const { name, idea } = empresa;
-  const { email } = empresa;
+  const { name, idea } = empresa;
 
-  // const {
-  //   video,
-  //   about,
-  //   coreBusiness,
-  //   payback,
-  //   valuation,
-  //   document,
-  //   website,
-  //   facebook,
-  //   instagram,
-  //   linkedin,
-  //   twitter,
-  //   ideaValue,
-  // } = idea;
+  const {
+    video,
+    about,
+    coreBusiness,
+    payback,
+    valuation,
+    document,
+    website,
+    facebook,
+    instagram,
+    linkedin,
+    twitter,
+    ideaValue,
+  } = idea;
+
+  const embedCodeVideo = video.slice(32, 43);
 
   const { cardIsOpen, setCardIsOpen, counter, setCounter } = useContext(
     InterpriseListContext
@@ -34,15 +35,19 @@ export const IntrerPriseCard = ({ empresa }) => {
 
   return (
     <InterPriseCardContainer inInfoCard={cardIsOpen}>
-      <h2 className="CardTitle">{email}</h2>
+      <h2 className="CardTitle">{name}</h2>
       <div className="CardVideoContainer">
-        <img
+        <iframe
           className="CardVideo"
-          src="https://xerpay.com.br/blog/wp-content/uploads/sites/2/2018/09/reuni%C3%A3o-produtiva-1434x957.jpg"
-          alt="exemplo de empresa"
-        />
-        {/* simulação do sobre */}
-        <p className="CardAbout">{/* {about} */}</p>
+          // src={`https://www.youtube.com/embed/${embedCodeVideo}`}
+          src="https://www.youtube.com/embed/fqfYy_il2-Q"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+
+        <p className="CardAbout">{about}</p>
 
         <section className="CardButtons">
           <button className="ButtonX" onClick={() => setCounter(counter + 1)}>
@@ -67,20 +72,20 @@ export const IntrerPriseCard = ({ empresa }) => {
         </section>
       </div>
       <InfoCard inInfoCard={cardIsOpen}>
-        <h2>{email}</h2>
+        <h2>{name}</h2>
         <div className="InfoCardSobre">
           <h4>Sobre</h4>
-          <p>{/* {about} */}</p>
+          <p>{about}</p>
         </div>
         <div className="InfoCardValor">
           <h4>Valor do investimento</h4>
-          <p>{/* {ideaValue} */}</p>
+          <p>{ideaValue}</p>
         </div>
         <div className="InfoCardImages">
           <h4>imagens</h4>
           {/* Fazer um map para renderizar as imagens */}
           {/* Aqui ficarão imagens de exemplo apenas */}
-          <section className="ImgContainer">
+          {/* <section className="ImgContainer">
             <img
               src="https://madmais.vteximg.com.br/arquivos/ids/157264-1000-1000/FORMICA-PLASTICA-CINZA-MEDIO-TX.jpg?v=637310219714400000"
               alt="Imagem exemplo"
@@ -93,33 +98,44 @@ export const IntrerPriseCard = ({ empresa }) => {
               src="https://madmais.vteximg.com.br/arquivos/ids/157264-1000-1000/FORMICA-PLASTICA-CINZA-MEDIO-TX.jpg?v=637310219714400000"
               alt="Imagem exemplo"
             />
-          </section>
+          </section> */}
         </div>
 
         <div className="InfoCardSite">
           <h4>Site da empresa</h4>
-          {/* <a href={`${website}`}>{website}</a> */}
+          <a href={`${website}`}>{website}</a>
         </div>
 
-        {/* Quando obtiver acesso ao objeto empresa de fato, fazer um map  */}
         <section className="InfoCardContact">
           <div className="InfoCardSocial InfoCardContact--insta">
             <img alt="Ícone do instagram" src={Insta} />
-            {/* <a rel="noreferrer" target="_blank" href={`${instagram}`}> */}
-            @kenzieacademybr
-            {/* </a> */}
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={`https://instagram.com/${instagram}`}
+            >
+              @kenzieacademybr
+            </a>
           </div>
           <div className="InfoCardSocial InfoCardContact--facebook">
             <img alt="Ícone do instagram" src={Facebook} />
-            {/* <a rel="noreferrer" target="_blank" href={`${facebook}`}> */}
-            Facebook da empresa
-            {/* </a> */}
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={`https://www.facebook.com/${facebook}`}
+            >
+              Facebook da empresa
+            </a>
           </div>
           <div className="InfoCardSocial InfoCardContact--linkedin">
             <img alt="Ícone do instagram" src={Linkedin} />
-            {/* <a rel="noreferrer" target="_blank" href={`${linkedin}`}>
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={`https://www.linkedin.com/in/${linkedin}`}
+            >
               Linkedin da empresa
-            </a> */}
+            </a>
           </div>
         </section>
         <section className="CardButtons2">
