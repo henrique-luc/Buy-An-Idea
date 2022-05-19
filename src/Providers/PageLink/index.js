@@ -5,7 +5,7 @@ export const PageLinkContext = createContext();
 export const PageLinkProvider = ({ children }) => {
 	const investorPagesList = [
 		{
-			name: "Dashboard",
+			name: "Principal",
 			link: "/dashboard/investidor",
 		},
 		{
@@ -16,16 +16,16 @@ export const PageLinkProvider = ({ children }) => {
 
 	const entrepreneurPagesList = [
 		{
-			name: "Dashboard",
+			name: "Principal",
 			link: "/dashboard",
-		},
-		{
-			name: "Adicionar ideia",
-			link: "/adicionar-ideia",
 		},
 		{
 			name: "Conversas",
 			link: "/conversas",
+		},
+		{
+			name: "Adicionar ideia",
+			link: "/adicionar-ideia",
 		},
 	];
 

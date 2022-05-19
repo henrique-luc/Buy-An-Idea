@@ -11,9 +11,21 @@ import { AplicationInvestor } from "../Pages/AplicationInvestor";
 import AddIdea from "../Pages/AddIdea";
 import { useLogin } from "../Providers/Login";
 import Chat from "../Pages/Chat";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Routes = () => {
 	const { user } = useLogin();
+	const location = useLocation();
+	const [type, setType] = useState("");
+
+	useEffect(() => {
+		if (location.pathname === "/perfil") {
+			console.log(user.user.type);
+			setType(user.user.type);
+		}
+	}, []);
+
 	return (
 		<>
 			<Switch>
@@ -30,15 +42,14 @@ const Routes = () => {
 				</Route>
 
 				<Route exact path={"/perfil"}>
-					{user.type !== "company" ? (
-						<ApplicationContainer>
+					(
+					<ApplicationContainer>
+						{user.user.type === "investor" ? (
 							<InvestProfile />
-						</ApplicationContainer>
-					) : (
-						<ApplicationContainer>
+						) : (
 							<EmpreProfile />
-						</ApplicationContainer>
-					)}
+						)}
+					</ApplicationContainer>
 				</Route>
 
 				<Route exact path={"/adicionar-ideia"}>

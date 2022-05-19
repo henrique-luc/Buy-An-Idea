@@ -33,7 +33,7 @@ export default function SwipeableTemporaryDrawer({ state, setState }) {
 	const { user } = useLogin();
 
 	const pages = () => {
-		if (user.type === "company") return entrepreneurPages;
+		if (user.user.type === "company") return entrepreneurPages;
 
 		return investorPages;
 	};
@@ -78,6 +78,7 @@ export default function SwipeableTemporaryDrawer({ state, setState }) {
 
 			{/* LISTA COM OS LINKS RENDERIZADOS */}
 			<Divider />
+
 			<List
 				sx={{
 					color: "var(--gray-3)",

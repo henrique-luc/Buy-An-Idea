@@ -1,5 +1,5 @@
 import HeaderHome from "../../Components/HeaderHome";
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
 import * as S from "../../Components/HeaderHome/style";
 import { useModal } from "../../Providers/Modal";
 import ModalInvest from "../../Components/ModalInvest";
@@ -12,11 +12,13 @@ const RegisterPage = () => {
 		<>
 			<ModalInvest />
 			<ModalEntrepreneur />
+
 			<Container
 				className="main-container"
 				sx={{
 					minWidth: "100vw",
 					minHeight: "100vh",
+
 					bgcolor: "rgb(79, 217, 113)",
 					background: `linear-gradient(
 					214deg,
@@ -29,28 +31,32 @@ const RegisterPage = () => {
 
 				{/* CONTEUDO PRINCIPAL */}
 
-				<Container
+				<Stack
+					maxWidth={"lg"}
 					sx={{
-						height: "80vh",
 						display: "flex",
+						height: { xs: "100%", md: "70vh" },
 						flexDirection: { xs: "column-reverse", md: "row" },
-						justifyContent: { xs: "center" },
+						justifyContent: "center",
 						alignItems: "center",
-						bgColor: "black",
+						marginY: 5,
+						marginX: "auto",
 					}}
 				>
-					<Box>
+					<Stack>
 						<Typography
 							variant="h3"
 							component={"h2"}
 							mb={3}
 							sx={{
+								maxWidth: "80%",
 								fontFamily: "Roboto Slab, serif",
 								fontWeight: "bold",
+								fontSize: { xs: "2rem", md: "3rem" },
 								color: "var(--color-support-2)",
 							}}
 						>
-							Cadastre-se como empreendedor
+							Cadastre-se como Empreendedor
 						</Typography>
 						<Typography
 							sx={{
@@ -67,19 +73,31 @@ const RegisterPage = () => {
 							dolore magna aliqua. Ut enim ad minim veniam, quis
 							nostrud exercitation ullamco laboris nisi ut.
 						</Typography>
-						<S.ButtonMUI onClick={handleOpenEntrepreneurRegister}>
+						<S.ButtonMUI
+							onClick={handleOpenEntrepreneurRegister}
+							sx={{
+								alignSelf: "start",
+							}}
+						>
 							Cadastre-se
 						</S.ButtonMUI>
-					</Box>
-					<Box>
+					</Stack>
+
+					<Stack
+						sx={{
+							marginBottom: { xs: 5, md: 0 },
+						}}
+					>
 						<Typography
 							variant="h3"
 							component={"h2"}
 							mb={3}
 							sx={{
+								maxWidth: "80%",
 								fontFamily: "Roboto Slab, serif",
 								fontWeight: "bold",
 								color: "var(--color-support-2)",
+								fontSize: { xs: "2rem", md: "3rem" },
 							}}
 						>
 							Cadastre-se como Investidor
@@ -99,11 +117,16 @@ const RegisterPage = () => {
 							dolore magna aliqua. Ut enim ad minim veniam, quis
 							nostrud exercitation ullamco laboris nisi ut.
 						</Typography>
-						<S.ButtonMUI onClick={handleOpenInvestidorRegister}>
+						<S.ButtonMUI
+							onClick={handleOpenInvestidorRegister}
+							sx={{
+								alignSelf: "start",
+							}}
+						>
 							Cadastre-se
 						</S.ButtonMUI>
-					</Box>
-				</Container>
+					</Stack>
+				</Stack>
 
 				{/* FIM DO CONTEUDO PRINCIPAL */}
 			</Container>

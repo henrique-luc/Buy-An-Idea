@@ -7,7 +7,7 @@ import { InputBottom } from "../../Components/inputBottom-add-idea";
 import { Textarea } from "../../Components/Textarea-add-idea";
 
 import { DivAddidea } from "./style.js";
-import facebook from "../../assets/Facebook.svg";
+import facebook from "../../assets/linkedin.svg";
 import instagram from "../../assets/instagram.svg";
 import linkedin from "../../assets/linkedin.svg";
 import twitter from "../../assets/twitter.svg";

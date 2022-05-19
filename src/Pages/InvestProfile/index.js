@@ -6,67 +6,66 @@ import { FiUser, FiPhone, FiMail, FiCreditCard } from "react-icons/fi";
 import { Redirect } from "react-router-dom";
 
 const InvestProfile = () => {
-  const [openModalProfile, setOpenModalProfile] = useState(false);
-  const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login")) || {};
+	const [openModalProfile, setOpenModalProfile] = useState(false);
+	const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login")) || {};
 
-  const { user } = userObj;
+	const { user } = userObj;
 
+	// if(!userObj.accessToken || user.type !== "investor"){
+	//   return <Redirect to="/"/>
+	// }
 
-  if(!userObj.accessToken || user.type !== "investor"){
-    return <Redirect to="/"/>
-  }
+	const { name, lastName, cpf, email, phone } = user;
 
-  const { name, lastName, cpf, email, phone } = user;
+	const handleCloseProfile = () => setOpenModalProfile(false);
 
-  const handleCloseProfile = () => setOpenModalProfile(false);
+	const handleOpenProfile = () => {
+		setOpenModalProfile(true);
+	};
 
-  const handleOpenProfile = () => {
-    setOpenModalProfile(true);
-  };
+	return (
+		<Container>
+			<section>
+				<Title>
+					<h1>Meu perfil</h1>
+					{openModalProfile && (
+						<ModalProfile
+							open={openModalProfile}
+							handleClose={handleCloseProfile}
+						/>
+					)}
+					<button onClick={handleOpenProfile}>
+						<img src={EditIcon} alt="icone-editar" />
+					</button>
+				</Title>
 
-  return (
-    <Container>
-      <section>
-        <Title>
-          <h1>Meu perfil</h1>
-          {openModalProfile && (
-            <ModalProfile
-              open={openModalProfile}
-              handleClose={handleCloseProfile}
-            />
-          )}
-          <button onClick={handleOpenProfile}>
-            <img src={EditIcon} alt="icone-editar" />
-          </button>
-        </Title>
+				<hr />
 
-        <hr />
-
-        <Content>
-          <h2>
-            <FiUser /> {name} {lastName}
-          </h2>
-          <ul>
-            <li>
-              <FiCreditCard />
-              CPF
-              <p>{cpf}</p>
-            </li>
-            <li>
-              <FiMail />
-              Email
-              <p>{email}</p>
-            </li>
-            <li>
-              <FiPhone />
-              Telefone
-              <p>{phone}</p>
-            </li>
-          </ul>
-        </Content>
-      </section>
-    </Container>
-  );
+				<Content>
+					<h2>
+						<FiUser /> {name} {lastName}
+					</h2>
+					<ul>
+						<li>
+							<FiCreditCard />
+							CPF
+							<p>{cpf}</p>
+						</li>
+						<li>
+							<FiMail />
+							Email
+							<p>{email}</p>
+						</li>
+						<li>
+							<FiPhone />
+							Telefone
+							<p>{phone}</p>
+						</li>
+					</ul>
+				</Content>
+			</section>
+		</Container>
+	);
 };
 
 export default InvestProfile;

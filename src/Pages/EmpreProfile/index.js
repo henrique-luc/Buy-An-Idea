@@ -20,9 +20,9 @@ const EmpreProfile = () => {
 
 	const { user } = userObj;
 
-	if (!userObj.accessToken || user.type !== "company") {
-		return <Redirect to="/" />;
-	}
+	// if (!userObj.accessToken || user.type !== "company") {
+	// 	return <Redirect to="/" />;
+	// }
 
 	const { company, address, name, lastName, cpf, email, phone } = user;
 
