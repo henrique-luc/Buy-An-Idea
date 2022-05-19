@@ -11,7 +11,7 @@ import {
 	Title,
 } from "./style";
 import Menu from "../../Components/Menu";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useMatch } from "../../Providers/Match";
 import { useLogin } from "../../Providers/Login";
 import { Redirect } from "react-router-dom";
@@ -19,13 +19,13 @@ import { Link } from "react-router-dom";
 
 
 const Dashboard = () => {
-	const { loggedUser, getMatch } = useMatch();
+	const { loggedUser, getMatch, isLoading,setIsLoading } = useMatch();
 	const { user } = useLogin();
 	const { matches } = loggedUser;
 
 	useEffect(() => {
 		getMatch();
-	}, [matches]);
+	}, [isLoading]);
 
 	//console.log(loggedUser)
 	if (!user) {
