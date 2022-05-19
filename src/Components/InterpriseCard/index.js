@@ -2,7 +2,7 @@ import { InfoCard, InterPriseCardContainer } from "./styles";
 import ButtonX from "../../assets/ButtonX.svg";
 import ButtonHamb from "../../assets/ButtonHamb.svg";
 import ButtonHeart from "../../assets/ButtonHeart.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { InterpriseListContext } from "../../Providers/interpriseList";
 
 import Insta from "../../assets/Insta.svg";
@@ -11,6 +11,7 @@ import Linkedin from "../../assets/linkedin.svg";
 import { MatchContext } from "../../Providers/Match";
 
 export const IntrerPriseCard = ({ empresa }) => {
+  const [onVideo, setOnVideo] = useState(false);
   const { name, idea } = empresa;
 
   const {
@@ -37,7 +38,7 @@ export const IntrerPriseCard = ({ empresa }) => {
   const { acceptMatch } = useContext(MatchContext);
 
   return (
-    <InterPriseCardContainer inInfoCard={cardIsOpen}>
+    <InterPriseCardContainer inInfoCard={cardIsOpen} onVideo={onVideo}>
       <h2 className="CardTitle">{name}</h2>
       <div className="CardVideoContainer">
         <iframe
@@ -49,7 +50,9 @@ export const IntrerPriseCard = ({ empresa }) => {
           allowFullScreen
         ></iframe>
 
-        <p className="CardAbout">{about}</p>
+        <p className="CardAbout" onClick={() => setOnVideo(!onVideo)}>
+          {about}
+        </p>
 
         <section className="CardButtons">
           <button
@@ -90,11 +93,21 @@ export const IntrerPriseCard = ({ empresa }) => {
         </div>
         <div className="InfoCardPayback">
           <h4>Payback</h4>
-          <p>{payback}</p>
+          <p>
+            {payback.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
         </div>
         <div className="InfoCardValuation">
           <h4>Valuation</h4>
-          <p>{valuation}</p>
+          <p>
+            {valuation.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
         </div>
 
         <div className="InfoCardSite">

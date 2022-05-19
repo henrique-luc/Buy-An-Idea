@@ -49,9 +49,10 @@ export const InterPriseCardContainer = styled.div`
 
   .CardAbout {
     width: 304px;
-    max-height: 16ch;
+    max-height: 8ch;
 
     display: ${({ inInfoCard }) => (inInfoCard ? "none" : "block")};
+    display: ${({ onVideo }) => (onVideo ? "none" : "flex")};
 
     border-radius: 6px;
 
@@ -70,7 +71,7 @@ export const InterPriseCardContainer = styled.div`
 
     text-align: center;
 
-    bottom: 60px;
+    bottom: 90px;
   }
 
   .CardButtons {
