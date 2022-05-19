@@ -8,9 +8,9 @@ const user2 = {
 	phone: "3232323232",
 	userId: 2,
 	matches: [
-		{ companyId: 6, message: "Olá! Sou a empresa 2" },
-		{ companyId: 4, message: "Olá! Sou a empresa 2" },
-		{ companyId: 18, message: "Olá! Sou a empresa 2" },
+		{ investorId: 6, message: "Olá! Sou a empresa 2" },
+		{ investorId: 4, message: "Olá! Sou a empresa 2" },
+		{ investorId: 18, message: "Olá! Sou a empresa 2" },
 	], // Array de usuários
 };
 
