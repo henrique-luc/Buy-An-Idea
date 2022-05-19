@@ -6,8 +6,8 @@ import { Box } from "@mui/material";
 const Chat = () => {
 	// const users = list;
 	const myId = 2;
-
 	const [users, setUsers] = useState(list);
+
 	return (
 		<div>
 			<h2>Conversas</h2>
@@ -15,7 +15,7 @@ const Chat = () => {
 				{users.map((user, index) => {
 					if (user.type !== "company") {
 						const data = user.matches.filter(
-							(data) => data.companyId === myId
+							(data) => data.matchId === myId
 						);
 
 						console.log(data);
