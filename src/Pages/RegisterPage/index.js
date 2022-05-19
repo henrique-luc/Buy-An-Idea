@@ -31,8 +31,7 @@ const RegisterPage = () => {
 
 				{/* CONTEUDO PRINCIPAL */}
 
-				<Stack
-					maxWidth={"lg"}
+				<Container
 					sx={{
 						display: "flex",
 						height: { xs: "100%", md: "70vh" },
@@ -126,7 +125,7 @@ const RegisterPage = () => {
 							Cadastre-se
 						</S.ButtonMUI>
 					</Stack>
-				</Stack>
+				</Container>
 
 				{/* FIM DO CONTEUDO PRINCIPAL */}
 			</Container>
