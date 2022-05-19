@@ -89,6 +89,7 @@ const ModalCompany = ({ open, handleClose }) => {
       })
        .then((res) => {
         toast.success("Dados editados com sucesso");
+        handleClose()
         setIsLoading(false)
         }) 
       .catch((err) => toast.error("Ops! Algo deu errado"));

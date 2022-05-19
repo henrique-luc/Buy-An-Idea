@@ -11,9 +11,9 @@ export const BoxContainer = styled.main`
   width: 80vw;
   justify-content: center;
   max-width: 1024px;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
-
   }
 `;
 

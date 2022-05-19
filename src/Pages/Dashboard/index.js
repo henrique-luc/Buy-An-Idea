@@ -1,41 +1,45 @@
 import Card from "../../Components/Card";
 import pitou from "../../assets/pitou.jpg";
 import {
-	BiUser,
-	BsChat,
-	CustomDiv,
-	CustomMain,
-	Footer,
-	HamburgerMenu,
-	MatchesUl,
-	Title,
+  BiUser,
+  BsChat,
+  CustomDiv,
+  CustomMain,
+  Footer,
+  HamburgerMenu,
+  MatchesUl,
+  Title,
 } from "./style";
 import Menu from "../../Components/Menu";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useMatch } from "../../Providers/Match";
 import { useLogin } from "../../Providers/Login";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ModalSendMessage from "../../Components/ModalSendMessage";
+import Loading from "../../Components/Loading";
+
 
 const Dashboard = () => {
-	const { loggedUser, getMatch } = useMatch();
+	const { loggedUser, getMatch, isLoading,setIsLoading } = useMatch();
 	const { user } = useLogin();
 	const { matches } = loggedUser;
 
 	useEffect(() => {
 		getMatch();
-	}, [matches]);
+	}, [isLoading]);
 
-	//console.log(loggedUser)
-	if (!user) {
-		return <Redirect to="/" />;
-	}
-	if (user.user.type === "investor") {
-		return <Redirect to="/dashboard/investidor" />;
-	}
+  //console.log(loggedUser)
+  if (!user) {
+    return <Redirect to="/" />;
+  }
+  if (user.user.type === "investor") {
+    return <Redirect to="/dashboard/investidor" />;
+  }
 
 	return (
+		<>
+		{ !isLoading? <Loading/> 
+		:
 		<>
 			<CustomMain>
 				<CustomDiv>
@@ -50,7 +54,6 @@ const Dashboard = () => {
 								<div>
 									<h2>que tal melhorar o seu perfil?</h2>
 									<Link to={"/perfil"}>Perfil</Link>
-									<ModalSendMessage />
 								</div>
 							</>
 						) : (
@@ -69,6 +72,8 @@ const Dashboard = () => {
 				<BsChat />
 				<HamburgerMenu />
 			</Footer>
+		</>
+		}
 		</>
 	);
 };

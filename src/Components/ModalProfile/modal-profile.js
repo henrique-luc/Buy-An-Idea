@@ -38,7 +38,7 @@ const ModalProfile = ({ open, handleClose }) => {
   });
 
   const {user} = useLogin()
-	const {setEditUser, editUser} = useEditProfile()
+	const {setEditUser, editUser,isLoading, setIsLoading} = useEditProfile()
   const { id, email, password, name, lastName, cpf, phone } = editUser;
 
   const {
@@ -65,14 +65,8 @@ const ModalProfile = ({ open, handleClose }) => {
       })
       .then((res) => {
         toast.success("Dados editados com sucesso");
-        api.get(`/users/${user.user.id}`,{
-          headers:{
-            Authorization: `Bearer ${user.accessToken}`
-          }
-        })
-        .then(res =>{
-          setEditUser(res.data)
-        })
+        handleClose()
+        setIsLoading(false)
       })
       .catch((err) => toast.error("Ops! Algo deu errado"));
   };
