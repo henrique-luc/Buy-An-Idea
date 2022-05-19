@@ -9,37 +9,29 @@ import { Redirect } from "react-router-dom";
 
 export const AplicationInvestor = () => {
   const { list, cardIsOpen } = useContext(InterpriseListContext);
-  const { user } = useLogin()
+  const { user } = useLogin();
 
-  if(!user){
-    return <Redirect to="/"/>
+  if (!user) {
+    return <Redirect to="/" />;
   }
-  if(user.user.type === "company"){
-    return <Redirect to="/dashboard"/>
+  if (user.user.type === "company") {
+    return <Redirect to="/dashboard" />;
   }
 
   return (
-    <>
-      {list.length === 0 ? (
-        <LoadingPage>
-          <img src={logo} alt="imagem de carregamento" />
-        </LoadingPage>
-      ) : (
-        <InvestidorContainer isInInfoCard={cardIsOpen}>
-          <InterpriseList />
+    <InvestidorContainer isInInfoCard={cardIsOpen}>
+      <InterpriseList />
 
-          <section className="ApoieEstaIdeia">
-            <button>
-              <img src={Lamp} alt="Ícone de lâmpada" />
-              <h6>Apoie esta ideia</h6>
-            </button>
-            <p>
-              Mesmo que não tenha interesse em investir, ajude esta ideia a
-              granhar mais destaque para outros investidores com o seu apoiop
-            </p>
-          </section>
-        </InvestidorContainer>
-      )}
-    </>
+      <section className="ApoieEstaIdeia">
+        <button>
+          <img src={Lamp} alt="Ícone de lâmpada" />
+          <h6>Apoie esta ideia</h6>
+        </button>
+        <p>
+          Mesmo que não tenha interesse em investir, ajude esta ideia a ganhar
+          mais destaque para outros investidores com o seu apoio.
+        </p>
+      </section>
+    </InvestidorContainer>
   );
 };

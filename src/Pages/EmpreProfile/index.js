@@ -15,6 +15,7 @@ import { Redirect } from "react-router-dom";
 import { useEditProfile } from "../../Providers/EditProfile";
 import { useLogin } from "../../Providers/Login";
 import { api } from "../../Services/api";
+import Loading from "../../Components/Loading";
 
 const EmpreProfile = () => {
 	const [openModalCompany, setOpenModalCompany] = useState(false);
@@ -24,13 +25,15 @@ const EmpreProfile = () => {
 	
 
 	 useEffect(()=>{
-		api.get(`/users/${user.user.id}`,{
+		user&&api.get(`/users/${user.user.id}`,{
 			headers:{
 				Authorization: `Bearer ${user.accessToken}`
 			}
 		})
 		.then(res =>{
-			setIsLoading(true)
+			setTimeout(()=>{
+				setIsLoading(true)
+			},1500)
 			setEditUser(res.data)
 		})
 	},[isLoading]) 
@@ -52,7 +55,8 @@ const EmpreProfile = () => {
 
 	return (
 			<>
-			{ !isLoading ? <h1>Loading...</h1> :
+
+			{ !isLoading ? <Loading/> :
 				<>
 					<BoxContainer>
 			<section>
@@ -143,8 +147,7 @@ const EmpreProfile = () => {
 			</section>
 		</BoxContainer>
 				</>
-			}
-			
+		}
 		</>
 	);
 };

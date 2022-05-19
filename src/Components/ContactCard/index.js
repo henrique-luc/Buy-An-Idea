@@ -17,10 +17,47 @@ const ContactCardComponent = ({ user, message }) => {
 				<Typography sx={{ mb: 1.5 }} color="text.secondary">
 					Tecnologia
 				</Typography>
-				<Typography variant="body2">{message}</Typography>
+				<Box
+					sx={{
+						color: "var(--gray-4)",
+						padding: "1rem 2rem",
+						borderRadius: "8px",
+						maxWidth: "350px",
+						fontSize: ".9rem",
+					}}
+				>
+					<Typography
+						variant="body2"
+						sx={{
+							bgcolor: "#ecffe6",
+							color: "var(--gray-4)",
+							padding: "1rem 2rem",
+							borderRadius: "8px",
+							maxWidth: "350px",
+							fontSize: "1.25rem",
+							fontWeight: "600",
+						}}
+					>
+						<Typography
+							variant="body2"
+							sx={{
+								color: "var(--gray-4)",
+
+								borderRadius: "8px",
+								maxWidth: "350px",
+								fontSize: ".9rem",
+								marginBottom: 2,
+							}}
+						>
+							Mensagem:
+						</Typography>
+						{message}
+					</Typography>
+				</Box>
 			</CardContent>
 			<CardActions>
-				<Button size="small">Learn More</Button>
+				<Button size="small">Site</Button>
+				<Button size="small">Whatsapp</Button>
 			</CardActions>
 		</Card>
 	);

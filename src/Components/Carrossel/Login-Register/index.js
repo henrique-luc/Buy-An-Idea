@@ -19,16 +19,19 @@ const CarouselText = () => {
         className="mySwiper"
       >
         <SwiperSlide className="swiper-slide">
-          "Sem uma língua comum não se podem concluir os negócios" - Confúcio
+          "Sem uma língua comum não se podem concluir os negócios." - Confúcio
         </SwiperSlide>
         <SwiperSlide>
           Nós unimos o útil ao agradável para fazer acontecer parcerias
-          brilhantes
+          brilhantes.
         </SwiperSlide>
         <SwiperSlide>
-          lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor
-          sit amet lorem ipsum dolor sit amet, consectetur adipiscing lorem
-          ipsum dolor sit amet lorem ipsum dolor sit amet
+          As chances de receber melhores propostas aumenta com um bom video de
+          apresentação.
+        </SwiperSlide>
+        <SwiperSlide>
+          O BuyAnIdea é um espaço virtual, onde estão apresentados as melhores
+          empresas esperando pelo seu investimento.
         </SwiperSlide>
       </Swiper>
     </Div>

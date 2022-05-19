@@ -3,11 +3,12 @@ import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../Services/api";
 
-export const MatchContext = createContext()
+export const MatchContext = createContext();
 
 export const MatchProvider = ({children}) =>{
     
     const [loggedUser, setLoggedUser] = useState({})
+    const [isLoading,setIsLoading] = useState(false)
 
     const getMatch = () =>{
         const userData = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
@@ -18,6 +19,9 @@ export const MatchProvider = ({children}) =>{
             }
         })
         .then(res =>{
+            setTimeout(()=>{
+                setIsLoading(true)
+            },1500)
             setLoggedUser(res.data)
         })
         .catch(err =>{
@@ -25,14 +29,16 @@ export const MatchProvider = ({children}) =>{
         })
     }
 
-    const acceptMatch = (userId) =>{
-        const {user,accessToken} = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
+  const acceptMatch = (userId) => {
+    const { user, accessToken } = JSON.parse(
+      localStorage.getItem("@buyAnIdea:Login")
+    );
 
-        const {id, email, password} = user
+    const {id, email, password} = user
 
-        const {contacts} = loggedUser
-        const accept = loggedUser.matches.filter(match => match.id === userId)
-        const pending = loggedUser.matches.filter(match => match.id !== userId)
+    const {contacts} = loggedUser
+    const accept = loggedUser.matches.filter(match => match.id === userId)
+    const pending = loggedUser.matches.filter(match => match.id !== userId)
 
         api.patch(`/users/${id}`,{matches: pending, contacts: [...contacts,...accept]},{
             headers: {
@@ -46,6 +52,9 @@ export const MatchProvider = ({children}) =>{
         })
         .then((res) => {
             toast.success("Match Realizado");
+            setTimeout(()=>{
+                setIsLoading(false)
+            },1500)
         })
         .catch((err) => toast.error("Ops! Algo deu errado"));
     }
@@ -69,17 +78,20 @@ export const MatchProvider = ({children}) =>{
         })
         .then((res) => {
             toast.success("Match Recusado");
+            setTimeout(()=>{
+                setIsLoading(true)
+            },1500)
         })
         .catch((err) => toast.error("Ops! Algo deu errado"));
     }
 
     return(
         <>
-        <MatchContext.Provider value={{loggedUser, getMatch, setLoggedUser,acceptMatch, refuseMatch}}>
+        <MatchContext.Provider value={{isLoading,setIsLoading,loggedUser, getMatch, setLoggedUser,acceptMatch, refuseMatch}}>
             {children}
         </MatchContext.Provider>
         </>
     )
 }
 
-export const useMatch = () => useContext(MatchContext)
+export const useMatch = () => useContext(MatchContext);
