@@ -5,35 +5,36 @@ import { Container, Box } from "@mui/material";
 
 const ApplicationContainer = ({ children }) => {
 	return (
-		<>
-			<Box
+		<Container
+			maxWidth="xl"
+			disableGutters
+			sx={{
+				// width: "100vw",
+				heigth: "100vh",
+			}}
+		>
+			{/* HEADER DA APLICACAO */}
+			<HeaderApplication>
+				<ResponsiveMenu />
+			</HeaderApplication>
+
+			{/* CONTEUDO DA APLICACAO */}
+			<Container
+				maxWidth="xl"
 				sx={{
-					width: "100vw",
-					heigth: "100vh",
+					marginY: 15,
+
+					minHeight: "100vh",
 					bgcolor: "#FFF",
 				}}
 			>
-				{/* HEADER DA APLICACAO */}
-				<HeaderApplication>
-					<ResponsiveMenu />
-				</HeaderApplication>
+				{children}
+			</Container>
 
-				{/* CONTEUDO DA APLICACAO */}
-				<Container
-					sx={{
-						marginY: 15,
-						minHeight: "100vh",
-						bgcolor: "#FFF",
-					}}
-				>
-					{children}
-				</Container>
+			{/* MENU RESPONSIVO */}
 
-				{/* MENU RESPONSIVO */}
-
-				<BottomNav />
-			</Box>
-		</>
+			<BottomNav />
+		</Container>
 	);
 };
 

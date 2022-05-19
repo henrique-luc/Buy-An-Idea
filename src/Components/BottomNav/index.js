@@ -38,6 +38,8 @@ const BottomNav = () => {
 					width: "100%",
 					position: "fixed",
 					bottom: 0,
+					borderTop: "2px solid",
+					borderColor: "var(--color-support-2)",
 				}}
 			>
 				<BottomNavigation
@@ -47,7 +49,7 @@ const BottomNav = () => {
 					// 	setValue(newValue);
 					// }}
 					sx={{
-						bgcolor: "var(--gray-0)",
+						bgcolor: "var(--color-support-2)",
 					}}
 				>
 					<BottomNavigationAction
@@ -56,8 +58,9 @@ const BottomNav = () => {
 						onClick={() => history.push("/perfil")}
 					/>
 					<BottomNavigationAction
-						label="Chat"
+						label="Conversas"
 						icon={<ChatBubbleIcon />}
+						onClick={() => history.push("/conversas")}
 					/>
 					<BottomNavigationAction
 						onClick={() => handleOpenSwipable()}

@@ -78,6 +78,7 @@ export default function SwipeableTemporaryDrawer({ state, setState }) {
 
 			{/* LISTA COM OS LINKS RENDERIZADOS */}
 			<Divider />
+
 			<List
 				sx={{
 					color: "var(--gray-3)",

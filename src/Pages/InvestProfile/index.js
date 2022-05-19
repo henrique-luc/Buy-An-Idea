@@ -8,7 +8,7 @@ import { useEditProfile } from "../../Providers/EditProfile";
 import { useLogin } from "../../Providers/Login";
 
 const InvestProfile = () => {
-  const [openModalProfile, setOpenModalProfile] = useState(false);
+  const [openModalProfile, setOpenModalProfile] = useState(false)
   const {user} = useLogin()
 	const {setEditUser, editUser} = useEditProfile()
 
@@ -16,28 +16,33 @@ const InvestProfile = () => {
       return <Redirect to="/"/>
     }
 
+	// if(!userObj.accessToken || user.type !== "investor"){
+	//   return <Redirect to="/"/>
+	// }
 
   const handleCloseProfile = () => setOpenModalProfile(false);
 
-  const handleOpenProfile = () => {
-    setOpenModalProfile(true);
-  };
+	const handleOpenProfile = () => {
+		setOpenModalProfile(true);
+	};
 
-  return (
-    <Container>
-      <section>
-        <Title>
-          <h1>Meu perfil</h1>
-          {openModalProfile && (
-            <ModalProfile
-              open={openModalProfile}
-              handleClose={handleCloseProfile}
-            />
-          )}
-          <button onClick={handleOpenProfile}>
-            <img src={EditIcon} alt="icone-editar" />
-          </button>
-        </Title>
+	return (
+		<Container>
+			<section>
+				<Title>
+					<h1>Meu perfil</h1>
+					{openModalProfile && (
+						<ModalProfile
+							open={openModalProfile}
+							handleClose={handleCloseProfile}
+						/>
+					)}
+					<button onClick={handleOpenProfile}>
+						<img src={EditIcon} alt="icone-editar" />
+					</button>
+				</Title>
+
+				<hr />
 
         <hr />
 
