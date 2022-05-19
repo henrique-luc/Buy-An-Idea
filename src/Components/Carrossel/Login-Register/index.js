@@ -19,16 +19,11 @@ const CarouselText = () => {
         className="mySwiper"
       >
         <SwiperSlide className="swiper-slide">
-          "Sem uma língua comum não se podem concluir os negócios" - Confúcio
+          "Sem uma língua comum não se podem concluir os negócios." - Confúcio
         </SwiperSlide>
         <SwiperSlide>
           Nós unimos o útil ao agradável para fazer acontecer parcerias
-          brilhantes
-        </SwiperSlide>
-        <SwiperSlide>
-          lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor
-          sit amet lorem ipsum dolor sit amet, consectetur adipiscing lorem
-          ipsum dolor sit amet lorem ipsum dolor sit amet
+          brilhantes.
         </SwiperSlide>
       </Swiper>
     </Div>
