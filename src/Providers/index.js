@@ -19,7 +19,9 @@ const Providers = ({ children }) => {
 								<PageLinkProvider>
 									<EditProfileProvider>
 										<AddIdeaProvider>
-											{children}
+											<MessageProvider>
+												{children}
+											</MessageProvider>
 										</AddIdeaProvider>
 									</EditProfileProvider>
 								</PageLinkProvider>
