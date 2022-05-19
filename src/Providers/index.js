@@ -3,8 +3,9 @@ import { InterpriseListProvider } from "./interpriseList";
 import { LoginProvider } from "./Login";
 import { MatchProvider } from "./Match";
 import { ModalProvider } from "./Modal";
-import { PageLinkProvider } from "./PageLink";
 import { RegisterProvider } from "./Register";
+import { AddIdeaProvider } from "./Add-Idea";
+import { PageLinkProvider } from "./PageLink";
 
 const Providers = ({ children }) => {
 	return (
