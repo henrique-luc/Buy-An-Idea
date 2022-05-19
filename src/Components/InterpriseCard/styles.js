@@ -9,7 +9,8 @@ export const InterPriseCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+
   img {
     animation: unset;
   }
@@ -49,9 +50,10 @@ export const InterPriseCardContainer = styled.div`
 
   .CardAbout {
     width: 304px;
-    max-height: 16ch;
+    max-height: 8ch;
 
     display: ${({ inInfoCard }) => (inInfoCard ? "none" : "block")};
+    display: ${({ onVideo }) => (onVideo ? "none" : "flex")};
 
     border-radius: 6px;
 
@@ -70,7 +72,7 @@ export const InterPriseCardContainer = styled.div`
 
     text-align: center;
 
-    bottom: 60px;
+    bottom: 90px;
   }
 
   .CardButtons {
@@ -78,9 +80,11 @@ export const InterPriseCardContainer = styled.div`
     display: ${({ inInfoCard }) => (inInfoCard ? "none" : "flex")};
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
 
     gap: 28.6px;
+
+    margin: 0 auto;
 
     position: absolute;
     bottom: -25px;
@@ -166,31 +170,39 @@ export const InfoCard = styled.div`
     width: 200px;
   }
 
-  div {
+  div,
+  section {
     width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 25px;
     gap: 13px;
   }
 
   .InfoCardContact {
+    width: 100%;
+
+    margin: 0 auto;
+
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-left: 6px;
+    flex-flow: column nowrap;
   }
 
   .InfoCardSocial {
+    align-self: start;
+
+    margin: 0 auto;
+
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 4px;
   }
+
   .InfoCardSocial img {
     width: 17px;
     height: 18px;
