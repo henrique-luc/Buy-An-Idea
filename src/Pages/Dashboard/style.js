@@ -16,7 +16,8 @@ export const CustomMain = styled.main`
 export const Title = styled.h1`
     color: var(--color-secundary);
     font-size: 36px;
-    padding-left: 40px;
+    display: flex;
+    justify-content: center;
 
     @media (min-width: 768px){
         font-size: 54px;
@@ -30,7 +31,12 @@ export const MatchesUl = styled.ul`
     padding-left: 40px;
     margin-top: 50px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
+
+    a{
+        margin-top: 20px;
+    }
 
     div{
         display: flex;

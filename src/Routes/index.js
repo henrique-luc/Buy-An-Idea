@@ -29,7 +29,7 @@ const Routes = () => {
 				</Route>
 
 				<Route exact path={"/perfil"}>
-					{user.type === "company" ? (
+					{user&&user.user.type === "company" ? (
 						<ApplicationContainer>
 							<EmpreProfile />
 						</ApplicationContainer>

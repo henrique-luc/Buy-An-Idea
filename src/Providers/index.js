@@ -1,3 +1,4 @@
+import { EditProfileProvider } from "./EditProfile";
 import { InterpriseListProvider } from "./interpriseList";
 import { LoginProvider } from "./Login";
 import { MatchProvider } from "./Match";
@@ -13,7 +14,11 @@ const Providers = ({ children }) => {
 					<MatchProvider>
 						<ModalProvider>
 							<InterpriseListProvider>
-								<PageLinkProvider>{children}</PageLinkProvider>
+								<PageLinkProvider>
+									<EditProfileProvider>
+										{children}
+									</EditProfileProvider>
+								</PageLinkProvider>
 							</InterpriseListProvider>
 						</ModalProvider>
 					</MatchProvider>

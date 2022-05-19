@@ -10,12 +10,11 @@ export const MatchProvider = ({children}) =>{
     const [loggedUser, setLoggedUser] = useState({})
 
     const getMatch = () =>{
-        const {user,accessToken} = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
-        const {id} = user
+        const userData = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
 
-        api.get(`/users/${id}`,{
+        userData&&api.get(`/users/${userData.user.id}`,{
             headers:{
-                Authorization: `Bearer ${accessToken}`
+                Authorization: `Bearer ${userData.accessToken}`
             }
         })
         .then(res =>{

@@ -4,19 +4,18 @@ import ModalProfile from "../../Components/ModalProfile/modal-profile";
 import { Container, Content, Title } from "./style";
 import { FiUser, FiPhone, FiMail, FiCreditCard } from "react-icons/fi";
 import { Redirect } from "react-router-dom";
+import { useEditProfile } from "../../Providers/EditProfile";
+import { useLogin } from "../../Providers/Login";
 
 const InvestProfile = () => {
   const [openModalProfile, setOpenModalProfile] = useState(false);
-  const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login")) || {};
+  const {user} = useLogin()
+	const {setEditUser, editUser} = useEditProfile()
 
-  const { user } = userObj;
+    if(!user){
+      return <Redirect to="/"/>
+    }
 
-
-  if(!userObj.accessToken || user.type !== "investor"){
-    return <Redirect to="/"/>
-  }
-
-  const { name, lastName, cpf, email, phone } = user;
 
   const handleCloseProfile = () => setOpenModalProfile(false);
 
@@ -44,23 +43,23 @@ const InvestProfile = () => {
 
         <Content>
           <h2>
-            <FiUser /> {name} {lastName}
+            <FiUser /> {editUser&&editUser.name} {editUser&&editUser.lastName}
           </h2>
           <ul>
             <li>
               <FiCreditCard />
               CPF
-              <p>{cpf}</p>
+              <p>{editUser&&editUser.cpf}</p>
             </li>
             <li>
               <FiMail />
               Email
-              <p>{email}</p>
+              <p>{editUser&&editUser.email}</p>
             </li>
             <li>
               <FiPhone />
               Telefone
-              <p>{phone}</p>
+              <p>{editUser&&editUser.phone}</p>
             </li>
           </ul>
         </Content>

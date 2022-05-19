@@ -7,7 +7,7 @@ export const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("@buyAnIdea:Login")) || {}
+    JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
   );
   const history = useHistory();
 

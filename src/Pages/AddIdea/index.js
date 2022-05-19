@@ -42,8 +42,11 @@ const AddIdea = () => {
 	const [video, setVideo] = useState();
 	const [addIdea, setAddIdea] = useState();
 
-	if (!user.accessToken || user.user.type !== "company") {
+	if (!user) {
 		return <Redirect to="/" />;
+	}
+	if (user.user.type === "investor") {
+		return <Redirect to="/dashboard/investidor" />;
 	}
 
 	const onSubmitFunction = (data) => {

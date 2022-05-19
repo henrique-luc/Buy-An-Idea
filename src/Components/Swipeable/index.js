@@ -33,7 +33,7 @@ export default function SwipeableTemporaryDrawer({ state, setState }) {
 	const { user } = useLogin();
 
 	const pages = () => {
-		if (user.type === "company") return entrepreneurPages;
+		if (user&&user.type === "company") return entrepreneurPages;
 
 		return investorPages;
 	};

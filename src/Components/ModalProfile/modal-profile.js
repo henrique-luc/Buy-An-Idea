@@ -7,6 +7,8 @@ import ButtonClose from "../../assets/Vector-CloseModal.svg";
 import { useForm } from "react-hook-form";
 import { api } from "../../Services/api";
 import { toast } from "react-toastify";
+import { useEditProfile } from "../../Providers/EditProfile";
+import { useLogin } from "../../Providers/Login";
 import {
   BoxEdit,
   ButtonEdit,
@@ -35,9 +37,9 @@ const ModalProfile = ({ open, handleClose }) => {
     phone: yup.string().required("Preencha o campo"),
   });
 
-  const userObj = JSON.parse(localStorage.getItem("@buyAnIdea:Login"));
-  const { accessToken, user } = userObj;
-  const { id, email, password, name, lastName, cpf, phone } = user;
+  const {user} = useLogin()
+	const {setEditUser, editUser} = useEditProfile()
+  const { id, email, password, name, lastName, cpf, phone } = editUser;
 
   const {
     register,
@@ -48,12 +50,12 @@ const ModalProfile = ({ open, handleClose }) => {
   const onSubmit = (data) => {
     const { name, email, lastName, cpf, phone, companyType } = data;
 
-    const user = { name, lastName, cpf, email, phone };
+    const userData = { name, lastName, cpf, email, phone };
 
     api
-      .patch(`/users/${id}`, user, {
+      .patch(`/users/${id}`, userData, {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${user.accessToken}`,
         },
         body: {
           userId: id,
@@ -63,6 +65,14 @@ const ModalProfile = ({ open, handleClose }) => {
       })
       .then((res) => {
         toast.success("Dados editados com sucesso");
+        api.get(`/users/${user.user.id}`,{
+          headers:{
+            Authorization: `Bearer ${user.accessToken}`
+          }
+        })
+        .then(res =>{
+          setEditUser(res.data)
+        })
       })
       .catch((err) => toast.error("Ops! Algo deu errado"));
   };
