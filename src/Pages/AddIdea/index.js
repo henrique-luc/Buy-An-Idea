@@ -51,9 +51,9 @@ const AddIdea = () => {
 	}
 
   const onSubmitFunction = (data) => {
-    const {video,coreBusiness,payback,valuation,document,website,facebook,instagram,linkedin,twitter,ideaValue} = data
+    const {video,coreBusiness,payback,valuation,document,website,facebook,instagram,linkedin,twitter,ideaValue,about} = data
     const userIdea = {
-      idea: {video,coreBusiness,payback,valuation,document,website,facebook,instagram,linkedin,twitter,ideaValue, exist: true}
+      idea: {video,coreBusiness,payback,valuation,document,website,facebook,instagram,linkedin,twitter,ideaValue,about, exist: true}
     }
 
     userAddIdea(userIdea);
