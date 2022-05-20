@@ -1,9 +1,29 @@
 import BottomNav from "../../Components/BottomNav";
 import HeaderApplication from "../../Components/HeaderApplication";
 import ResponsiveMenu from "../../Components/ResponsiveMenu";
-import { Container, Box } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
+import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import ArticleIcon from "@mui/icons-material/Article";
+import { usePageLink } from "../../Providers/PageLink";
+import { useEffect, useState } from "react";
 
 const ApplicationContainer = ({ children }) => {
+	// const location = useLocation();
+
+	// const { allPages } = usePageLink();
+	// const [currentPage, setCurrentPage] = useState("");
+
+	// useEffect(() => {
+	// 	setCurrentPage(
+	// 		allPages.filter((page) => page.link === location.pathname)[0]
+	// 	);
+	// }, []);
+
+	// useEffect(() => {
+	// 	console.log(currentPage);
+	// }, []);
+
 	return (
 		<Container
 			maxWidth="xl"
@@ -28,6 +48,27 @@ const ApplicationContainer = ({ children }) => {
 					bgcolor: "#FFF",
 				}}
 			>
+				{/* TESTE DE PAGINACAO */}
+				{/* <Container
+					maxWidth="xl"
+					sx={{
+						marginBottom: "18px",
+					}}
+				>
+					<Stack
+						direction={"row"}
+						sx={{
+							color: "var(--gray-2)",
+						}}
+					>
+						<ArticleIcon
+							sx={{
+								marginRight: "8px",
+							}}
+						/>
+						<Typography>Página: {currentPage} </Typography>
+					</Stack>
+				</Container> */}
 				{children}
 			</Container>
 

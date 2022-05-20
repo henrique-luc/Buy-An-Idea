@@ -32,6 +32,7 @@ const Chat = () => {
 								key={index}
 								user={user}
 								message={data[0].message}
+								whatsapp={data[0].whatsapp}
 							/>
 						);
 				})}
