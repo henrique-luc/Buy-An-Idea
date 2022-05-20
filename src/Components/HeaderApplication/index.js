@@ -20,6 +20,7 @@ import ResponsiveMenu from "../ResponsiveMenu";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useLogin } from "../../Providers/Login";
 import { useEffect } from "react";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const HeaderApplication = () => {
 	const history = useHistory();
@@ -113,9 +114,9 @@ const HeaderApplication = () => {
 								<CustomIconButton
 									onClick={() => history.push("/conversas")}
 								>
-									<ChatBubbleIcon />
+									<FavoriteBorderIcon />
 									<Typography className="ml-4">
-										Conversas
+										Matches
 									</Typography>
 								</CustomIconButton>
 							)}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { users as list } from "../../Services/users";
 import { ContactCard } from "../../Components/ContactCard";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { api } from "../../Services/api";
 import { useLogin } from "../../Providers/Login";
 
@@ -19,7 +19,16 @@ const Chat = () => {
 
 	return (
 		<div>
-			<h2>Matches</h2>
+			<Typography
+				sx={{
+					fontSize: { xs: "36px", md: "48px" },
+					color: "var(--color-primary)",
+					fontFamily: "Roboto Slab",
+					fontWeight: "bold",
+				}}
+			>
+				Matches
+			</Typography>
 			<Box mt={5}>
 				{usersList.map((userData, index) => {
 					const data = userData.matches.filter(

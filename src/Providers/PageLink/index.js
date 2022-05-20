@@ -17,8 +17,8 @@ export const PageLinkProvider = ({ children }) => {
 			link: "/ideia",
 		},
 		{
-			name: "Conversas",
-			link: "/conversas",
+			name: "Matches",
+			link: "/matches",
 		},
 		{
 			name: "Adicionar ideia",
