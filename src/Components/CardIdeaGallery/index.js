@@ -12,7 +12,7 @@ const CardIdeaGallery = ({ users }) => {
 				spaceBetween={5}
 				slidesPerView={5}
 				autoplay
-				pagination="bullet"
+				pagination
 				navigation
 			>
 				{users.map((user) => {
