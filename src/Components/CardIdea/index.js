@@ -25,7 +25,8 @@ const style = {
 	p: 4,
 
 	"& h3": {
-		color: "var(--color-primary)",
+		color: "var(--color-secundary)",
+		fontSize: "36px",
 	},
 
 	"& h4": {
@@ -107,36 +108,8 @@ const CardIdea = ({
 
 					<div className="InfoCardSite">
 						<h4>Site da empresa</h4>
-						<a href={`${website}`}>{website}</a>
-					</div>
-					<div className="InfoCardSocial InfoCardContact--insta">
-						<img alt="Ícone do instagram" src={Insta} />
-						<a
-							rel="noreferrer"
-							target="_blank"
-							href={`https://instagram.com/${instagram}`}
-						>
-							{instagram}
-						</a>
-					</div>
-					<div className="InfoCardSocial InfoCardContact--facebook">
-						<img alt="Ícone do instagram" src={Facebook} />
-						<a
-							rel="noreferrer"
-							target="_blank"
-							href={`https://www.facebook.com/${facebook}`}
-						>
-							{facebook}
-						</a>
-					</div>
-					<div className="InfoCardSocial InfoCardContact--linkedin">
-						<img alt="Ícone do instagram" src={Linkedin} />
-						<a
-							rel="noreferrer"
-							target="_blank"
-							href={`https://www.linkedin.com/in/${linkedin}`}
-						>
-							{linkedin}
+						<a href={`${website}`} target="_blank">
+							{website}
 						</a>
 					</div>
 				</Box>
