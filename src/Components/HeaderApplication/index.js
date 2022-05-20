@@ -108,7 +108,7 @@ const HeaderApplication = () => {
 							{/* BOTAO CHAT */}
 							{user.user.type === "company" && (
 								<CustomIconButton
-									onClick={() => history.push("/conversas")}
+									onClick={() => history.push("/matches")}
 								>
 									<FavoriteBorderIcon />
 									<Typography className="ml-4">

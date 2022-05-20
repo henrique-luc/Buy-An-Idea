@@ -72,7 +72,7 @@ const Routes = () => {
           </ApplicationContainer>
         </Route>
 
-        <Route path={"/conversas"}>
+        <Route path={"/matches"}>
           <ApplicationContainer>
             <Chat />
           </ApplicationContainer>
