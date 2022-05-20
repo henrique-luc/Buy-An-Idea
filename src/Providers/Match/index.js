@@ -38,8 +38,8 @@ export const MatchProvider = ({ children }) => {
 	const acceptMatch = async (objData) => {
 		const { data } = await getUserInfo;
 		const { id, matches, email, password } = data;
-		console.log(objData);
-		console.log(data);
+		// console.log(objData);
+		// console.log(data);
 
 		api.patch(
 			`/users/${id}`,

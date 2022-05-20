@@ -42,10 +42,6 @@ const HeaderApplication = () => {
 		setState({ ...state, left: true });
 	};
 
-	useEffect(() => {
-		console.log("Usuaaaario", user);
-	}, []);
-
 	return (
 		<>
 			<ResponsiveMenu
