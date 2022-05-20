@@ -74,12 +74,16 @@ const style = (theme) => ({
 const ModalSendMessage = ({ id }) => {
 	const [whatsapp, setWhatsapp] = useState("");
 	const [message, setMessage] = useState("");
-	const { getMessageObj } = useMessage()
-	const {acceptMatch} = useMatch()
-	const {openMessageModal, handleOpenMessageModal, handleCloseMessageModal} = useModal()
+	const { getMessageObj } = useMessage();
+	const { acceptMatch } = useMatch();
+	const {
+		openMessageModal,
+		handleOpenMessageModal,
+		handleCloseMessageModal,
+	} = useModal();
 	const { cardIsOpen, setCardIsOpen, counter, setCounter } = React.useContext(
 		InterpriseListContext
-	  );
+	);
 
 	return (
 		<div>
@@ -155,9 +159,11 @@ const ModalSendMessage = ({ id }) => {
 							</BoxSwitch>
 							<Button
 								onClick={() => {
-									setCounter(counter+1)
-									acceptMatch(getMessageObj(message, id, whatsapp))
-
+									setCounter(counter + 1);
+									acceptMatch(
+										getMessageObj(message, id, whatsapp)
+									);
+									handleCloseMessageModal();
 								}}
 							>
 								Enviar

@@ -148,7 +148,7 @@ export const InfoCard = styled.div`
 		margin: 41px auto 36px auto;
 
 		color: var(--color-secundary);
-		font-size: 24px;
+		font-size: 36px;
 	}
 
 	h4 {
@@ -158,7 +158,7 @@ export const InfoCard = styled.div`
 	a,
 	p {
 		font-weight: 400;
-		font-size: 12px;
+		font-size: 16px;
 	}
 
 	p {

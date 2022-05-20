@@ -16,7 +16,6 @@ const CardIdeaGallery = ({ users }) => {
 				navigation
 			>
 				{users.map((user) => {
-					console.log(user);
 					if (user.type === "company") {
 						return (
 							<SwiperSlide key={user.id}>

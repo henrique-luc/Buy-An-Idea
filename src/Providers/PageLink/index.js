@@ -9,10 +9,6 @@ export const PageLinkProvider = ({ children }) => {
 			name: "Principal",
 			link: "/dashboard/investidor",
 		},
-		{
-			name: "Conversas",
-			link: "/conversas",
-		},
 	];
 
 	const entrepreneurPagesList = [
