@@ -93,19 +93,19 @@ export const IntrerPriseCard = ({ empresa }) => {
 				<div className="InfoCardPayback">
 					<h4>Payback</h4>
 					<p>
-						{payback.toLocaleString("pt-br", {
-							style: "currency",
-							currency: "BRL",
-						})}
+					{Number(payback).toLocaleString("pt-br", {
+					style: "currency",
+					currency: "BRL",
+					})}
 					</p>
 				</div>
 				<div className="InfoCardValuation">
 					<h4>Valuation</h4>
 					<p>
-						{valuation.toLocaleString("pt-br", {
-							style: "currency",
-							currency: "BRL",
-						})}
+					{Number(valuation).toLocaleString("pt-br", {
+					style: "currency",
+					currency: "BRL",
+					})} 
 					</p>
 				</div>
 
