@@ -36,7 +36,7 @@ export const AplicationInvestor = () => {
 			>
 				<Typography
 					sx={{
-						fontSize: { xs: "36px", md: "56px" },
+						fontSize: { xs: "28px", md: "56px" },
 						fontFamily: "Roboto Slab",
 						fontWeight: "bold",
 						textAlign: "center",

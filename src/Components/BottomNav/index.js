@@ -4,6 +4,7 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { Box } from "@mui/material";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import SwipeableTemporaryDrawer from "../Swipeable";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -36,6 +37,7 @@ const BottomNav = () => {
 				sx={{
 					display: { xs: "block", md: "none" },
 					width: "100%",
+					zIndex: "2000",
 					position: "fixed",
 					bottom: 0,
 					borderTop: "2px solid",
@@ -58,9 +60,9 @@ const BottomNav = () => {
 						onClick={() => history.push("/perfil")}
 					/>
 					<BottomNavigationAction
-						label="Conversas"
-						icon={<ChatBubbleIcon />}
-						onClick={() => history.push("/conversas")}
+						label="Matches"
+						icon={<FavoriteBorderIcon />}
+						onClick={() => history.push("/matches")}
 					/>
 					<BottomNavigationAction
 						onClick={() => handleOpenSwipable()}

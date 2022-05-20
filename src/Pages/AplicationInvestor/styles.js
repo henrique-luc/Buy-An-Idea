@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const InvestidorContainer = styled.div`
 	width: 100%;
-	margin-top: -180px;
+	margin-top: -240px;
 
 	overflow-x: hidden;
 

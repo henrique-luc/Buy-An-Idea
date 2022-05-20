@@ -61,6 +61,7 @@ const IdeaPage = () => {
 							bgcolor: "var(--color-secundary)",
 							color: "var(--gray-0)",
 							padding: "1rem 2rem",
+							flexDirection: {xs:"column",md:"row"},
 
 							"&:hover": {
 								bgcolor: "var(--color-primary)",
