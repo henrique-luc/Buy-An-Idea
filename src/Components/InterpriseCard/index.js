@@ -2,16 +2,18 @@ import { InfoCard, InterPriseCardContainer } from "./styles";
 import ButtonX from "../../assets/ButtonX.svg";
 import ButtonHamb from "../../assets/ButtonHamb.svg";
 import ButtonHeart from "../../assets/ButtonHeart.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { InterpriseListContext } from "../../Providers/interpriseList";
 
 import Insta from "../../assets/Insta.svg";
 import Facebook from "../../assets/facebook.svg";
 import Linkedin from "../../assets/linkedin.svg";
 import { MatchContext } from "../../Providers/Match";
+import { useModal } from "../../Providers/Modal";
+import ModalSendMessage from "../ModalSendMessage";
 
 export const IntrerPriseCard = ({ empresa }) => {
-  const { name, idea } = empresa;
+  const { idea, company } = empresa;
 
   const {
     video,
@@ -35,10 +37,13 @@ export const IntrerPriseCard = ({ empresa }) => {
   );
 
   const { acceptMatch } = useContext(MatchContext);
+  const { handleOpenMessageModal } = useModal()
 
   return (
+
     <InterPriseCardContainer inInfoCard={cardIsOpen}>
-      <h2 className="CardTitle">{name}</h2>
+      <ModalSendMessage id={empresa.id} />
+      <h2 className="CardTitle">{company.companyName}</h2>
       <div className="CardVideoContainer">
         <iframe
           className="CardVideo"
@@ -69,9 +74,8 @@ export const IntrerPriseCard = ({ empresa }) => {
           <button
             className="ButtonHeart"
             onClick={() => {
-              //Lógica para adicionar ao contacts
-              setCounter(counter + 1);
-              acceptMatch();
+              handleOpenMessageModal()
+              /* setCounter(counter + 1) */;
             }}
           >
             <img src={ButtonHeart} alt="botão de curtir proposta" />
@@ -79,7 +83,7 @@ export const IntrerPriseCard = ({ empresa }) => {
         </section>
       </div>
       <InfoCard inInfoCard={cardIsOpen}>
-        <h2>{name}</h2>
+        <h2>{company.companyName}</h2>
         <div className="InfoCardSobre">
           <h4>Sobre</h4>
           <p>{about}</p>
@@ -90,11 +94,21 @@ export const IntrerPriseCard = ({ empresa }) => {
         </div>
         <div className="InfoCardPayback">
           <h4>Payback</h4>
-          <p>{payback}</p>
+          <p>
+            {payback.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
         </div>
         <div className="InfoCardValuation">
           <h4>Valuation</h4>
-          <p>{valuation}</p>
+          <p>
+            {valuation.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
         </div>
 
         <div className="InfoCardSite">
@@ -135,7 +149,7 @@ export const IntrerPriseCard = ({ empresa }) => {
           </div>
         </section>
         <section className="CardButtons2">
-          <button className="ButtonX2">
+          <button className="ButtonX2" onClick={() => setCounter(counter + 1)}>
             <img src={ButtonX} alt="botão de excluir" />
           </button>
           <button
@@ -144,7 +158,13 @@ export const IntrerPriseCard = ({ empresa }) => {
           >
             <img src={ButtonHamb} alt="botão de abrir menu" />
           </button>
-          <button className="ButtonHeart2">
+          <button
+            className="ButtonHeart2"
+            onClick={() => {
+              handleOpenMessageModal()
+              /* setCounter(counter + 1); */
+            }}
+          >
             <img src={ButtonHeart} alt="botão de curtir proposta" />
           </button>
         </section>

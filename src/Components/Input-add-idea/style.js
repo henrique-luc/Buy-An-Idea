@@ -5,6 +5,7 @@ export const InputContainer = styled.input`
   border-radius: 4px;
   height: ${(props) => props.height}px;
   width: 100%;
+  padding: 0 10px;
 
   &::placeholder {
     font-family: "Inter", sans-serif;

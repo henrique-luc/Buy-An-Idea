@@ -15,7 +15,7 @@ export const CustomForm = styled.form`
 export const CustomFiEye = styled(FiEye)`
   position: absolute;
   right: 35px;
-  top: 39px;
+  top: 40px;
   width: 20px;
   height: 20px;
   color: var(--gray-2);
@@ -23,13 +23,13 @@ export const CustomFiEye = styled(FiEye)`
 
   @media (min-width: 768px) {
     right: 40px;
-    top: 48px;
+    top: 43px;
   }
 `;
 export const CustomFiEyeOff = styled(FiEyeOff)`
   position: absolute;
   right: 35px;
-  top: 39px;
+  top: 40px;
   width: 20px;
   height: 20px;
   color: var(--gray-2);
@@ -37,7 +37,7 @@ export const CustomFiEyeOff = styled(FiEyeOff)`
 
   @media (min-width: 768px) {
     right: 40px;
-    top: 48px;
+    top: 43px;
   }
 `;
 

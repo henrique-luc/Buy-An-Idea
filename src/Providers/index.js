@@ -13,21 +13,21 @@ const Providers = ({ children }) => {
 		<>
 			<RegisterProvider>
 				<LoginProvider>
-					<MatchProvider>
-						<ModalProvider>
-							<InterpriseListProvider>
-								<PageLinkProvider>
-									<EditProfileProvider>
-										<AddIdeaProvider>
-											<MessageProvider>
+					<MessageProvider>
+						<MatchProvider>
+							<ModalProvider>
+								<InterpriseListProvider>
+									<PageLinkProvider>
+										<EditProfileProvider>
+											<AddIdeaProvider>
 												{children}
-											</MessageProvider>
-										</AddIdeaProvider>
-									</EditProfileProvider>
-								</PageLinkProvider>
-							</InterpriseListProvider>
-						</ModalProvider>
-					</MatchProvider>
+											</AddIdeaProvider>
+										</EditProfileProvider>
+									</PageLinkProvider>
+								</InterpriseListProvider>
+							</ModalProvider>
+						</MatchProvider>
+					</MessageProvider>
 				</LoginProvider>
 			</RegisterProvider>
 		</>

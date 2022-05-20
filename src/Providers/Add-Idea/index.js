@@ -6,13 +6,14 @@ import { toast } from "react-toastify";
 export const AddIdeaContext = createContext({});
 
 export const AddIdeaProvider = ({ children }) => {
-	const info = JSON.parse(localStorage.getItem("@buyAnIdea:Login"));
-
+	
 	const history = useHistory();
-
+	
 	const [addIdea, setAddIdea] = useState({});
-
+	
 	const userAddIdea = (addIdeaData) => {
+		const info = JSON.parse(localStorage.getItem("@buyAnIdea:Login"));
+
 		const { user, accessToken } = info;
 		const { id, email, password } = user;
 
@@ -32,7 +33,7 @@ export const AddIdeaProvider = ({ children }) => {
         ); */
 				setAddIdea(response.data.idea);
 				toast.success("Ideia Adicionada");
-				/* history.push("/ideia"); */
+				history.push("/ideia")
 			})
 			.catch((error) => toast.error("Ops! Algo deu errado"));
 	};

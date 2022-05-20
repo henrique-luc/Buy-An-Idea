@@ -5,13 +5,13 @@ export const TextareaContainer = styled.input`
   border-radius: 4px;
   height: ${(props) => props.height}px;
   width: 100%;
+  padding: 0 10px;
 
   ::placeholder {
     font-family: "Inter", sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: #b5b5b5;
-    padding: 40px 0 40px 10px;
   }
 
   @media screen and (min-width: 768px) {
