@@ -32,12 +32,12 @@ export const MatchProvider = ({children}) =>{
     }
 
     const userData = JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
-    const getUserInfo = userData&&api.get(`/users/${userData.user.id}`)
+    const getUserInfo = userData && api.get(`/users/${userData.user.id}`)
 
     const acceptMatch = async (objData) => {
-        const {data} = await getUserInfo
+        const response = await getUserInfo
+        const {data} = response
         const {id, matches, email,password} = data
-        console.log(objData)
 
         api.patch(`/users/${id}`,{matches: [...matches, objData]},{
             headers: {
