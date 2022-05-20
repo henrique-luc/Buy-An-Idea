@@ -1,4 +1,4 @@
-![Logo - BAI](src%5Cassets%5Clogo_1.svg)
+![Logo - BAI](src/assets/logo_1.svg)
 
 /////////////////////////////////////////////////////////////
 
