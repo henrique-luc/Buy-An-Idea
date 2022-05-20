@@ -25,8 +25,8 @@ export const AplicationInvestor = () => {
 				maxWidth={"md"}
 				sx={{
 					display: "flex",
-					alignItems: "center",
-					justifyContent: "center",
+					alignItems: "start",
+					justifyContent: "start",
 
 					minHeight: "300px",
 					color: "var(--color-primary)",
