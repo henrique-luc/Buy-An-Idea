@@ -1,19 +1,30 @@
 import CardIdea from "../CardIdea";
 import { Grid } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, EffectFade, Navigation } from "swiper";
+import { Pagination, Autoplay, Navigation } from "swiper";
 import "swiper/css/bundle";
+import { Div } from "./style";
 
 const CardIdeaGallery = ({ users }) => {
 	return (
-		<>
+		<Div>
 			<Swiper
 				modules={[Pagination, Autoplay, Navigation]}
-				spaceBetween={5}
-				slidesPerView={5}
 				autoplay
-				pagination
+				centeredSlides={true}
+				slidesPerView={1}
+				spaceBetween={10}
+				pagination={{ clickable: true }}
 				navigation
+				loop={true}
+				loopFillGroupWithBlank={true}
+				className="swiper-gallery"
+				breakpoints={{
+					768: {
+						slidesPerView: 4,
+						spaceBetween: 10,
+					},
+				}}
 			>
 				{users.map((user) => {
 					if (user.type === "company") {
@@ -37,7 +48,7 @@ const CardIdeaGallery = ({ users }) => {
 					}
 				})}
 			</Swiper>
-		</>
+		</Div>
 		// <>
 		// 	<Grid container spacing={3}>
 		// 		{users.map((user) => {
