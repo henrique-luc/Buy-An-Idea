@@ -27,4 +27,4 @@ Essa aplicação surgiu pela falta de espaço que empreendedores possuem para mo
 
 # Mockup
 
-![Mockup - BAI](src%5Cassets%5Cbuy.jpg)
+![Mockup - BAI](src/assets/buy.jpg)
