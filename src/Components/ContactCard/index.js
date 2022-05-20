@@ -59,6 +59,7 @@ const ContactCardComponent = ({ user, message, whatsapp }) => {
 				<Button
 					size="small"
 					href={`https://api.whatsapp.com/send?phone=${whatsapp}`}
+					target="_blank"
 				>
 					Enviar mensagem para o Whatsapp
 				</Button>
