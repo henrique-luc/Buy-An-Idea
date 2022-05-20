@@ -6,10 +6,10 @@ import { api } from "../../Services/api";
 export const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
-  );
-  const history = useHistory();
+	const [user, setUser] = useState(
+		JSON.parse(localStorage.getItem("@buyAnIdea:Login"))
+	);
+	const history = useHistory();
 
 	const userLogin = (userData) => {
 		api.post("/login", userData)
@@ -22,7 +22,7 @@ export const LoginProvider = ({ children }) => {
 				);
 				toast.success("Login Realizado");
 				user.type === "company"
-					? history.push("/dashboard")
+					? history.push("/ideia")
 					: history.push("/dashboard/investidor");
 			})
 			.catch((err) => {
