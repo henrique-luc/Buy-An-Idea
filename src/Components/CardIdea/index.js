@@ -17,7 +17,7 @@ const style = {
 	top: "50%",
 	left: "50%",
 	transform: "translate(-50%, -50%)",
-	width: 400,
+	minWidth: 400,
 	bgcolor: "background.paper",
 	border: "2px solid #FDFDFD",
 	borderRadius: "10px",
@@ -37,6 +37,9 @@ const style = {
 	"& p": {
 		fontSize: "1rem",
 		color: "var(--gray-3)",
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+		maxHeight: "200px",
 	},
 };
 
@@ -58,6 +61,8 @@ const CardIdea = ({
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
+
+	const embedCodeVideo = video && video.slice(32, 43);
 
 	return (
 		<>
@@ -83,11 +88,21 @@ const CardIdea = ({
 					</div>
 					<div className="InfoCardPayback">
 						<h4>Payback</h4>
-						<p>{payback}</p>
+						<p>
+							{Number(payback).toLocaleString("pt-br", {
+								style: "currency",
+								currency: "BRL",
+							})}
+						</p>
 					</div>
 					<div className="InfoCardValuation">
 						<h4>Valuation</h4>
-						<p>{valuation}</p>
+						<p>
+							{Number(valuation).toLocaleString("pt-br", {
+								style: "currency",
+								currency: "BRL",
+							})}
+						</p>
 					</div>
 
 					<div className="InfoCardSite">
@@ -126,16 +141,36 @@ const CardIdea = ({
 					</div>
 				</Box>
 			</Modal>
-			<Card sx={{ maxWidth: 345 }}>
+
+			<Card
+				sx={{
+					width: 270,
+					border: "2px solid var(--color-secundary)",
+					borderRadius: "12px",
+					fontFamily: "Open Sans",
+				}}
+			>
 				<CardMedia
 					component="iframe"
-					image="https://www.youtube.com/embed/muuK4SpRR5M"
+					image={`https://www.youtube.com/embed/${embedCodeVideo}`}
+					sx={{
+						border: "none",
+					}}
 				/>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="div">
 						{nome}
 					</Typography>
-					<Typography variant="body2" color="text.secondary">
+					<Typography
+						variant="body2"
+						color="text.secondary"
+						sx={{
+							overflow: "hidden",
+							textOverflow: "ellipsis",
+							maxHeight: "64px",
+							minHeight: "64px",
+						}}
+					>
 						{about}
 					</Typography>
 				</CardContent>

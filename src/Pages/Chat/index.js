@@ -22,12 +22,9 @@ const Chat = () => {
 			<h2>Conversas</h2>
 			<Box mt={5}>
 				{usersList.map((userData, index) => {
-					console.log(userData);
 					const data = userData.matches.filter(
 						(data) => data.matchId === user.id
 					);
-
-					console.log(data);
 
 					if (data.length > 0)
 						return (
