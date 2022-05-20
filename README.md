@@ -4,6 +4,8 @@
 
 Essa aplicação surgiu pela falta de espaço que empreendedores possuem para mostrar suas ideias e sua empresa. O Buy An Idea é um local onde esses empreendedores podem mostrar aos investidores todo o potencial que sua empresa tem ou possa ter e só precisam de um investimento para alavancar suas ideias. A aplicação funciona com base num sistema de matches, onde os investidores visualizam um vídeo de apresentação e informações cadastradas da empresa e escolhe entre curtir ou descartar a empresa. A empresa curtida visualiza quais investidores deram like em suas ideias e tem a possibilidade de fechar o negócio.
 
+| [Clique aqui para acessar o projeto](https://linktr.ee/capstone.buyanidea)
+
 # Funcionalidades
 
 | Na nossa aplicação você pode:
