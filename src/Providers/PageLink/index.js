@@ -1,53 +1,51 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export const PageLinkContext = createContext();
 
 export const PageLinkProvider = ({ children }) => {
-  const investorPagesList = [
-    {
-      name: "Principal",
-      link: "/dashboard/investidor",
-    },
-    {
-      name: "Conversas",
-      link: "/conversas",
-    },
-  ];
+	const investorPagesList = [
+		{
+			name: "Principal",
+			link: "/dashboard/investidor",
+		},
+	];
 
-  const entrepreneurPagesList = [
-    {
-      name: "Principal",
-      link: "/dashboard",
-    },
-    {
-      name: "Conversas",
-      link: "/conversas",
-    },
-    {
-      name: "Adicionar ideia",
-      link: "/adicionar-ideia",
-    },
-    {
-      name: "Ideias",
-      link: "/ideia",
-    },
-  ];
+	const entrepreneurPagesList = [
+		{
+			name: "Ideias",
+			link: "/ideia",
+		},
+		{
+			name: "Matches",
+			link: "/matches",
+		},
+		{
+			name: "Adicionar ideia",
+			link: "/adicionar-ideia",
+		},
+	];
 
-  const [investorPages, setInvestorPages] = useState(investorPagesList);
-  const [entrepreneurPages, setEntrepreneurPages] = useState(
-    entrepreneurPagesList
-  );
+	const [investorPages, setInvestorPages] = useState(investorPagesList);
+	const [entrepreneurPages, setEntrepreneurPages] = useState(
+		entrepreneurPagesList
+	);
+	const [allPages, setAllPages] = useState([
+		...investorPagesList,
+		...entrepreneurPagesList,
+	]);
 
-  return (
-    <PageLinkContext.Provider
-      value={{
-        investorPages,
-        entrepreneurPages,
-      }}
-    >
-      {children}
-    </PageLinkContext.Provider>
-  );
+	return (
+		<PageLinkContext.Provider
+			value={{
+				investorPages,
+				entrepreneurPages,
+				allPages,
+			}}
+		>
+			{children}
+		</PageLinkContext.Provider>
+	);
 };
 
 export const usePageLink = () => useContext(PageLinkContext);

@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { memo } from "react";
 
-const ContactCardComponent = ({ user, message }) => {
+const ContactCardComponent = ({ user, message, whatsapp }) => {
 	return (
 		<Card sx={{ minWidth: 275, marginBottom: 5, bgcolor: "var(--gray-0)" }}>
 			<CardContent>
@@ -15,7 +15,7 @@ const ContactCardComponent = ({ user, message }) => {
 					{user.name}
 				</Typography>
 				<Typography sx={{ mb: 1.5 }} color="text.secondary">
-					Tecnologia
+					{user.email}
 				</Typography>
 				<Box
 					sx={{
@@ -56,8 +56,13 @@ const ContactCardComponent = ({ user, message }) => {
 				</Box>
 			</CardContent>
 			<CardActions>
-				<Button size="small">Site</Button>
-				<Button size="small">Whatsapp</Button>
+				<Button
+					size="small"
+					href={`https://api.whatsapp.com/send?phone=${whatsapp}`}
+					target="_blank"
+				>
+					Enviar mensagem para o Whatsapp
+				</Button>
 			</CardActions>
 		</Card>
 	);
