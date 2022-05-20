@@ -1,28 +1,26 @@
 import { IntrerPriseCard } from "../../Components/InterpriseCard/";
 import { useLogin } from "../../Providers/Login";
 import { Container, CustomCard, TitleIdea } from "./style";
-import { Redirect } from "react-router-dom"
+import { Redirect } from "react-router-dom";
+import CardIdeaGallery from "../../Components/CardIdeaGallery";
+import { useState, useEffect } from "react";
+import { api } from "../../Services/api";
 
 const IdeaPage = () => {
-  const { user } = useLogin();
+	const [usersList, setUsersList] = useState([]);
 
-  if(!user){
-    return <Redirect to={"/"}/>
-  }
-  if(user.user.type !== "company"){
-    return <Redirect to={"/dashboard/investidor"}/>
-  }
+	useEffect(() => {
+		api.get("/users").then((res) => {
+			setUsersList(res.data);
+		});
+	}, []);
 
-  return (
-    <Container>
-      <TitleIdea>Aqui estão suas Ideias</TitleIdea>
-      <div>
-        <CustomCard>
-          <IntrerPriseCard empresa={user.user} />
-        </CustomCard>
-      </div>
-    </Container>
-  );
+	return (
+		<>
+			<h2>Galeria</h2>
+			<CardIdeaGallery users={usersList} />;
+		</>
+	);
 };
 
 export default IdeaPage;

@@ -1,61 +1,46 @@
 // EMPRESA
 
-const user2 = {
-	email: "email2@email.com",
+const empresa = {
+	email: "empresa@email.com",
 	password: "123456",
-	name: "Nome da empresa2",
+	name: "Facebok Meta",
 	type: "company",
 	phone: "3232323232",
 	userId: 2,
-	matches: [
-		{ investorId: 6, message: "Olá! Sou a empresa 2" },
-		{ investorId: 4, message: "Olá! Sou a empresa 2" },
-		{ investorId: 18, message: "Olá! Sou a empresa 2" },
-	], // Array de usuários
+	// matches: [
+
+	// ], // Array de usuários
 };
 
 //ABAIXO INVESTIDORES
 
-const user4 = {
-	email: "email4@email.com",
+const investidor1 = {
+	email: "investidor1@email.com",
 	password: "123456",
-	name: "Nome da empresa4",
+	name: "Silvio Santos",
 	type: "investor",
 	phone: "3232323232",
 	userId: 4,
 	matches: [
-		{ companyId: 2, message: "Entre em contato. Sou o investidor 4" },
-		{ companyId: 18, message: "Entre em contato. Sou o investidor 4" },
-	], // Array de usuários
+		{ matchId: 2, message: "Gostei da sua ideia", whatsapp: "3232323232" },
+	],
 };
 
-const user6 = {
-	email: "email6@email.com",
+const investidor2 = {
+	email: "investidor2@email.com",
 	password: "123456",
-	name: "Nome da empresa6",
+	name: "Elon Musk",
 	type: "investor",
 	phone: "3232323232",
 	userId: 6,
 	matches: [
-		{ companyId: 2, message: "Entre em contato. Sou o investidor 6" },
-	], // Array de usuários
-};
-
-const user18 = {
-	email: "email18@email.com",
-	password: "123456",
-	name: "Nome da empresa 18",
-	type: "investor",
-	phone: "3232323232",
-	userId: 18,
-	matches: [
-		{ companyId: 60, message: "Entre em contato. Sou o investidor 18" },
 		{
-			companyId: 2,
+			matchId: 2,
 			message:
-				"Entre em contato. Sou o investidor 18 e estou interessado na sua empresa. Meu telefone é: 33333333",
+				"Que idei foda! Entre em contato comigo. Meu telk particular é: 99999999",
+			whatsapp: "3232323232",
 		},
 	], // Array de usuários
 };
 
-export const users = [user2, user4, user6, user18];
+export const users = [empresa, investidor1, investidor2];
