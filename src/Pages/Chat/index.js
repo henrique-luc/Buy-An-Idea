@@ -19,7 +19,7 @@ const Chat = () => {
 
 	return (
 		<div>
-			<h2>Conversas</h2>
+			<h2>Matches</h2>
 			<Box mt={5}>
 				{usersList.map((userData, index) => {
 					const data = userData.matches.filter(

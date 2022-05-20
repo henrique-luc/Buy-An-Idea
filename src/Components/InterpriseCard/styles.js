@@ -53,7 +53,6 @@ export const InterPriseCardContainer = styled.div`
 		max-height: 8ch;
 
 		display: ${({ inInfoCard }) => (inInfoCard ? "none" : "block")};
-		display: ${({ onVideo }) => (onVideo ? "none" : "flex")};
 
 		border-radius: 6px;
 
