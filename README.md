@@ -1,4 +1,4 @@
-![Logo - BAI](src/assets/logo_1.svg)
+[Logo - BAI](src/assets/logo_1.svg)
 
 /////////////////////////////////////////////////////////////
 
@@ -16,15 +16,15 @@ Essa aplicação surgiu pela falta de espaço que empreendedores possuem para mo
 
 #### Para Empreendedores:
 
-    * Adicionar ideia/empresa - isso inclui um vídeo de apresentação, 
+    * Adicionar ideia/empresa - isso inclui um vídeo de apresentação,
     descrição sobre seu negócio, os valores para propostas e suas redes sociais
     * Editar os dados da empresa e dados pessoais
-    * Entrar em contato com os investidores 
+    * Entrar em contato com os investidores
     que curtiram suas ideias através da aba Matches
 
 #### Para Investidor:
 
-    * Visualizar as ideias de diferentes empreendedores 
+    * Visualizar as ideias de diferentes empreendedores
     que já estão cadastrados na aplicação
     * Curtir ou rejeitar as propostas
     * Se houver interesse, entrar em contato com os empreendedores que curtiu
